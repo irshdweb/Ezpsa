@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+@import "scss/mixins";
+@import "scss/variables";
+
+body{
+    background-color:$bg_color;
+    font-family:$font_family;
+    &:focus{
+        outline: none;
+    }
+    button:focus,select:focus{
+        outline: none;
+    }
+    input:focus,a{
+        outline:none;
+    }
+    .mat-drawer-container{
+        background-color:$bg_color;
+    }
+}
+
+.mat-card{
+    font-family:$font_family !important;
+}
+
+.close-menu{
+    transition: all 0.5s;
+    -webkit-transition: all 0.25s;
+    .logo-img{
+        display:none;
+    }
+    ul{
+       li {
+           a{
+               span{
+                   display:none;
+               }
+           }
+       }
+    }
+}
+
+.open-menu{
+    transition: all 0.5s;
+    -webkit-transition: all 0.25s;
+}
+
+@import "scss/toolbar";
+
+mat-checkbox{
+    label{
+        margin-bottom:0 !important;
+    }
+}
+pagination-controls{
+    float:right;
+    margin-top:30px;
+
+.ngx-pagination{
+        li{
+            &.current{
+                background:$primary_bg_color !important;
+            }
+            &:focus{
+                outline: none !important;
+            }
+            a{
+                text-decoration:none;
+            }
+        }
+    }
+}
+

@@ -1,0 +1,41 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+.equipments{
+    .table-responsive{
+        @include scrollbars(7px,#888);
+        .table-striped{
+            margin-top:30px;
+            tr{
+                &:nth-of-type(odd){
+                    background:#fff;
+                }
+                th{
+                    background:#F0EEEE;
+                }
+                td{
+                    color:#4F4E4E;
+                    font-size:14px;
+                    .status-pan{
+                        border-radius:10px;
+                        padding-left:8px;
+                        padding-right:8px;
+                        padding-top:1px;
+                        padding-bottom:1px;
+                        color:#fff;
+                        font-size:12px;
+                        &.offline{
+                            background:#CD1A1A;
+                        }
+                        &.online{
+                            background:#085907;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    pagination-controls{
+        float:right;
+        margin-top:30px;
+    }
+}

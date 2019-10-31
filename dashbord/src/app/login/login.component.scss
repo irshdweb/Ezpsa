@@ -1,0 +1,28 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+.login-wrap{
+    min-height:400px;
+}
+
+.mat-card{
+    border-radius:10px;
+    .material-icons{
+        font-size:70px;
+        color:#ADAEB5;
+    }
+    .admin-log{
+        font-size:30px;
+        font-weight:bold;
+        text-transform:uppercase;
+    }
+    mat-form-field{
+        font-family:$font_family;
+    }
+    .mat-raised-button.mat-primary{
+            font-family:$font_family;
+            float:right!important;
+            background:$primary_bg_color;
+            width:100%;
+        
+    }
+}

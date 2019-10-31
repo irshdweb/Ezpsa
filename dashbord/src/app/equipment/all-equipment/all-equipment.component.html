@@ -1,0 +1,58 @@
+<div class="col-12 equipments">
+    <div class="table-responsive text-nowrap">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <mat-checkbox></mat-checkbox>
+                    </th>
+                    <th>Device Name</th>
+                    <th>Agent Status</th>
+                    <th>Description</th>
+                    <th>Asset No.</th>
+                    <th>Serial No.</th>
+                    <th>Agent Version </th>
+                    <th>Last Agent Update</th>
+                    <th>Last User </th>
+                    <th>Status </th>
+                    <th>IP Address</th>
+                    <th>Gateway </th>
+                    <th>MAC Address </th>
+                    <th>Location </th>
+                    <th>Install Date</th>
+                    <th>Contact</th>
+                    <th>Memory</th>
+                    <th>Purchased </th>
+                    <th>Warranty Expiry</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of collection | paginate: config">
+                    <td>
+                        <mat-checkbox></mat-checkbox>
+                    </td>
+                    <td>{{ item.devicename }}</td>
+                    <td><span class="status-pan online">{{ item.agent_status }}</span></td>
+                    <td>{{ item.dec }}</td>
+                    <td>{{ item.asset }}</td>
+                    <td>{{ item.serial }}</td>
+                    <td>{{ item.version }}</td>
+                    <td>{{ item.last }}</td>
+                    <td>{{ item.user }}</td>
+                    <td>{{ item.agent }}</td>
+                    <td>{{ item.status }}</td>
+                    <td>{{ item.ip }}</td>
+                    <td>{{ item.gateway }}</td>
+                    <td>{{ item.mac }}</td>
+                    <td>{{ item.location }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.contact }}</td>
+                    <td>{{ item.pur }}</td>
+                    <td>{{ item.warranty }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+</div>

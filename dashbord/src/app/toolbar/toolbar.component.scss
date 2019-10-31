@@ -1,0 +1,59 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+
+mat-toolbar {
+    background: $toolbar_bg;
+    height:63px;
+    width:100%;
+    padding-left:23px;
+
+    .icon-btn{
+        margin-left:22px;
+        cursor: pointer;
+    }
+
+    .material-icons.menu{
+        font-size:32px;
+        color:#525F80;
+        margin-top:12px;
+        cursor:pointer;
+        cursor: pointer;
+    }
+
+    .material-icons-outlined{
+        color:#525F80;
+        font-size:24px;
+    }
+
+    .txt-serach{
+        width:100%;
+        height:35px;
+        border-radius:16px;
+        background:#E8E9EC;
+        font-style:italic;
+        font-size:14px;
+        color:#979797;
+        border:none;
+        padding-left:12px;
+        font-family:$font_family;
+        &:focus{
+            outline: none;
+        }
+        
+    }
+    .thumbnail-user{
+        width:36px;
+        position:relative;
+        margin-left:22px;
+        img{
+            width:100%;
+        }
+        .lens{
+            font-size:10px;
+            color:#59D31F;
+            position: absolute;
+            right:0;
+            bottom:0;
+        }
+    }
+}

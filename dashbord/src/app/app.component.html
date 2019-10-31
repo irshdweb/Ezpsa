@@ -1,0 +1,11 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" 
+      [class.open-menu]="isMenuOpen" 
+      [class.close-menu]="!isMenuOpen">
+      <app-sidebar></app-sidebar>
+    </mat-sidenav>
+    <mat-sidenav-content [ngStyle] =" {'margin-left.px':contentMargin} ">
+      <app-toolbar (menuButtonClicked)="onCloseHalf()"></app-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,17 @@
+@import "../scss/mixins";
+@import "../scss/variables";
+mat-sidenav-container{
+    height: 100vh;
+
+    mat-sidenav{
+        background:$primary_bg_color;
+        width:238px;
+        height:100%;
+    }
+    .close-menu{
+        width:80px;
+    }
+    .open-menu{
+        width:238px;
+    }
+}

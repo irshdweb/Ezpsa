@@ -1,0 +1,27 @@
+<div class="container d-flex vh-100">
+    <div class="row justify-content-center align-self-center w-100 ml-0 mr-0">
+        <div class="col-12 col-lg-5">
+                <mat-card class="login-wrap">
+                    <div class="row justify-content-center ml-0 mr-0 mb-2">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                    <div class="row justify-content-center ml-0 mr-0 mb-3 admin-log">
+                            User Login
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="w-100 pl-5 pr-5">
+                            <input matInput placeholder="Email" [(ngModel)]="email" type="email" name="email" class="w-100" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field class="w-100 pl-5 pr-5">
+                            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="row w-100 pl-4 pr-4 mt-3 ml-0 mr-0">
+                        <button mat-raised-button color="primary" class="float-right">Login</button>
+                    </div>
+                </mat-card>
+        </div>
+    </div>
+</div>

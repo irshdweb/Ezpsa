@@ -1,0 +1,127 @@
+<mat-toolbar>
+    <div class="col-lg-2 col-3 p-0"><a (click)="menuButtonClicked.emit(); changeIcon('clear_all')"><i
+                class="material-icons menu">{{icon}}</i></a></div>
+    <div class="col-lg-5 col-3 p-0">
+        <input type="text" placeholder="Search device name, user, client, serial no.,IP address or label..."
+            class="txt-serach">
+    </div>
+    <div class="col-lg-5 col-6 justify-content-end d-flex align-items-center">
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Notification" class="icon-btn">
+            <i class="material-icons-outlined" matBadge="15" matBadgeColor="warn" matBadgeSize="small">notifications</i>
+        </button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false" class="menu_1 tool-menu">
+            <div class="m-head d-flex align-items-center">
+                You Have 10 Notifications
+                <i class="material-icons-outlined">message</i>
+            </div>
+            <div class="msg-content">
+                <div class="msg-box align-items-center">
+                    <div class="w-100 d-flex title-wrap">
+                        <span class="title flex-fill">Message 01 </span><span class="time flex-fill text-right">1 Hour
+                            Ago</span>
+                    </div>
+                    <div class="w-100"><span class="detail">Lorem ipsum dolor sit amet</span></div>
+                </div>
+                <div class="msg-box align-items-center flex-row">
+                    <div class="w-100 d-flex title-wrap">
+                        <span class="title flex-fill">Message 01 </span><span class="time flex-fill text-right">1 Hour
+                            Ago</span>
+                    </div>
+                    <div class="w-100"><span class="detail">Lorem ipsum dolor sit amet</span></div>
+                </div>
+                <div class="msg-box align-items-center flex-row">
+                    <div class="w-100 d-flex title-wrap">
+                        <span class="title flex-fill">Message 01 </span><span class="time flex-fill text-right">1 Hour
+                            Ago</span>
+                    </div>
+                    <div class="w-100"><span class="detail">Lorem ipsum dolor sit amet</span></div>
+                </div>
+                <div class="msg-box align-items-center">
+                    <div class="w-100 d-flex title-wrap">
+                        <span class="title flex-fill">Message 01 </span><span class="time flex-fill text-right">1 Hour
+                            Ago</span>
+                    </div>
+                    <div class="w-100"><span class="detail">Lorem ipsum dolor sit amet</span></div>
+                </div>
+                <div class="msg-box align-items-center flex-row">
+                    <div class="w-100 d-flex title-wrap">
+                        <span class="title flex-fill">Message 01 </span><span class="time flex-fill text-right">1 Hour
+                            Ago</span>
+                    </div>
+                    <div class="w-100"><span class="detail">Lorem ipsum dolor sit amet</span></div>
+                </div>
+                <div class="msg-box align-items-center flex-row">
+                    <div class="w-100 d-flex title-wrap">
+                        <span class="title flex-fill">Message 01 </span><span class="time flex-fill text-right">1 Hour
+                            Ago</span>
+                    </div>
+                    <div class="w-100"><span class="detail">Lorem ipsum dolor sit amet</span></div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="view-more"><a href="">See All Notifications</a></div>
+        </mat-menu>
+        <button mat-icon-button [matMenuTriggerFor]="menu_2" aria-label="Notification" class="icon-btn">
+            <i class="material-icons-outlined">tune</i>
+        </button>
+        <mat-menu #menu_2="matMenu" [overlapTrigger]="false" class="menu_3 tool-menu">
+            <button mat-menu-item class="d-flex align-items-center">
+                <i class="material-icons-outlined add">add_circle_outline</i>
+                <span>New Activity</span>
+            </button>
+            <button mat-menu-item class="d-flex align-items-center">
+                <i class="material-icons-outlined add">add_circle_outline</i>
+                <span>Add New Client</span>
+            </button>
+            <button mat-menu-item class="d-flex align-items-center">
+                <i class="material-icons-outlined add">add_circle_outline</i>
+                <span>New Invoice</span>
+            </button>
+            <button mat-menu-item class="d-flex align-items-center">
+                    <i class="material-icons-outlined add">add_circle_outline</i>
+                    <span>New Opportunity</span>
+            </button>
+            <button mat-menu-item class="d-flex align-items-center">
+                    <i class="material-icons-outlined add">add_circle_outline</i>
+                    <span>New Project</span>
+            </button>
+            <button mat-menu-item class="d-flex align-items-center">
+                    <i class="material-icons-outlined add">add_circle_outline</i>
+                    <span>New Ticket</span>
+            </button>
+            <button mat-menu-item class="d-flex align-items-center">
+                    <i class="material-icons-outlined add">add_circle_outline</i>
+                    <span>New Timesheet</span>
+            </button>
+        </mat-menu>
+        <div class="thumbnail-user">
+            <button mat-icon-button [matMenuTriggerFor]="menu_3" aria-label="Notification" class="icon-btn"
+                style="margin-left:0;width:32px;">
+                <img src="../assets/user-img.jpg" class="rounded-circle" />
+                <i class="material-icons lens">lens</i>
+            </button>
+            <mat-menu #menu_3="matMenu" [overlapTrigger]="false" class="menu_3 tool-menu">
+                <button mat-menu-item class="d-flex align-items-center">
+                    <img src="../assets/user-img.jpg" class="rounded-circle" /><span class="hdr">Jhon Doe</span>
+                </button>
+                <div class="col-lg-12 col-12"><mat-divider></mat-divider></div>
+                <button mat-menu-item class="d-flex align-items-center">
+                    <i class="material-icons-outlined">account_box</i>
+                    <span>Profile</span>
+                </button>
+                <button mat-menu-item class="d-flex align-items-center">
+                    <i class="material-icons-outlined">build</i>
+                    <span>Setting</span>
+                </button>
+                <button mat-menu-item class="d-flex align-items-center">
+                    <i class="material-icons-outlined">help</i>
+                    <span>Help</span>
+                </button>
+                <div class="col-lg-12 col-12"><mat-divider></mat-divider></div>
+                <button mat-menu-item class="d-flex align-items-center">
+                    Log Out
+                </button>
+            </mat-menu>
+        </div>
+    </div>
+</mat-toolbar>
