@@ -12,6 +12,9 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { EquipmentsidebarComponent } from './equipmentsidebar/equipmentsidebar.component';
 import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.component';
+import { AddEquipmentComponent } from './modals/add-equipment/add-equipment.component';
+
+
 
 
 @NgModule({
@@ -22,7 +25,9 @@ import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.c
     ToolbarComponent,
     EquipmentComponent,
     EquipmentsidebarComponent,
-    AllEquipmentComponent
+    AllEquipmentComponent,
+    AddEquipmentComponent
+
   ],
   imports: [
     BrowserModule,
