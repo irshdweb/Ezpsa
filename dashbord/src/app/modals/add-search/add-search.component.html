@@ -1,0 +1,65 @@
+<!-- Modal -->
+<div class="modal fade" id="myModalSearch" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <h4 class="modal-title">Advanced Search</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <form [formGroup]="srchForm" novalidate>
+                <div class="modal-body">
+                    <div class="row pl-3 pr-3">
+                        <div class="col-lg-4 col-12">
+                            <mat-form-field class="w-100">
+                                <mat-select placeholder="Column">
+                                    <mat-option value="4">Access Point</mat-option>
+                                    <mat-option value="14">Desktop / Workstation</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <mat-form-field class="w-100">
+                                <mat-select placeholder="Operator">
+                                    <mat-option value="4">Access Point</mat-option>
+                                    <mat-option value="14">Desktop / Workstation</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-4 col-12">
+                            <mat-form-field class="w-100">
+                                <mat-select placeholder="Compare Value">
+                                    <mat-option value="4">Access Point</mat-option>
+                                    <mat-option value="14">Desktop / Workstation</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row pl-3 pr-3">
+                        <div class="col-12">
+                            <button class="pl-0 filter-btn"><i class="material-icons">add_circle</i> Add
+                                Filters</button>
+                        </div>
+                    </div>
+                    <div class="row pl-3 pr-3 mt-5">
+                        <div class="col-lg-6 col-6">
+                            <mat-checkbox> Save this search</mat-checkbox>
+                        </div>
+                        <div class="col-lg-6 col-6">
+                            
+                                <input placeholder="New Saved Search" class="nss" type="text" >
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0">
+                    <button mat-raised-button color="primary" type="submit">Search</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

@@ -13,6 +13,7 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { EquipmentsidebarComponent } from './equipmentsidebar/equipmentsidebar.component';
 import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.component';
 import { AddEquipmentComponent } from './modals/add-equipment/add-equipment.component';
+import { AddSearchComponent } from './modals/add-search/add-search.component';
 
 
 
@@ -26,7 +27,8 @@ import { AddEquipmentComponent } from './modals/add-equipment/add-equipment.comp
     EquipmentComponent,
     EquipmentsidebarComponent,
     AllEquipmentComponent,
-    AddEquipmentComponent
+    AddEquipmentComponent,
+    AddSearchComponent
 
   ],
   imports: [

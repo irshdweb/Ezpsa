@@ -71,3 +71,11 @@ pagination-controls{
     }
 }
 
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+    z-index: 99999 !important;
+}
+
+.mat-checkbox{
+    font-family:$font_family;
+    color: rgba(0,0,0,.62);
+}
