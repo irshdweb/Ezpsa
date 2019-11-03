@@ -1,4 +1,4 @@
-<mat-sidenav-container>
+<mat-sidenav-container [class.hidetool]="navExpand">
     <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" 
       [class.open-menu]="isMenuOpen" 
       [class.close-menu]="!isMenuOpen">
@@ -9,5 +9,7 @@
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
+<!--<router-outlet name="login"  [ngClass]="navExpand ? 'show-outlet' : 'hide-outlet'"></router-outlet>-->
+<app-login [ngClass]="navExpand ? 'show-outlet' : 'hide-outlet'"></app-login>
 <app-add-equipment></app-add-equipment>
 <app-add-search></app-add-search>

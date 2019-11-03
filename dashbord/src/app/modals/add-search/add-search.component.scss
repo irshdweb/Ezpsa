@@ -14,11 +14,16 @@
         border:none;
         font-family:$font_family;
         font-weight:bold;
-
+        float:left;
+        font-size:15px;
+        margin-right:30px;
+        cursor:pointer;
         .material-icons{
             position:relative;
             float:left;
             margin-right:5px;
+            margin-top:2px;
+            font-size:18px;
         }
 }
 
@@ -33,5 +38,18 @@
         width:100%;
         padding-top:3px;
         padding-bottom:3px;
+        //display:none;
     }
+    .hide{
+        display:none;
+    }
+
+    .show.displayElement{
+        display:block !important;
+        color:#962e2e;
+    }
+
+    /**.display{
+        display:block !important;
+    }**/
 }

@@ -14,4 +14,13 @@ mat-sidenav-container{
     .open-menu{
         width:238px;
     }
+
+    &.hidetool{
+        display:none !important;
+    }
 }
+
+.hide-outlet{
+    display:none !important;
+}
+
