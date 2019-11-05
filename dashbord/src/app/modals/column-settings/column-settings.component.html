@@ -1,0 +1,47 @@
+<div id="myModalColumnSettings" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+              <h4 class="modal-title">Equipment List Settings</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+            <div class="modal-body">
+              <div class="row">
+                  <div class="col-12 mt-0 mb-3"><mat-checkbox [(ngModel)]="clickAll"> Select All</mat-checkbox></div>
+                  <div class="col-lg-6 col-12 mb-3">
+                    <h5>Agent Columns</h5>
+                    <mat-checkbox [checked]="clickAll" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'checked':'nonChecked')"> Agent Status</mat-checkbox><br/>
+                    <mat-checkbox [checked]="clickAll"> Agent Version</mat-checkbox><br/>
+                    <mat-checkbox [checked]="clickAll"> Last Agent Update</mat-checkbox><br/>
+                    <mat-checkbox [checked]="clickAll"> Last User</mat-checkbox><br/>
+                    <h5 class="mt-3">Service Columns</h5>
+                    <mat-checkbox [checked]="clickAll"> Warranty Expiry</mat-checkbox>
+                  </div>
+
+                  <div class="col-lg-6 col-12">
+                        <h5>Asset Columns</h5>
+                        <mat-checkbox [checked]="clickAll"> Device Name</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Description</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Asset No.</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Serial No.</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Status</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> IP Address</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> MAC Address</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Location</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Install Date</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Contact</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Memory</mat-checkbox><br/>
+                        <mat-checkbox [checked]="clickAll"> Purchased</mat-checkbox><br/>
+                  </div>
+
+              </div>
+            </div>
+            <div class="modal-footer border-top-0">
+              <button mat-raised-button color="primary" type="submit" data-dismiss="modal">Okay</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>

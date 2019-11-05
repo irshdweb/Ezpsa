@@ -9,6 +9,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class AllEquipmentComponent implements OnInit {
   config: any;
   collection = [];
+  myModel = false;
+
+
   constructor(private route: ActivatedRoute, private router: Router) {
     this.config = {
       currentPage: 1,
@@ -46,7 +49,7 @@ export class AllEquipmentComponent implements OnInit {
     this.router.navigate(['equipment'], { queryParams: { page: newPage } });
   }
 
-  ngOnInit() {
+ ngOnInit() {
   }
 
 }

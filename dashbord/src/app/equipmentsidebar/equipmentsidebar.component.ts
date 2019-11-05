@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipmentsidebarComponent implements OnInit {
 
+  eqMenuTrigger = false;
+  
+  showMenu(){
+    this.eqMenuTrigger = !this.eqMenuTrigger;  
+  }
+
   constructor() { }
 
   ngOnInit() {

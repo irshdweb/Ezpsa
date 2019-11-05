@@ -4,9 +4,9 @@
             <thead>
                 <tr>
                     <th>
-                        <mat-checkbox></mat-checkbox>
+                        <mat-checkbox [(ngModel)]="myModel"></mat-checkbox>
                     </th>
-                    <th>Device Name</th>
+                    <th [class.show-name]="d_name">Device Name</th>
                     <th>Agent Status</th>
                     <th>Description</th>
                     <th>Asset No.</th>
@@ -29,7 +29,7 @@
             <tbody>
                 <tr *ngFor="let item of collection | paginate: config">
                     <td>
-                        <mat-checkbox></mat-checkbox>
+                        <mat-checkbox [checked]="myModel"></mat-checkbox>
                     </td>
                     <td>{{ item.devicename }}</td>
                     <td><span class="status-pan online">{{ item.agent_status }}</span></td>

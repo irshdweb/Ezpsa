@@ -56,7 +56,7 @@
 
 .main-nav-side{
     margin-top:40px;
-
+    display:block;
     ul{
         list-style:none;
         margin-left:0;
@@ -110,3 +110,35 @@
     }
 }
 
+@media screen and (max-width: 840px) {
+    .eq-menu{
+        margin-top:10px;
+        margin-bottom:10px;
+        width:70%;
+        float:left;
+    }
+    .menuSecond{
+        float:right;
+        margin-top:13px;
+        font-size:30px;
+        color:#D32744;
+    }
+
+    .main-nav-side{
+        display:none;
+        opacity: 0;
+        transition: opacity 300ms;
+
+        &.showMenu{
+            display:block !important;
+            opacity: 1;
+        }
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+    .eq-menu{
+        font-size:12px;
+    }
+}

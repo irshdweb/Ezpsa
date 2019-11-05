@@ -1,5 +1,6 @@
 @import "../scss/mixins";
 @import "../scss/variables";
+
 mat-sidenav-container{
     height: 100vh;
 
@@ -23,4 +24,5 @@ mat-sidenav-container{
 .hide-outlet{
     display:none !important;
 }
+
 

@@ -1,0 +1,18 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.mat-raised-button{
+    &.mat-primary{
+        font-family:$font_family;
+        float:right!important;
+        background:$primary_bg_color;
+    } 
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: $check_box_border;
+  }
+  
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: $check_box_bg !important;
+}

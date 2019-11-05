@@ -109,3 +109,42 @@
         }
     }
 }
+
+@media screen and (max-width: 840px) {
+    .inner-side-pannel{
+        height:auto !important;
+        margin-bottom:30px;
+    }
+    .inner-main-panel{
+        height:100vh;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .download-btn{
+        .download{
+            width:100%;
+            padding-left:30%;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 350px) {
+    .download-btn{
+        .download{
+            font-size: 13px;
+            padding-left:20%;
+        }
+    }
+    .inner-main-panel{
+        .wrap{
+            .top-filters{
+                .material-icons-outlined{
+                    margin-left:10px;
+                }
+            }
+        }
+    }
+}

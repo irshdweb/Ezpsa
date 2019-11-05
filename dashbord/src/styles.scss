@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "scss/mixins";
 @import "scss/variables";
-
+.hide-on-desktop{
+    display:none;
+}
 body{
     background-color:$bg_color;
     font-family:$font_family;
@@ -78,4 +80,20 @@ pagination-controls{
 .mat-checkbox{
     font-family:$font_family;
     color: rgba(0,0,0,.62);
+}
+
+
+
+@media screen and (max-width: 840px) {
+    .hide-on-desktop{
+        display:block;
+    }
+    .hide-on-mobile{
+        display:none;
+    }
+
+    .open-menu, .close-menu{
+        transition: none;
+        -webkit-transition: none;
+    }
 }

@@ -14,6 +14,7 @@ import { EquipmentsidebarComponent } from './equipmentsidebar/equipmentsidebar.c
 import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.component';
 import { AddEquipmentComponent } from './modals/add-equipment/add-equipment.component';
 import { AddSearchComponent } from './modals/add-search/add-search.component';
+import { ColumnSettingsComponent } from './modals/column-settings/column-settings.component';
 
 
 
@@ -28,7 +29,8 @@ import { AddSearchComponent } from './modals/add-search/add-search.component';
     EquipmentsidebarComponent,
     AllEquipmentComponent,
     AddEquipmentComponent,
-    AddSearchComponent
+    AddSearchComponent,
+    ColumnSettingsComponent
 
   ],
   imports: [

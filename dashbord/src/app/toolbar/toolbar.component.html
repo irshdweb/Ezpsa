@@ -1,6 +1,8 @@
 <mat-toolbar>
-    <div class="col-lg-2 col-3 p-0"><a (click)="menuButtonClicked.emit(); changeIcon('clear_all')"><i
-                class="material-icons menu">{{icon}}</i></a></div>
+    <div class="col-lg-2 col-3 p-0">
+        <a (click)="menuButtonClicked.emit(); changeIcon('clear_all')" class="hide-on-mobile"><i class="material-icons menu">{{icon}}</i></a>
+        <a (click)="menuButtonClickedMobile.emit();" class="hide-on-desktop"><i class="material-icons menu">{{icon}}</i></a>
+    </div>
     <div class="col-lg-5 col-3 p-0">
         <input type="text" placeholder="Search device name, user, client, serial no.,IP address or label..."
             class="txt-serach">

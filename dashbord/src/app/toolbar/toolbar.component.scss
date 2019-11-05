@@ -57,3 +57,11 @@ mat-toolbar {
         }
     }
 }
+
+@media screen and (max-width: 840px) {
+    mat-toolbar {
+        .txt-serach{
+            display:none;
+        }
+    }
+}

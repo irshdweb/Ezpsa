@@ -2,14 +2,14 @@
     <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" 
       [class.open-menu]="isMenuOpen" 
       [class.close-menu]="!isMenuOpen">
-      <app-sidebar></app-sidebar>
+      <app-sidebar (menuButtonClickedMobiles)="sidenav.toggle()"></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content [ngStyle] =" {'margin-left.px':contentMargin} ">
-      <app-toolbar (menuButtonClicked)="onCloseHalf()"></app-toolbar>
+      <app-toolbar (menuButtonClicked)="onCloseHalf()" (menuButtonClickedMobile)="sidenav.toggle()"></app-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
-<!--<router-outlet name="login"  [ngClass]="navExpand ? 'show-outlet' : 'hide-outlet'"></router-outlet>-->
 <app-login [ngClass]="navExpand ? 'show-outlet' : 'hide-outlet'"></app-login>
 <app-add-equipment></app-add-equipment>
 <app-add-search></app-add-search>
+<app-column-settings></app-column-settings>

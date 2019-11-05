@@ -9,8 +9,10 @@
             </li>
         </ul>
     </div>
+    <i class="material-icons menuSecond hide-on-desktop" (click)="showMenu()">menu</i>
 </div>
-<div class="row mr-0 ml-0 main-nav-side">
+<div class="clearfix"></div>
+<div class="row mr-0 ml-0 main-nav-side" [ngClass]="eqMenuTrigger ? 'showMenu' : 'hideMenu'">
     <ul>
         <li class="d-flex align-items-center active"><a [routerLink]=''><i class="material-icons">personal_video</i> All Equipments (6)</a></li>
         <li class="d-flex align-items-center"><a><i class="material-icons">event_available</i> Managed</a></li>

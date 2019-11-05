@@ -20,7 +20,7 @@ public changeIcon(newIcon: string ){
 }
 //passing method to another component
 @Output() menuButtonClicked = new EventEmitter();
-
+@Output() menuButtonClickedMobile = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
