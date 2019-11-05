@@ -13,11 +13,11 @@
                   <div class="col-lg-6 col-12 mb-3">
                     <h5>Agent Columns</h5>
                     <mat-checkbox [checked]="clickAll" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'checked':'nonChecked')"> Agent Status</mat-checkbox><br/>
-                    <mat-checkbox [checked]="clickAll"> Agent Version</mat-checkbox><br/>
-                    <mat-checkbox [checked]="clickAll"> Last Agent Update</mat-checkbox><br/>
-                    <mat-checkbox [checked]="clickAll"> Last User</mat-checkbox><br/>
+                    <mat-checkbox [checked]="clickAll" [(ngModel)]="isCheckedAv" (change)="checkValueAgentVersion(isCheckedAv?'checkedAgentVersion':'nonCheckedAAgentVersion')"> Agent Version</mat-checkbox><br/>
+                    <mat-checkbox [checked]="clickAll" [(ngModel)]="isCheckedLav" (change)="checkValueLastAgent(isCheckedLav?'checkedLastAgent':'nonCheckedLastAgent')"> Last Agent Update</mat-checkbox><br/>
+                    <mat-checkbox [checked]="clickAll" [(ngModel)]="isCheckedLu" (change)="checkValueLastUser(isCheckedLu?'checkedLastUser':'nonCheckedLastUser')"> Last User</mat-checkbox><br/>
                     <h5 class="mt-3">Service Columns</h5>
-                    <mat-checkbox [checked]="clickAll"> Warranty Expiry</mat-checkbox>
+                    <mat-checkbox [checked]="clickAll" [(ngModel)]="isCheckedWe" (change)="checkWarrantyExpiry(isCheckedLu?'checkedWarrantyExpiry':'nonCheckedWarrantyExpiry')"> Warranty Expiry</mat-checkbox>
                   </div>
 
                   <div class="col-lg-6 col-12">

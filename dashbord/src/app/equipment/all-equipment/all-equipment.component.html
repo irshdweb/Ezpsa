@@ -6,14 +6,14 @@
                     <th>
                         <mat-checkbox [(ngModel)]="myModel"></mat-checkbox>
                     </th>
-                    <th [class.show-name]="d_name">Device Name</th>
-                    <th>Agent Status</th>
+                    <th >Device Name</th>
+                    <th [class.hideCol]="a_status">Agent Status</th>
                     <th>Description</th>
                     <th>Asset No.</th>
                     <th>Serial No.</th>
-                    <th>Agent Version </th>
-                    <th>Last Agent Update</th>
-                    <th>Last User </th>
+                    <th [class.hideCol]="d_name">Agent Version </th>
+                    <th [class.hideCol]="la_update">Last Agent Update</th>
+                    <th [class.hideCol]="la_user">Last User </th>
                     <th>Status </th>
                     <th>IP Address</th>
                     <th>Gateway </th>
@@ -23,7 +23,7 @@
                     <th>Contact</th>
                     <th>Memory</th>
                     <th>Purchased </th>
-                    <th>Warranty Expiry</th>
+                    <th [class.hideCol]="Wa_ex">Warranty Expiry</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,13 +32,13 @@
                         <mat-checkbox [checked]="myModel"></mat-checkbox>
                     </td>
                     <td>{{ item.devicename }}</td>
-                    <td><span class="status-pan online">{{ item.agent_status }}</span></td>
+                    <td [class.hideCol]="a_status"><span class="status-pan online">{{ item.agent_status }}</span></td>
                     <td>{{ item.dec }}</td>
                     <td>{{ item.asset }}</td>
                     <td>{{ item.serial }}</td>
-                    <td>{{ item.version }}</td>
-                    <td>{{ item.last }}</td>
-                    <td>{{ item.user }}</td>
+                    <td [class.hideCol]="d_name">{{ item.version }}</td>
+                    <td [class.hideCol]="la_update">{{ item.last }}</td>
+                    <td [class.hideCol]="la_user">{{ item.user }}</td>
                     <td>{{ item.agent }}</td>
                     <td>{{ item.status }}</td>
                     <td>{{ item.ip }}</td>
@@ -48,7 +48,7 @@
                     <td>{{ item.date }}</td>
                     <td>{{ item.contact }}</td>
                     <td>{{ item.pur }}</td>
-                    <td>{{ item.warranty }}</td>
+                    <td [class.hideCol]="Wa_ex">{{ item.warranty }}</td>
                 </tr>
 
             </tbody>
