@@ -24,7 +24,7 @@ ul{
         display:block;
         margin-bottom:1px;
         transition: all 0.3s;
-        &:hover, .active{
+        &:hover, &.active{
             background:$nav_hover_bg;
             padding-left:32px;
         }

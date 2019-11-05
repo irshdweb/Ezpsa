@@ -8,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class EquipmentsidebarComponent implements OnInit {
 
   eqMenuTrigger = false;
+  drop = false;
   
   showMenu(){
     this.eqMenuTrigger = !this.eqMenuTrigger;  
+  }
+
+  showGroup(){
+    this.drop = !this.drop;  
   }
 
   constructor() { }

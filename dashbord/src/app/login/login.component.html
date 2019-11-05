@@ -8,19 +8,21 @@
                     <div class="row justify-content-center ml-0 mr-0 mb-3 admin-log">
                             User Login
                     </div>
-                    <div class="row">
-                        <mat-form-field class="w-100 pl-5 pr-5">
-                            <input matInput placeholder="Email" [(ngModel)]="email" type="email" name="email" class="w-100" required>
-                        </mat-form-field>
-                    </div>
-                    <div class="row">
-                        <mat-form-field class="w-100 pl-5 pr-5">
-                            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
-                        </mat-form-field>
-                    </div>
-                    <div class="row w-100 pl-4 pr-4 mt-3 ml-0 mr-0">
-                        <button mat-raised-button color="primary" class="float-right">Login</button>
-                    </div>
+                    <form [formGroup]="loginForm" novalidate>
+                        <div class="row">
+                            <mat-form-field class="w-100 pl-5 pr-5">
+                                <input matInput placeholder="Email" type="email" formControlName="email" name="email" class="w-100" >
+                            </mat-form-field>
+                        </div>
+                        <div class="row">
+                            <mat-form-field class="w-100 pl-5 pr-5">
+                                <input matInput placeholder="Password" type="password" formControlName="password" name="password" class="w-100">
+                            </mat-form-field>
+                        </div>
+                        <div class="row w-100 pl-4 pr-4 mt-3 ml-0 mr-0">
+                            <button mat-raised-button color="primary" class="float-right" (click)="redirect()">Login</button>
+                        </div>
+                    </form>
                 </mat-card>
         </div>
     </div>

@@ -11,10 +11,12 @@
                 }
                 th{
                     background:#F0EEEE;
+                    display:none;
                 }
                 td{
                     color:#4F4E4E;
                     font-size:14px;
+                    display:none;
                     .status-pan{
                         border-radius:10px;
                         padding-left:8px;
@@ -32,7 +34,7 @@
                     }
                 }
                 .hideCol{
-                    display:none;
+                    display: table-cell;
                 }
             }
         }

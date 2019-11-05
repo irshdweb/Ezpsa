@@ -14,12 +14,17 @@
 <div class="clearfix"></div>
 <div class="row mr-0 ml-0 main-nav-side" [ngClass]="eqMenuTrigger ? 'showMenu' : 'hideMenu'">
     <ul>
-        <li class="d-flex align-items-center active"><a [routerLink]=''><i class="material-icons">personal_video</i> All Equipments (6)</a></li>
-        <li class="d-flex align-items-center"><a><i class="material-icons">event_available</i> Managed</a></li>
-        <li class="d-flex align-items-center"><a><i class="material-icons">event_busy</i> Non Managed</a></li>
-        <li class="d-flex align-items-center"><a><i class="material-icons">dns</i> Servers</a></li>
-        <li class="d-flex align-items-center"><a><i class="material-icons">devices</i> Devices</a></li>
-        <li class="d-flex align-items-center"><a><i class="material-icons">group</i> Groups</a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]=''><i class="material-icons">personal_video</i> All Equipments <span>(6)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">event_available</i> Managed <span>(3)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">event_busy</i> Non Managed <span>(2)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">dns</i> Servers <span>(0)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">devices</i> Devices <span>(6)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a (click)="showGroup()"><i class="material-icons">group</i> Groups <span><i class="material-icons arrow">keyboard_arrow_right</i></span></a>
+        </li>
+        <div class="clearfix sub_menu hide-menu" [class.show-menu]="drop">
+                <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">add</i> Add Group</a></li>
+        </div>
     </ul>
 </div>
 
