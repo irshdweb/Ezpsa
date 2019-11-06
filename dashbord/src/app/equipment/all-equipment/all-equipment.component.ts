@@ -267,7 +267,7 @@ this.__selectvalue.showvale$.subscribe(
       this.sn = true;
       this.an = true;
       this.dec = true;
-      this.devi_na = true;
+      //this.devi_na = true;
       this.wa_ex = true;
       this.la_user = true;
       this.la_update = true;
@@ -287,7 +287,7 @@ this.__selectvalue.showvale$.subscribe(
       this.sn = false;
       this.an = false;
       this.dec = false;
-      this.devi_na = false;
+      //this.devi_na = false;
       this.wa_ex = false;
       this.la_user = false;
       this.la_update = false;

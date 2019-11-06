@@ -2,12 +2,16 @@
     <div class="col-12 search-bar-container pt-3 pt-sm-0 pt-lg-0 pb-3 pb-sm-0 pb-lg-0 d-lg-flex d-sm-flex align-items-center">
         <div class="col-lg-6 col-sm-6 col-12 select-container pl-lg-0 justify-content-sm-center mb-sm-0 mb-lg-0 mb-3">
             <div class="form-group pl-0">
-                <select class="form-control" id="sel1">
-                    <option>Jhone Smith</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                </select>
+               
+                <mat-form-field class="col-lg-6 p-0 m0 col-12">
+                    <input type="text" placeholder="Search User" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                 
             </div>
         </div>
         <div class="col-lg-6 col-sm-6 col-12 download-btn text-right pr-lg-0 justify-content-sm-center mt-sm-0 mt-lg-0 mt-3">
@@ -74,9 +78,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"><i class="material-icons-outlined">playlist_add</i></a>
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"><i class="material-icons-outlined" matTooltip="Add Equipment" aria-label="">playlist_add</i></a>
                         <a href="javascript:void(0);"><i class="material-icons-outlined">delete</i></a>
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalColumnSettings"><i class="material-icons-outlined">view_column</i></a>
+                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalColumnSettings"><i class="material-icons-outlined" matTooltip="Column Setting" aria-label="">view_column</i></a>
                     </div>
                     <div class="col-lg-6 col-12 justify-content-lg-end justify-content-sm-end justify-content-center d-flex">
                         <input type="text" class="srch-tbl" placeholder="Search Equipment">

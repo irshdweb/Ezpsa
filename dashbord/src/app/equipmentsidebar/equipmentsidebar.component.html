@@ -20,10 +20,17 @@
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">dns</i> Servers <span>(0)</span></a></li>
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">devices</i> Devices <span>(6)</span></a></li>
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
-            <a (click)="showGroup()"><i class="material-icons">group</i> Groups <span><i class="material-icons arrow">keyboard_arrow_right</i></span></a>
+            <a (click)="showGroup(); changeIcons('keyboard_arrow_down')"><i class="material-icons">group</i> Groups <span><i class="material-icons arrow">{{icons}}</i></span></a>
         </li>
         <div class="clearfix sub_menu hide-menu" [class.show-menu]="drop">
-                <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">add</i> Add Group</a></li>
+                <li class="d-flex align-items-center"><a><i class="material-icons">add</i> Add Group</a></li>
+        </div>
+
+        <li class="d-flex align-items-center">
+            <a (click)="showGroup1(); changeIcons1('keyboard_arrow_down')"><i class="material-icons">filter_list</i> Saved Searches <span><i class="material-icons arrow">{{icons1}}</i></span></a>
+        </li>
+        <div class="clearfix sub_menu hide-menu" [class.show-menu]="drop1">
+                <li class="d-flex align-items-center"><a><i class="material-icons">add</i> Add Saved Search</a></li>
         </div>
     </ul>
 </div>

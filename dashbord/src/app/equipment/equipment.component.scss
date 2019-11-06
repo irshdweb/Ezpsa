@@ -22,6 +22,10 @@
             }
         }
     }
+    .mat-form-field{
+        top:0 !important;
+        margin-top:-18px !important;
+    }
 }
 
 .download-btn{
@@ -147,4 +151,8 @@
             }
         }
     }
+}
+
+.mat-form-field-infix{
+    margin-top:0 !important;
 }

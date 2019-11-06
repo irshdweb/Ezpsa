@@ -3,7 +3,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>
+                    <th class="displayAll">
                         <mat-checkbox [(ngModel)]="myModel"></mat-checkbox>
                     </th>
                     <th [class.hideCol]="devi_na">Device Name</th>
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of collection | paginate: config">
-                    <td>
+                    <td class="displayAll">
                         <mat-checkbox [checked]="myModel"></mat-checkbox>
                     </td>
                     <td [class.hideCol]="devi_na">{{ item.devicename }}</td>
