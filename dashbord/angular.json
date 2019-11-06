@@ -67,6 +67,9 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "es5": {
+              "tsConfig": "./tsconfig.es5.json"
             }
           }
         },
@@ -78,6 +81,9 @@
           "configurations": {
             "production": {
               "browserTarget": "dashbord:build:production"
+            },
+            "es5": {
+              "browserTarget": "dashbord:build:es5"
             }
           }
         },
