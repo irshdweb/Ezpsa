@@ -39,7 +39,7 @@ export class AddSearchComponent implements OnInit {
 
  deleteMore(){
   let srchArray = this.srchForm.get('searchFields') as FormArray;
-  srchArray.removeAt(this.fb.group.length)
+  srchArray.removeAt(this.addMore.length)
  }
 
  toggleEditable(event) {
