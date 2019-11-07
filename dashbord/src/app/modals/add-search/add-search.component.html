@@ -11,7 +11,7 @@
             </div>
             <form [formGroup]="srchForm" class="form-group" novalidate>
                 <div class="modal-body">
-                    <div class="col-lg-12 p-0 m-0" formArrayName="searchFields" *ngFor="let searchField of srchForm.get('searchFields').controls;let i = index;">
+                    <div class="col-lg-12 p-0 m-0" formArrayName="searchFields" *ngFor="let searchField of srchForm.get('searchFields')['controls'];let i = index;">
                     <div class="row pl-3 pr-3" [formGroupName]="i">
 
                         <div class="col-lg-4 col-12">
@@ -47,7 +47,7 @@
                             <a class="pl-0 filter-btn" (click)="addMore()"><i class="material-icons">add_circle</i> Add
                                 Filters</a>
                             
-                                <a class="pl-0 filter-btn hide" (click)="deleteMore()" [ngClass]="{'displayElement': check, 'show': srchForm.controls.searchFields.controls.length > 1 }">
+                                <a class="pl-0 filter-btn hide" (click)="deleteMore()" [ngClass]="{'displayElement': check, 'show': srchForm.get('searchFields')['controls'].length > 1 }">
                                 <i class="material-icons">remove_circle</i> Remove Filters
                             </a>
                         </div>
