@@ -1,0 +1,35 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+.mat-expansion-panel{
+    .mat-expansion-panel-header{
+        font-family:$font_family;
+        font-size:17px;
+        font-weight:bold;
+        
+        .mat-expansion-panel-header-title{
+            color:$primary_bg_color;
+        }
+    }
+    .icon-pan{
+        margin-bottom:20px;
+        font-size:14px;
+        font-family:$font_family;
+        .fa, .material-icons{
+            font-size:30px;
+            margin-bottom:10px;
+        }
+        img{
+            width:30px;
+            margin-bottom:10px;
+        }
+        a{
+            color:#777676;
+            transition: all 0.5s;
+            -webkit-transition: all 0.25s;
+            &:hover{
+                color:$primary_bg_color;
+                text-decoration:none;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.component'
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: '', component: AllEquipmentComponent, outlet: 'second' },
     ] 
   },
+  { path: 'settings', component: SettingsComponent }
   
 ];
 

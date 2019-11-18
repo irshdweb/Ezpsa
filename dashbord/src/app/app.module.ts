@@ -15,6 +15,7 @@ import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.c
 import { AddEquipmentComponent } from './modals/add-equipment/add-equipment.component';
 import { AddSearchComponent } from './modals/add-search/add-search.component';
 import { ColumnSettingsComponent } from './modals/column-settings/column-settings.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -30,7 +31,8 @@ import { ColumnSettingsComponent } from './modals/column-settings/column-setting
     AllEquipmentComponent,
     AddEquipmentComponent,
     AddSearchComponent,
-    ColumnSettingsComponent
+    ColumnSettingsComponent,
+    SettingsComponent
 
   ],
   imports: [
