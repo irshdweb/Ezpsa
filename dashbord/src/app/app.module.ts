@@ -16,6 +16,11 @@ import { AddEquipmentComponent } from './modals/add-equipment/add-equipment.comp
 import { AddSearchComponent } from './modals/add-search/add-search.component';
 import { ColumnSettingsComponent } from './modals/column-settings/column-settings.component';
 import { SettingsComponent } from './settings/settings.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { TicketsidebarComponent } from './tickets/ticketsidebar/ticketsidebar.component';
+import { Last20Component } from './tickets/last20/last20.component';
+import { EllipsisPipe } from './tickets/last20/ellipsis.pipe';
+import { TicketFillterComponent } from './modals/ticket-fillter/ticket-fillter.component';
 
 
 
@@ -32,7 +37,12 @@ import { SettingsComponent } from './settings/settings.component';
     AddEquipmentComponent,
     AddSearchComponent,
     ColumnSettingsComponent,
-    SettingsComponent
+    SettingsComponent,
+    TicketsComponent,
+    TicketsidebarComponent,
+    Last20Component,
+    EllipsisPipe,
+    TicketFillterComponent
 
   ],
   imports: [

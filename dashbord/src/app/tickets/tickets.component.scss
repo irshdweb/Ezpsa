@@ -1,0 +1,112 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+@import "../../scss/common-eqti";
+
+.top-btns{
+    margin-left:12px;
+    .btn-wrap{
+        background:#fff;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+        border-radius: 3px;
+        height:33px;
+        transition: all 0.7s;
+        -webkit-transition: all 0.75s;
+        
+        cursor:pointer;
+        padding-left:12px;
+        padding-right:12px;
+        &:hover{
+            background-color:#f2f5fa;
+            box-shadow:none;
+        }
+
+        /**&:hover > a{
+            color:#fff;
+        }**/
+
+        
+        a{
+            color:#333547;
+            font-size:14px;
+            display:block;
+            width:100%;
+            height:100%;
+            transition: all 0.7s;
+        -webkit-transition: all 0.75s;
+        justify-content: center;
+            &:hover{
+                text-decoration:none;
+            }
+            .material-icons-outlined{
+                font-size:24px;
+                margin-right:10px;
+                //margin-left:12px;
+            }
+            .alert_note{
+                width:20px;
+                height:20px;
+                color:#fff;
+                background:#D32744;
+                text-align:center;
+                border-radius:20px;
+                float:right;
+                margin-left:10px;
+            }
+        }
+        &.new-ticket{
+            background:#0180B7;
+            transition: all 0.7s;
+        -webkit-transition: all 0.75s;
+            &:hover{
+                background-color:#f2f5fa;
+                box-shadow:none;
+                &:hover > a{
+                    color:#333547;
+                }
+            }
+            a{
+                font-weight:600;
+                color:#fff;
+                .material-icons-outlined{
+                    font-size:15px;
+                    margin-right:10px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .top-btns{
+        margin-left:5px;
+        .btn-wrap{
+            padding-left:7px;
+            padding-right:7px;
+            a{
+                font-size:12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .top-btns{
+        margin-left:0px;
+        width:20%;
+        text-align:center !important;
+        .btn-wrap{
+            padding-left:0px;
+            padding-right:0px;
+            border-radius:0;
+            height:50px;
+            a{
+                span{
+                    display:none;
+                }
+                .material-icons-outlined{
+                    margin-right:0;
+                }
+            }
+        }
+    }
+}

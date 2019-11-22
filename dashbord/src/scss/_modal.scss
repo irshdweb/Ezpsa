@@ -1,0 +1,64 @@
+.modal-dialog{
+    .modal-body{
+        height:630px;
+        overflow-y:auto;
+        @include scrollbars(5px, $primary_bg_color);
+
+        .alert{
+            &.alert-danger{
+                padding-top: 0;
+                padding-bottom:0;
+                font-size:11px;
+                font-family: $font_family;
+                margin-bottom:10px;
+                background:none;
+                color:red;
+                border:none;
+                margin-top:-10px;
+            }
+        }
+        .btn{
+            &.btn-success{
+                background:red;
+            } 
+        }
+
+        button{
+            &:focus{
+                outline: none;
+            }
+        }
+
+    }
+}
+.mat-raised-button{
+    &.mat-primary{
+        font-family:$font_family;
+        float:right!important;
+        background:$primary_bg_color;
+    } 
+}
+
+.mat-pseudo-checkbox{
+    width:2px !important;
+    background:red !important;
+}
+
+::ng-deep .mat-pseudo-checkbox {
+    border-color: $check_box_border;
+  }
+  
+::ng-deep .mat-primary .mat-pseudo-checkbox-checked {
+    background-color: $check_box_bg !important;
+}
+
+::ng-deep .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+    color:rgba(0,0,0,.87) !important;
+}
+
+::ng-deep .mat-select-panel:not([class*=mat-elevation-z]){
+    margin-left:20px;
+    min-width: calc(100% + 32px) !important;
+    
+}
+

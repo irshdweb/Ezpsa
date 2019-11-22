@@ -6,7 +6,7 @@ mat-sidenav-container{
 
     mat-sidenav{
         background:$primary_bg_color;
-        width:238px;
+        width:80px;
         height:100%;
     }
     .close-menu{
@@ -25,4 +25,16 @@ mat-sidenav-container{
     display:none !important;
 }
 
-
+@media screen and (max-width: 840px) {
+    mat-sidenav-container{
+        mat-sidenav{
+            width:237px;   
+        }
+        .close-menu{
+            width:238px;
+        }
+        .open-menu{
+            width:238px;
+        }
+    }
+}

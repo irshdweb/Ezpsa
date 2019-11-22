@@ -14,6 +14,10 @@ export class EquipmentsidebarComponent implements OnInit {
     this.eqMenuTrigger = !this.eqMenuTrigger;  
   }
 
+  showClosedMenu(){
+    this.eqMenuTrigger=true;
+  }
+
   showGroup(){
     this.drop = !this.drop; 
   }

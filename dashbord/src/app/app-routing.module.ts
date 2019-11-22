@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.component'
 import { SettingsComponent } from './settings/settings.component';
+import { TicketsComponent } from './tickets/tickets.component';
+import { Last20Component } from './tickets/last20/last20.component'
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -14,7 +16,14 @@ const routes: Routes = [
       { path: '', component: AllEquipmentComponent, outlet: 'second' },
     ] 
   },
-  { path: 'settings', component: SettingsComponent }
+  { path: 'settings', component: SettingsComponent },
+  { 
+    path: 'tickets', 
+    component: TicketsComponent,
+    children:[
+      { path: '', component: Last20Component, outlet: 'ticket' },
+    ]  
+  }
   
 ];
 

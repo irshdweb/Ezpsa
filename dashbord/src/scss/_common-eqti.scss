@@ -1,0 +1,187 @@
+.search-bar-container{
+    background:#fff;
+    height:auto;
+    margin-top:15px;
+
+    .select-container{
+        height:39px;
+
+        .form-control{
+            max-width:319px;
+            width:100%;
+            cursor:pointer;
+            padding-left:15px;
+
+            &:focus{
+                outline:none !important;
+                border:1px solid #E7D6D6;
+                box-shadow: none;
+            }
+        }
+    }
+    .form-group{
+        border:1px solid #EDEDED;
+        padding-top:3px;
+        padding-bottom:3px;
+        border-radius:30px;
+        margin-top:3px;
+    }
+}
+
+.download-btn{
+    .download{
+        width:196px;
+        height:37px;
+        border-radius:20px;
+        font-weight:900;
+        background:#333547;
+        color:#fff;
+        font-size:15.7px;
+        border:none;
+        text-align:left;
+        padding-left:15px;
+        transition: 0.5s;
+
+        &:after{
+            font-family: "Material Icons";
+            content:'\e5db';
+            width:44px;
+            height:44px;
+            position:absolute;
+            right:0;
+            background:#EA5959;
+            border-radius:100%;
+            top:0;
+            border:3px solid #fff;
+            margin-top:-4px;
+            margin-right:-5px;
+            text-align:center;
+            font-size:24px;
+        }
+        &:hover{
+            background:#0180B7;
+        }
+    }
+}
+
+.fixed-height{
+    height:320px;
+    overflow-y: scroll;
+    @include scrollbars(10px,#888);
+}
+
+.inner-side-pannel{
+    //max-height:980px;
+    //min-height:980px;
+    height:100vh;
+    padding-bottom:20px;
+    background:#fff;
+    overflow-y: auto;
+    @include scrollbars(5px,rgb(214, 214, 214));
+}
+
+.inner-main-panel{
+    //height:calc(100vh - 12.5em);
+    //max-height:980px;
+    //min-height:980px;
+    height:100vh;
+    .wrap{
+        background:#fff;
+        height:100%;
+
+        .top-filters{
+            padding-top:30px;
+
+            .task-drp{
+                width:94px;
+                height:30px;
+                border:2px solid #000000;
+                background:none;
+                font-weight:bold;
+                float:left;
+            }
+            .dropdown-menu{
+                box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .material-icons-outlined{
+                float:left;
+                margin-left:20px;
+                margin-top:3px;
+                color:#000000;
+            }
+            .srch-tbl{
+                width:70%;
+                height: 33px;
+                background: #FFF;
+                border: 1px solid #EDEDED;
+                box-sizing: border-box;
+                border-radius: 50px;
+                margin-right:20px;
+                font-size: 15.7px;
+                line-height: 20px;
+                color:#000;
+                padding-left:20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .inner-side-pannel{
+        height:auto !important;
+        margin-bottom:30px;
+        padding-bottom:0;
+    }
+    .inner-main-panel{
+        height:100vh;
+    }
+}
+
+
+@media screen and (max-width: 640px) {
+    .download-btn{
+        .download{
+            width:100%;
+            padding-left:30%;
+        }
+    }
+    
+}
+
+@media screen and (max-width: 350px) {
+    .download-btn{
+        .download{
+            font-size: 13px;
+            padding-left:20%;
+        }
+    }
+    .inner-main-panel{
+        .wrap{
+            .top-filters{
+                .material-icons-outlined{
+                    margin-left:10px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width:1170px) and (min-width:840px) {
+    .inner-main-panel{
+        .wrap{
+            .top-filters{
+                .material-icons-outlined{
+                    margin-left:10px;
+                }
+                .srch-tbl{
+                    font-size:14px;
+                }
+            }
+        }
+    }
+}
+
+//.mat-form-field-infix{
+    //margin-top:0 !important;
+//}

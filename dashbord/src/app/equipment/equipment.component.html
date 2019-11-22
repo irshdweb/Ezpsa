@@ -1,28 +1,35 @@
-<div class="col-12 p-2 pl-4 pr-4">
-    <div
-        class="col-12 search-bar-container pt-3 pb-3 d-lg-flex d-sm-flex align-items-center">
-        <div class="col-lg-6 col-sm-6 col-12 select-container pl-lg-0 justify-content-sm-center mb-sm-0 mb-lg-0 mb-3">
-            <div class="form-group pl-3 col-12 col-lg-6">
-                <input type="text" placeholder="Search User" aria-label="Number" matInput [formControl]="myControl"
-                    [matAutocomplete]="auto">
-                <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                        {{option}}
-                    </mat-option>
-                </mat-autocomplete>
-            </div>
-        </div>
-        <div
-            class="col-lg-6 col-sm-6 col-12 download-btn text-right pr-lg-0 justify-content-sm-center mt-sm-0 mt-lg-0 mt-3">
-            <button class="download">Download Agent</button>
-        </div>
-    </div>
-    <div class="row mt-4 ml-0 mr-0">
-        <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0">
+<div class="col-12 p-2 pl-lg-0 pt-lg-0 pr-4 pl-4">
+
+    <div class="row ml-0 mr-0">
+        <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-mobile">
             <app-equipmentsidebar></app-equipmentsidebar>
         </div>
         <div class="col-lg-9 col-12 inner-main-panel pr-0 pl-lg-3 pl-0">
-            <div class="col-lg-12 col-12 pt-0 pb-0 wrap">
+            <div class="col-lg-12 col-12 p-0 m-0 mt-lg-4 mb-lg-4 mt-4 mb-4 ">
+                <h1>Equipments</h1>
+            </div>
+            <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-desktop">
+                    <app-equipmentsidebar></app-equipmentsidebar>
+                </div>
+            <div class="col-12 search-bar-container pt-3 pb-3 d-lg-flex d-sm-flex align-items-center">
+                <div
+                    class="col-lg-6 col-sm-6 col-12 select-container pl-lg-0 justify-content-sm-center mb-sm-0 mb-lg-0 mb-3">
+                    <div class="form-group pl-3 col-12 col-lg-6">
+                        <input type="text" placeholder="Search User" aria-label="Number" matInput
+                            [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+                <div
+                    class="col-lg-6 col-sm-6 col-12 download-btn text-right pr-lg-0 justify-content-sm-center mt-sm-0 mt-lg-0 mt-3">
+                    <button class="download">Download Agent</button>
+                </div>
+            </div>
+            <div class="col-lg-12 col-12 pt-0 pb-0 wrap mt-3">
                 <div class="row top-filters pl-3 pr-3">
                     <div class="col-lg-6 col-12 col-sm-6 pb-4 pb-lg-0 pb-sm-0">
                         <div class="dropdown">

@@ -1,0 +1,126 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+@import "../../../scss/table";
+
+.prio-box{
+    width:15px;
+    height:15px;
+    background:#000;
+    text-align:center;
+    font-size:13px;
+    line-height:17px;
+    margin-left:auto;
+    margin-left:auto;
+    display:inline-block;
+    margin-right:7px;
+    border-radius:3px;
+    cursor:pointer;
+    span{
+        color:#fff;
+    }
+
+    &.medium{
+        background:#81ca02;
+        span{
+            color:#81ca02;
+        }
+    }
+    &.urgent{
+        background:#ff511b;
+        span{
+            color:#ff511b;
+        }
+    }
+
+    &.low{
+        background:#50c7ec;
+        span{
+            color:#50c7ec;
+        }
+    }
+    &.critical{
+        background:#ee0000;
+    }
+}
+
+.typeBox{
+    font-size:13px;
+    color:#fff;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:3px;
+    padding-bottom:3px;
+    text-transform: capitalize;
+    border-radius:2px;
+    &.problem, &.Problem{
+        background:#08526e;
+    }
+    &.task, &.Task{
+        background: #4682b4;
+    }
+    &.question, &.Question{
+        background:#ee82ee;
+    }
+    &.incident, &.Incident{
+        background:#ff0000
+    }
+    &.none{
+        display:none;
+    }
+}
+
+.statusicon{
+    font-size:13px;
+    color:$primary_bg_color;
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:3px;
+    padding-bottom:3px;
+    text-transform: capitalize;
+    border-radius:2px;
+    border:1px solid $primary_bg_color;
+}
+
+.popover-details{
+    position:absolute;
+    width:450px;
+    height:auto;
+    background:#f1f1f1;
+    box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.25);
+    padding:20px;
+    display: none;
+    border:1px solid #c2c1c1;
+    border-radius:8px;
+    margin-top:10px;
+    white-space: initial;
+   
+    p{
+        word-wrap: break-word;
+        width:100%;
+        display:block;
+        height: auto;
+        font-weight:600;
+    }
+
+    .tickId{
+        font-weight:900;
+        color:#0c6f8d;
+        font-size:14px;
+    }
+    
+    .mat-divider{
+        margin-top:10px;
+        margin-bottom:20px;
+    }
+    .statusicon{
+        margin-top:10px;
+       display:inline-block;   
+    }
+}
+
+.popDetails{
+    cursor:pointer;
+    &:hover > .popover-details{
+        display:block;
+    }
+}

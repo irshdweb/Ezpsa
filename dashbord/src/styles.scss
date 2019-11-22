@@ -9,6 +9,7 @@ h1{
     font-weight:900;
     color:$h1_color;
 }
+
 .hide-on-desktop{
     display:none;
 }
@@ -103,5 +104,20 @@ pagination-controls{
     .open-menu, .close-menu{
         transition: none;
         -webkit-transition: none;
+    }
+    .close-menu{
+        
+        .logo-img{
+            display:block;
+        }
+        ul{
+           li {
+               a{
+                   span{
+                       display:block;
+                   }
+               }
+           }
+        }
     }
 }

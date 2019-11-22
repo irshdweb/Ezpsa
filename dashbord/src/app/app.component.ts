@@ -38,8 +38,8 @@ export class AppComponent {
       };
     }
 
-    isMenuOpen = true;
-    contentMargin = 238;
+    isMenuOpen = false;
+    contentMargin = 80;
 
     public onCloseHalf(){
       this.isMenuOpen = !this.isMenuOpen;

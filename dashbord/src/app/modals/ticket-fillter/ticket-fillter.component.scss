@@ -1,0 +1,33 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+@import "../../../scss/modal";
+
+::ng-deep  .mat-form-field-infix{
+    height:55px !important;
+}
+
+
+
+.modal-body{
+    .saveserachPan{
+        .nSaved{
+            padding-left:5px;
+            border:1px solid #a1a1a1;
+            border-top:none;
+            border-left:none;
+            border-right:none;
+            font-size:13px;
+            width:100%;
+            padding-top:3px;
+            padding-bottom:3px;
+            //display:none;
+        }
+    }
+
+    .hide{
+        display:none;
+        &.show{
+            display:block;
+        }
+    }
+}

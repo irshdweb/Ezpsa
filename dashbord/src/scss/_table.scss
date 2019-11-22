@@ -1,0 +1,66 @@
+.equipments{
+    .table-responsive{
+        @include scrollbars(7px,#888);
+        .table-striped{
+            margin-top:30px;
+            tr{
+                &:nth-of-type(odd){
+                    background:#fff;
+                }
+                th{
+                    background:#F0EEEE;
+                    display:none;
+                    padding-left:20px;
+                    padding-right:20px;
+                   
+                }
+                td{
+                    color:#4F4E4E;
+                    font-size:13px;
+                    display:none;
+                    font-weight:600;
+                    padding-top:20px;
+                    padding-bottom:20px;
+                    padding-left:20px;
+                    padding-right:20px;
+                    .status-pan{
+                        border-radius:10px;
+                        padding-left:8px;
+                        padding-right:8px;
+                        padding-top:1px;
+                        padding-bottom:1px;
+                        color:#fff;
+                        font-size:12px;
+                        &.offline{
+                            background:#CD1A1A;
+                        }
+                        &.online{
+                            background:#085907;
+                        }
+                    }
+                    &.bold{
+                        font-weight:800;
+                    }
+                }
+                .hideCol{
+                    display: table-cell;
+                }
+                .displayAll{
+                    display: table-cell;
+                }
+            }
+        }
+    }
+    pagination-controls{
+        float:right;
+        margin-top:30px;
+    }
+}
+
+::ng-deep .mat-checkbox .mat-checkbox-frame {
+    border-color: $check_box_border;
+  }
+  
+::ng-deep .mat-checkbox-checked .mat-checkbox-background {
+    background-color: $check_box_bg !important;
+}
