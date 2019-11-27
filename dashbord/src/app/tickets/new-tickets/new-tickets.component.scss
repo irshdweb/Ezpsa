@@ -1,0 +1,68 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+.contentWrap{
+    background:#fff;
+    .uploadfilecontainer {
+        //background-image: url("../../assets/cloud-2044823_960_720.png");
+        background-repeat: no-repeat;
+        background-size: 100px;
+        background-position: center;
+        height: 50px;
+        width: 250px;
+        border:3px dashed #9c9c9c;
+        float :left;
+        margin-right:10px;
+        background:#fff;
+        color:#a1a1a1;
+        cursor:pointer;
+        &:hover{
+            border:3px dashed #000;
+        }
+    }
+
+    .filesUp,.fa, svg{
+        float:left;
+        font-size:30px;
+        color:#9c9c9c;
+        cursor:pointer;
+        margin-top:5px;
+        margin-right:10px;
+        &:hover{
+            color:rgb(41, 35, 35);
+        }
+    }
+
+    .fa-dropbox{
+        color:#0062ff;
+        &:hover{
+            color:#9c9c9c;
+        }
+    }
+
+    
+    .files-list {
+        margin-bottom:10px;
+        position:relative;
+        .wrapClass{
+            background:#f1f1f1;
+            width:100%;
+            display:block;
+            padding:20px;
+            .material-icons-outlined{
+                float:left;
+                margin-right:10px;
+            }
+            
+            .delete {
+                color:red;
+                font-size:17px;
+                
+                cursor:pointer;
+            }
+        }        
+    }
+    
+
+
+}
+

@@ -1,16 +1,18 @@
 <div class="col-12 p-2 pl-lg-0 pt-lg-0 pr-4 pl-4">
  
-    <div class="row  ml-0 mr-0">
-        <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-mobile">
+    <div class="row ml-0 mr-0">
+        <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-mobile" [class.hide-me]="arrClick">
+            <i class="material-icons left-arr hide-on-mobile" (click)="aarHide();">arrow_back</i>
             <app-ticketsidebar></app-ticketsidebar>
         </div>
-        <div class="col-lg-9 col-12 inner-main-panel pr-0 pl-lg-3 pl-0">
+        <i class="material-icons right-arr hide-on-mobile" (click)="aarShow();">arrow_forward</i>
+        <div class="col-12 inner-main-panel pr-0 pl-lg-5 pl-0 " [ngClass]="{'col-lg-9': hasLock, 'offset-lg-3': hasLock, 'offset-lg-0': aarHide, 'offset-lg-12': aarHide }">
 
-                <div class="col-12 col-lg-12 pl-0 pr-0 pt-2 pt-lg-4 pb-4 mt-4 d-lg-flex">
-                        <div class="col-lg-2 col-12 p-0 m-0">
+                <div class="col-12 col-lg-12 pl-0 pr-0 pt-2 pt-lg-3 pb-3 mt-4 d-lg-flex">
+                        <div class="col-lg-1 col-12 p-0 m-0">
                             <h1>Tickets</h1>
                         </div>
-                        <div class="col-lg-10 col-12 col-sm-12 d-flex justify-content-end flex-wrap pr-0 pl-0 mt-4 mt-lg-0 mt-sm-0">
+                        <div class="col-lg-11 col-12 col-sm-12 d-flex justify-content-end flex-wrap pr-0 pl-0 mt-4 mt-lg-0 mt-sm-0">
                             <div class="top-btns  order-5">
                                 <div class="btn-wrap d-flex align-items-center"><a href=""
                                         class="d-flex align-items-center"><i class="material-icons-outlined"  aria-label="">speed</i> <span>Dashbord</span></a></div>
@@ -29,7 +31,7 @@
                                         class="d-flex align-items-center"><i class="material-icons-outlined"  aria-label="">schedule</i> <span>Schedule</span></a></div>
                             </div>
                             <div class="top-btns order-1">
-                                <div class="btn-wrap d-flex align-items-center new-ticket"><a href=""
+                                <div class="btn-wrap d-flex align-items-center new-ticket"><a routerLink='/tickets/newtickets'
                                         class="d-flex align-items-center"><i class="material-icons-outlined"  aria-label="">add</i> <span>New Ticket</span></a></div>
                             </div>
                         </div>
@@ -148,7 +150,8 @@
                                 class="material-icons-outlined">filter_list</i></a>
                     </div>
                 </div>
-                <router-outlet name="ticket"></router-outlet>
+                <router-outlet></router-outlet>
+                
             </div>
         </div>
     </div>

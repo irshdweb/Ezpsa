@@ -12,7 +12,8 @@ export class EquipmentComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['Jhon Doe', 'Kennedy', 'Ann'];
   filteredOptions: Observable<string[]>;
-  ngOnInit() {
+
+ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),
@@ -24,6 +25,19 @@ export class EquipmentComponent implements OnInit {
     const filterValue = value.toLowerCase();
 
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  arrClick = false;
+  hasLock = true;
+
+  aarHide(){
+    this.arrClick=true;
+    this.hasLock=false;
+  }
+
+  aarShow(){
+    this.arrClick=false;
+    this.hasLock=true;
   }
 
 }

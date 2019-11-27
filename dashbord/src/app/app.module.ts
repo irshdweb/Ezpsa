@@ -21,6 +21,8 @@ import { TicketsidebarComponent } from './tickets/ticketsidebar/ticketsidebar.co
 import { Last20Component } from './tickets/last20/last20.component';
 import { EllipsisPipe } from './tickets/last20/ellipsis.pipe';
 import { TicketFillterComponent } from './modals/ticket-fillter/ticket-fillter.component';
+import { NewTicketsComponent } from './tickets/new-tickets/new-tickets.component';
+import { DragDirective } from './tickets/drag.directive';
 
 
 
@@ -42,7 +44,9 @@ import { TicketFillterComponent } from './modals/ticket-fillter/ticket-fillter.c
     TicketsidebarComponent,
     Last20Component,
     EllipsisPipe,
-    TicketFillterComponent
+    TicketFillterComponent,
+    NewTicketsComponent,
+    DragDirective
 
   ],
   imports: [
