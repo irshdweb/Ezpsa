@@ -1,152 +1,369 @@
-<div class="col-12 pl-4 pt-5">
-    <h1>Add New Ticket</h1>
-</div>
-<div class="row d-flex justify-content-around mr-0 ml-0 mt-5">
-    <div class="col-11 p-4 contentWrap">
-        <mat-radio-group aria-label="Select an option"
-            class="justify-content-lg-between justify-content-sm-between justify-content-md-between d-flex">
-
-            <mat-radio-button value="1">New Ticket</mat-radio-button>
-
-            <mat-radio-button value="2">Create a Ticket from template</mat-radio-button>
-
-
-            <mat-radio-button value="3">Create a new template</mat-radio-button>
-
-        </mat-radio-group>
-    </div>
-    <form [formGroup]="addTicketForm" novalidate>
-    <div class="col-11 p-4 mt-3 contentWrap">
-        <h4>Ticket details</h4>
-        <!--<mat-divider></mat-divider>-->
-        
-            <div class="row mt-4">
-                <div class="col-lg-4">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <mat-select placeholder="Assigned" formControlName="assigned">
-                            <mat-option value="4">Access Point</mat-option>
-                        </mat-select>
-
-                    </mat-form-field>
+<div class="row d-flex mr-0 ml-0 p-0">
+    <div class="col-12 contentWrap p-0">
+        <div class="row p-0 ml-0 mr-0">
+            <div class="col-lg-8 col-md-8 col-12 pb-5">
+                <div class="alert alert-danger alert-dismissible fade show mt-3 mb-0 " role="alert">
+                    <strong>Warning:</strong> One servers covered by flat rate
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="col-lg-4">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <input matInput placeholder="Client" type="text" formControlName="client">
-
-
-                    </mat-form-field>
+                <div class="col-12 pt-5 pb-3">
+                    <h1>Add New Ticket</h1>
                 </div>
-                <div class="col-lg-4">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
+                <div class="col-12 pt-3 pb-3">
 
-                        <mat-select placeholder="Project" formControlName="project">
-                            <mat-option value="4">Access Point</mat-option>
-                        </mat-select>
-
-                    </mat-form-field>
                 </div>
-                <div class="col-lg-4">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <mat-select placeholder="Contact Name" formControlName="contactName">
-                            <mat-option value="4">Access Point</mat-option>
-                        </mat-select>
-
-                    </mat-form-field>
-                </div>
-                <div class="col-lg-4">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <mat-select placeholder="Devices" formControlName="devices">
-                            <mat-option value="4">Access Point</mat-option>
-                        </mat-select>
-
-                    </mat-form-field>
-                </div>
-                <div class="col-lg-4">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <mat-select placeholder="Priority" formControlName="priority">
-                            <mat-option value="4">Access Point</mat-option>
-                        </mat-select>
-
-                    </mat-form-field>
-                </div>
-                <div class="col-lg-4">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <mat-select placeholder="Issue Type" formControlName="issue">
-                            <mat-option value="4">Access Point</mat-option>
-                        </mat-select>
-
-                    </mat-form-field>
-                </div>
-                <div class="col-lg-8">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <input matInput placeholder="Title" type="text" formControlName="title">
-
-
-                    </mat-form-field>
-                </div>
-                <div class="col-lg-12">
-                    <mat-form-field class="w-100 pl-3 pr-3 ">
-
-                        <textarea matInput placeholder="Description" formControlName="description"></textarea>
-
-
-                    </mat-form-field>
-                </div>
-                <div class="col-lg-12">
-                    <div class="w-100 pl-3 pr-3 ">
-                        <div class="uploadfilecontainer d-flex justify-content-center align-items-center" (click)="fileInput.click()" appDrag
-                            (onFileDropped)="uploadFile($event)">
-                            Drag & Drop
-                            <input hidden multiple type="file" #fileInput (change)="uploadFile($event.target.files)">
+                <div class="col-12">
+                    <form [formGroup]="addTicketForm" novalidate>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label>Assigned</label>
+                                <select formControlName="assigned" required>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+                            </div>
                         </div>
-                        <i class="material-icons filesUp" (click)="fileInput.click()">attach_file</i>
-                        <i class="fa fa-dropbox" matTooltip="Choose From Dropbox"></i>
-                        <svg matTooltip="Choose From Google Drive" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px"><path fill="#FFC107" d="M17 6L31 6 45 30 31 30z"/><path fill="#1976D2" d="M9.875 42L16.938 30 45 30 38 42z"/><path fill="#4CAF50" d="M3 30.125L9.875 42 24 18 17 6z"/></svg>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="w-100 pl-3 pr-3 ">
-                        <div class="row mt-3">
-                            <div class="files-list col-12 col-lg-6 col-sm-6" *ngFor="let file of files;let i= index">
-                                <div class="wrapClass">
-                                    <div class="row">
-                                       
-                                    <div class="col-11"> <!--<img [src]="imgURL" width="30">--><i class="material-icons-outlined">insert_drive_file</i> {{ file }} </div>
-                                    <div class="col-1"><i class="material-icons delete" (click)="deleteAttachment(i)">close</i></div>
+                        <div class="row mt-1">
+                            <div class="col-12">
+                                <label>Client</label>
+
+                                <select class="selectpicker idealSelect" formControlName="client"
+                                    data-live-search="true" required>
+                                    <option disabled="disabled">Select Client</option>
+                                    <option value="Ab Soft Limited">Ab Soft Limited</option>
+                                    <option value="ABC Bins Limited">ABC Bins Limited</option>
+                                    <option value="Bank West">Bank West</option>
+                                </select>
+                                <div class="clearfix"></div>
+                                <a class="float-right flt-tags">+ Add New</a>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label>Project</label>
+                                <select formControlName="project" required>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Contact Name</label>
+                                <select formControlName="contactName" required>
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+                                </select>
+
+                                <a class="float-right flt-tags">+ Add New</a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Devices</label>
+
+                                <select class="selectpicker idealSelect" multiple formControlName="devices"
+                                    data-live-search="true" required>
+                                    <option disabled="disabled">Select Devices</option>
+                                    <option value="Ab Soft Limited">Ab Soft Limited</option>
+                                    <option value="ABC Bins Limited">ABC Bins Limited</option>
+                                    <option value="Bank West">Bank West</option>
+                                </select>
+                                <div class="clearfix"></div>
+                                <a class="float-right flt-tags">+ Add New</a>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label>Priority</label>
+                                <select formControlName="priority" required>
+                                    <option value="volvo">Critical</option>
+                                    <option value="saab">Urgent</option>
+                                    <option value="mercedes">Medium</option>
+                                    <option value="audi">Low</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label>Issue Type</label>
+                                <select formControlName="issue" required>
+                                    <option value="1">-</option>
+                                    <option value="3">Incident</option>
+                                    <option value="4">Problem</option>
+                                    <option value="2">Question</option>
+                                    <option value="5">Task</option>
+                                </select>
+
+
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <label>Title</label>
+                                <input type="text" formControlName="title" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <label>Description</label>
+                                <quill-editor [styles]="editorStyle" [modules]="config" [class.bebo]="clickTrue"
+                                    formControlName="editorRich">
+
+                                </quill-editor>
+                                <div class="col-12 floating-pop">
+                                    <ul>
+                                        <li><a matTooltip="Formatting Options" (click)="showTool();">A</a></li>
+                                        <li><i class="fa fa-paperclip" matTooltip="Attach File"
+                                                (click)="showAtch();"></i></li>
+                                        <li><i class="fa fa-dropbox" matTooltip="Choose From Dropbox"></i></li>
+                                        <li><svg matTooltip="Choose From Google Drive"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px">
+                                                <path fill="#FFC107" d="M17 6L31 6 45 30 31 30z" />
+                                                <path fill="#1976D2" d="M9.875 42L16.938 30 45 30 38 42z" />
+                                                <path fill="#4CAF50" d="M3 30.125L9.875 42 24 18 17 6z" /></svg></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 upldPanel mt-4" [class.showUp]="upld">
+                                <div class="uploadfilecontainer d-flex justify-content-center align-items-center"
+                                    (click)="fileInput.click()" appDrag (onFileDropped)="uploadFile($event)">
+                                    <i class="fa fa-upload"></i> Choose a file or Drag it here
+                                    <input hidden multiple type="file" #fileInput
+                                        (change)="uploadFile($event.target.files)">
+                                </div>
+                            </div>
+                            <div class="w-100 pl-3 pr-3 ">
+                                <div class="row mt-3 p-3">
+                                    <div class="files-list" *ngFor="let file of files;let i= index">
+                                        <div class="wrapClass">
+                                            <!--<img [src]="imgURL" width="30">--><i
+                                                class="material-icons-outlined">insert_drive_file</i>
+                                            {{ file | ellipsis: 16}}
+                                            <i class="material-icons delete" (click)="deleteAttachment(i)">close</i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <mat-checkbox (change)="resTicket()">Resolve Ticket</mat-checkbox>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row mt-3 col-11 inner offset-md-1 offset-0" [class.showResolve]="conTrue">
+                                <div class="col-lg-3 col-md-4 col-6">
+                                    <label>Time units</label>
+                                    <input type="text" formControlName="timeUnit" required [ngModel]="time"
+                                        (ngModelChange)="time= $event">
+                                </div>
+
+                                <div class="col-lg-2 col-md-3 col-6">
+                                    <label style="color:#fff;">total-time</label>
+                                    <input type="text" readonly class="displayTime" value="{{ time * 15 | hour }}">
+
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-12">
+                                    <label>Time</label>
+                                    <input [owlDateTimeTrigger]="dt" [owlDateTime]="dt">
+                                    <owl-date-time #dt></owl-date-time>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <mat-checkbox>Is chargeable?</mat-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3" [class.noneDisplay]="schTicket">
+                            <div class="col-12">
+                                <mat-checkbox (change)="scheduleTicket()">Schedule Ticket</mat-checkbox>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="row mt-3 col-11 inner offset-md-1 offset-0" [class.showSchedule]="conTrueOne">
+                                <div class="col-lg-12 col-md-12 col-12 mb-3">
+                                    <mat-checkbox (change)="wholeDay()">Whole Day</mat-checkbox>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <label>Start Date</label>
+                                    <input [owlDateTimeTrigger]="dt12" [disabled]="isDisabled" [owlDateTime]="dt12"
+                                        [(ngModel)]="selectedMoments" [selectMode]="'rangeFrom'"
+                                        formControlName="StartDate">
+                                    <owl-date-time #dt12></owl-date-time>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-12">
+                                    <label>End Date</label>
+                                    <input [owlDateTimeTrigger]="dt13" [disabled]="isDisabled" [owlDateTime]="dt13"
+                                        [(ngModel)]="selectedMoments" [selectMode]="'rangeTo'"
+                                        formControlName="EndDate">
+                                    <owl-date-time #dt13></owl-date-time>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12">
+                                <mat-checkbox (change)="advancedOption()">View Advanced Options</mat-checkbox>
+                                <div class="clearfix"></div>
+                                <div class="row mt-3 col-11 inner offset-md-1 offset-0"
+                                    [class.showAdvancedOption]="conTrueTwo">
+                                    <h5>Advanced options</h5>
+                                    <mat-divider></mat-divider>
+
+                                    <div class="col-12 mt-3">
+                                        <label>Logged By</label>
+                                        <select formControlName="priority" required>
+                                            <option value="volvo">Critical</option>
+                                            <option value="saab">Urgent</option>
+                                            <option value="mercedes">Medium</option>
+                                            <option value="audi">Low</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <label>Additional People to Notify</label>
+
+                                        <select class="selectpicker idealSelect" multiple formControlName="peopleNotify"
+                                            data-live-search="true" required>
+                                            <option disabled="disabled">Select Devices</option>
+                                            <option value="Ab Soft Limited">Ab Soft Limited</option>
+                                            <option value="ABC Bins Limited">ABC Bins Limited</option>
+                                            <option value="Bank West">Bank West</option>
+                                        </select>
+                                        <div class="clearfix"></div>
+                                        <a class="float-right flt-tags">+ Add New</a>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <mat-checkbox (change)="intTicket()">Internal Ticket</mat-checkbox>
+                                    </div>
+                                    <div class="col-12 mt-3" [class.noneDisplay]="ifIntTicket">
+                                        <mat-checkbox>Send Client a Notification</mat-checkbox>
+                                    </div>
+
+
+                                    <div class="col-12 mt-3">
+                                        <mat-checkbox>No SLA Response Required</mat-checkbox>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <mat-checkbox>Create a Ticket from template</mat-checkbox>
+                                    </div>
+                                    <div class="col-12 mt-3">
+                                        <mat-checkbox>Ticket Recurs</mat-checkbox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-5 p-3 button-wrap">
+                            <div class="col-lg-5 col-md-5 col-12">
+                                <label>Select A Template</label>
+
+                                <select class="selectpicker idealSelect" multiple formControlName="peopleNotify"
+                                    data-live-search="true" required>
+                                    <option disabled="disabled">Select Devices</option>
+                                    <option value="Ab Soft Limited">Ab Soft Limited</option>
+                                    <option value="ABC Bins Limited">ABC Bins Limited</option>
+                                    <option value="Bank West">Bank West</option>
+                                </select>
+                            </div>
+                            <div
+                                class="col-lg-7 col-md-7 col-12 d-flex flex-wrap align-items-center justify-content-end">
+                                <button mat-raised-button color="primary" type="submit">Add Ticket</button>
+                                <button type="reset" mat-raised-button color="primary">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        
-    </div>
-    <div class="col-11 p-4 mt-3 contentWrap">
-       <mat-checkbox> Resolve Ticket</mat-checkbox>
-       <div class="row">
-           <div class="col-lg-3 col-sm-6 col-12">
-                
-                <mat-form-field class="w-100 pl-3 pr-3 ">
+            <div class="col-lg-4 col-md-4 col-12 recent-ticket pl-5">
+                <div class="wrap col-12 mt-4">
+                    <h3 class="mb-3">Recent Tickets</h3>
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
 
-                        <input matInput placeholder="Time units" type="text" formControlName="time">
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
 
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
 
-                    </mat-form-field>
-           </div>
-       </div>
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
+                    <h3 class="mb-3 mt-5">Similar Tickets</h3>
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
+
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
+
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
+
+                    <div class="col-12 tickPan">
+                        <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                            ignore</span>
+                        <div class="clearfix"></div>
+                        <span class="it">Last Update: 20/11/2019<br />
+                            Created: 15/11/2019</span>
+                    </div>
+                    <div class="col-12 tickPan">
+                            <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                                ignore</span>
+                            <div class="clearfix"></div>
+                            <span class="it">Last Update: 20/11/2019<br />
+                                Created: 15/11/2019</span>
+                        </div>
+                        <div class="col-12 tickPan">
+                                <span class="hd"><span class="num">#307</span> - Test Colin's new ticket issue - Please
+                                    ignore</span>
+                                <div class="clearfix"></div>
+                                <span class="it">Last Update: 20/11/2019<br />
+                                    Created: 15/11/2019</span>
+                            </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-11 p-4 mt-3 contentWrap">
-        <mat-checkbox> Schedule Ticket</mat-checkbox>
-    </div>
-    <div class="col-11 p-4 mt-3 contentWrap">
-        <mat-checkbox> View Advanced Options</mat-checkbox>
-    </div>
-</form>
 </div>

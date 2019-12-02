@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class Last20Component implements OnInit {
   config: any;
   collection = [];
+  myModel = false;
 
   d_name = true;
   a_status = true;

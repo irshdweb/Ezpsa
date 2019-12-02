@@ -128,3 +128,93 @@ pagination-controls{
 ::ng-deep .mat-checkbox-checked .mat-checkbox-background {
     background-color: $check_box_bg !important;
 }
+
+quill-editor{
+    margin-bottom:10px;
+    &.bebo{
+        .ql-toolbar{
+            &.ql-snow {
+                display:block;
+                position:relative;
+                margin-bottom:10px;
+                border-radius:5px;
+                border:1px solid #c9c9c9;
+                -webkit-box-shadow: inset -1px 7px 35px -22px rgb(117, 115, 117);
+                -moz-box-shadow: inset -1px 7px 35px -22px rgba(117,115,117,1);
+                box-shadow: inset -1px 7px 35px -22px rgba(117,115,117,1); 
+            }
+            .ql-bold {
+                &.ql-active{
+                    .ql-stroke{
+                        color:#010101 !important;
+                    }
+
+                }  
+            }
+            
+          }
+    }
+    .ql-toolbar{
+        &.ql-snow {
+            display:none;   
+        }  
+      }
+      &.ng-pristine{
+        &.ng-invalid{
+            &.ng-touched{
+                border:1px solid rgb(187, 74, 74);
+            }
+        } 
+    }
+      
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width:100%;
+    height:40px;
+    border-radius:5px;
+    padding-left:5px;
+    margin-bottom:10px;
+    border:1px solid #c9c9c9;
+    -webkit-box-shadow: inset -1px 7px 35px -22px rgb(117, 115, 117);
+    -moz-box-shadow: inset -1px 7px 35px -22px rgba(117,115,117,1);
+    box-shadow: inset -1px 7px 35px -22px rgba(117,115,117,1);
+    &.ng-pristine{
+        &.ng-invalid{
+            &.ng-untouched{
+                border:1px solid rgb(187, 74, 74) !important;
+            }
+        } 
+    }
+}
+
+//.selectpicker.idealSelect.ng-untouched.ng-pristine.ng-invalid{
+    //border:1px solid rgb(187, 74, 74) !important;
+//}
+
+.bootstrap-select > .dropdown-toggle{
+    background:none !important;
+    border:none !important;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .4em solid #000000!important;
+    border-right: .2em solid transparent;
+    border-bottom: 0;
+    border-left: .2em solid transparent;
+}
+
+.addTicketComPicker{
+    .mat-form-field-appearance-legacy {
+        .mat-form-field-underline{
+            height:0px !important; 
+        }
+    }
+    mat-datepicker-toggle{
+       float:left !important;
+    }
+}

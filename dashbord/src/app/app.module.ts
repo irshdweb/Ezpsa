@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material/material.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { EquipmentComponent } from './equipment/equipment.component';
@@ -23,6 +23,9 @@ import { EllipsisPipe } from './tickets/last20/ellipsis.pipe';
 import { TicketFillterComponent } from './modals/ticket-fillter/ticket-fillter.component';
 import { NewTicketsComponent } from './tickets/new-tickets/new-tickets.component';
 import { DragDirective } from './tickets/drag.directive';
+import { QuillModule } from 'ngx-quill';
+import { HourPipe } from './tickets/new-tickets/hour.pipe';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
 
@@ -46,7 +49,8 @@ import { DragDirective } from './tickets/drag.directive';
     EllipsisPipe,
     TicketFillterComponent,
     NewTicketsComponent,
-    DragDirective
+    DragDirective,
+    HourPipe
 
   ],
   imports: [
@@ -55,7 +59,11 @@ import { DragDirective } from './tickets/drag.directive';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    QuillModule.forRoot(),
+    ReactiveFormsModule,
+    OwlDateTimeModule, 
+    OwlNativeDateTimeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
