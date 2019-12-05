@@ -12,29 +12,27 @@ declare let $: any;
   styleUrls: ['./new-tickets.component.scss']
 })
 export class NewTicketsComponent implements OnInit {
-
+  timeCal : any;
   addTicketForm: FormGroup;
-  
   constructor(private fb: FormBuilder) {
    this.createForm();
  }
   createForm() {
    this.addTicketForm = this.fb.group({
-    assigned: ['', Validators.required ],
-    client: ['', Validators.required ],
-    project: ['', Validators.required ],
-    contactName: ['', Validators.required ],
-    devices: ['', Validators.required ],
-    priority: ['', Validators.required ],
+    template: [''],
+    assigned: [''],
+    clientName: ['', Validators.required ],
+    project: [''],
+    contactName: [''],
+    devices: [''],
+    priorityType: [''],
     issue: ['', Validators.required ],
     title: ['', Validators.required ],
-    description: ['', Validators.required ],
-    time: ['', Validators.required ],
-    editorRich:['', Validators.required ],
-    timeUnit:['', Validators.required ],
-    StartDate:['', Validators.required ],
-    EndDate:['', Validators.required ],
-    peopleNotify:['', Validators.required ]
+    editorRich:[''],
+    timeUnit:[''],
+    StartDate:[''],
+    EndDate:[''],
+    peopleNotify:['']
    });
  }
 
@@ -100,11 +98,11 @@ intTicket(){
   
   editorStyle ={
     height: '300px',
-    boxShadow:'inset -1px 7px 35px -22px #757375',
+    //boxShadow:'inset -1px 7px 35px -22px #757375',
     borderRadius:'5px',
     //color:'#a1a1a1',
     fontSize:'15px',
-    border:'1px solid #c9c9c9'
+    border:'1px solid #9e9e9e'
   }
 
   config = {
@@ -129,7 +127,10 @@ intTicket(){
   }
 
   ngOnInit() {
-    $('.idealSelect').selectpicker('refresh');
+   
+    $(document).ready(function() {
+      $('.js-example-basic-multiple').select2();
+  });
     
   }
  

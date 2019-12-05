@@ -4,10 +4,11 @@
 mat-toolbar {
     background: $toolbar_bg;
     height:63px;
-    width:100%;
+    width:calc(100% - 80px);
+    position:fixed;
     padding-left:23px;
     z-index:9999;
-    position:relative;
+    //position:relative;
     -webkit-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
     -moz-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
     box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
@@ -64,6 +65,7 @@ mat-toolbar {
 
 @media screen and (max-width: 840px) {
     mat-toolbar {
+        width:100%;
         .txt-serach{
             display:none;
         }
