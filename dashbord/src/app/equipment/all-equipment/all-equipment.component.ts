@@ -36,7 +36,7 @@ export class AllEquipmentComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private __selectvalue: ColsetService) {
     this.config = {
       currentPage: 1,
-      itemsPerPage: 7,
+      itemsPerPage: 10,
       totalItems: 0
     };
     route.queryParams.subscribe(

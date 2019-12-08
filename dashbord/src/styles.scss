@@ -6,7 +6,7 @@ h1{
     margin:0;
     padding:0;
     font-size:$h1_size;
-    font-weight:900;
+    font-weight:700;
     color:$h1_color;
 }
 h3{
@@ -73,14 +73,18 @@ pagination-controls{
 
 .ngx-pagination{
         li{
+            border-radius:3px;
+
             &.current{
                 background:$primary_bg_color !important;
+
             }
             &:focus{
                 outline: none !important;
             }
             a{
                 text-decoration:none;
+                font-size:13px;
             }
         }
     }

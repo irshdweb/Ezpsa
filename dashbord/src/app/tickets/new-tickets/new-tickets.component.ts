@@ -97,7 +97,8 @@ intTicket(){
   /***Quil Js Text Editor Configs****/
   
   editorStyle ={
-    height: '300px',
+    minHeight: '100px',
+    height:'auto',
     //boxShadow:'inset -1px 7px 35px -22px #757375',
     borderRadius:'5px',
     //color:'#a1a1a1',

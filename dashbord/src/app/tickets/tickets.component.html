@@ -1,14 +1,29 @@
-<div class="col-12 p-2 pl-lg-0 pt-lg-0 pr-4 pl-4">
- 
-    <div class="row ml-0 mr-0">
-        <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-mobile" [class.hide-me]="arrClick">
-            <i class="material-icons left-arr hide-on-mobile" (click)="aarHide();">arrow_back</i>
+<div class="subHeader col-12 pl-4">
+    <div class="row  d-flex ml-0 mr-0 align-items-center">
+        <div class="col-lg-3 col-md-3 col-12 pl-0">
+            <h1>Tickets</h1>
+        </div>
+        <div
+            class="col-lg-9 col-md-9 col-12 d-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
+
+            <button class="main-btns tick" (click)="redirect()"><span>New Ticket </span><i class="material-icons-outlined"  aria-label="">add</i></button>
+            <button class="main-btns tick"><span>Schedule </span><i class="material-icons-outlined"  aria-label="">schedule</i></button>
+            <button class="main-btns tick"><span>Alerts </span><i class="material-icons-outlined"  aria-label="">notifications</i></button>
+            <button class="main-btns tick"><span>Tags </span><i class="material-icons-outlined"  aria-label="">local_offer</i></button>
+            <button class="main-btns tick"><span>Dashbord </span><i class="material-icons-outlined"  aria-label="">speed</i></button>
+        </div>
+    </div>
+</div>
+<div class="col-12 mainContainer pl-0 pr-0">
+
+    <div class="w-100 ml-0 mr-0">
+        <div class="inner-side-pannel hide-on-mobile" [class.hide-me]="arrClick">
+
             <app-ticketsidebar></app-ticketsidebar>
         </div>
-        <i class="material-icons right-arr hide-on-mobile" (click)="aarShow();">arrow_forward</i>
-        <div class="col-12 inner-main-panel pr-0 pl-lg-5 pl-0 " [ngClass]="{'col-lg-9': hasLock, 'offset-lg-3': hasLock, 'offset-lg-0': aarHide, 'offset-lg-12': aarHide }">
 
-                <div class="col-12 col-lg-12 pl-0 pr-0 pt-2 pt-lg-3 pb-3 mt-4 d-lg-flex">
+        <div class="inner-main-panel" [class.w-100]="arrClick">
+            <!-- <div class="col-12 col-lg-12 pl-0 pr-0 pt-2 pt-lg-3 pb-3 mt-4 d-lg-flex">
                         <div class="col-lg-1 col-12 p-0 m-0">
                             <h1>Tickets</h1>
                         </div>
@@ -35,14 +50,16 @@
                                         class="d-flex align-items-center"><i class="material-icons-outlined"  aria-label="">add</i> <span>New Ticket</span></a></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-desktop">
-                            <app-ticketsidebar></app-ticketsidebar>
-                        </div>
+                    </div>-->
+            <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-desktop">
+                <app-ticketsidebar></app-ticketsidebar>
+            </div>
 
-            <div class="col-lg-12 col-12 pt-0 mt-4 pb-0 wrap">    
+            <div class="col-lg-12 col-12 pt-0 pb-0 wrap">
                 <div class="row top-filters pl-3 pr-3">
-                    <div class="col-lg-6 col-12 col-sm-6 pb-4 pb-lg-0 pb-sm-0">
+                    <div class="col-lg-6 col-12 col-sm-6 pb-4 pb-lg-0 pb-sm-0 typeOne">
+                        <div class="click-arrow hide-on-mobile" matTooltip="{{msg}} Filters"
+                            (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
                         <div class="dropdown">
                             <button class="task-drp" type="button" data-toggle="dropdown">Actions &#9660;</button>
 
@@ -151,9 +168,8 @@
                     </div>
                 </div>
                 <router-outlet></router-outlet>
-                
+
             </div>
         </div>
     </div>
 </div>
-

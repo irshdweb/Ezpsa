@@ -29,15 +29,26 @@ ngOnInit() {
 
   arrClick = false;
   hasLock = true;
+  public arrow = "fa-chevron-left";
+  public msg = "Close"
 
-  aarHide(){
-    this.arrClick=true;
-    this.hasLock=false;
+  aarHide(newIcon: string, newMsg: string){
+    this.arrClick = !this.arrClick;
+    this.hasLock = !this.hasLock;
+    if(this.arrow == 'fa-chevron-right'){
+      this.arrow='fa-chevron-left';
+    }
+    else{
+      this.arrow = newIcon ; 
+    }
+
+    if(this.msg == 'Open'){
+      this.msg='Close';
+    }
+    else{
+      this.msg = newMsg;
+    }
   }
 
-  aarShow(){
-    this.arrClick=false;
-    this.hasLock=true;
-  }
 
 }

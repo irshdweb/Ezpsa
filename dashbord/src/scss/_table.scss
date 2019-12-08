@@ -4,14 +4,15 @@
         .table-striped{
             margin-top:30px;
             tr{
-                &:nth-of-type(odd){
+                    border-bottom:1px solid #f5f7f9;
                     background:#fff;
-                }
+                    
+                
                 th{
-                    background:#F0EEEE;
+                    background:#f5f7f9;
                     display:none;
                     padding-left:20px;
-                    padding-right:20px;
+                    border-bottom:none !important;
                    
                 }
                 td{
@@ -19,23 +20,26 @@
                     font-size:13px;
                     display:none;
                     font-weight:600;
-                    padding-top:20px;
-                    padding-bottom:20px;
                     padding-left:20px;
                     padding-right:20px;
+                    padding-top:20px;
+                    padding-bottom:20px;
                     .status-pan{
-                        border-radius:10px;
-                        padding-left:8px;
-                        padding-right:8px;
+                        border-radius:2px;
+                        padding-left:20px;
+                        padding-right:20px;
                         padding-top:1px;
                         padding-bottom:1px;
                         color:#fff;
                         font-size:12px;
                         &.offline{
-                            background:#CD1A1A;
+                            border:1px solid #CD1A1A;
+                            color:#CD1A1A;
                         }
                         &.online{
-                            background:#085907;
+                            border:1px solid #bebebe;
+                            color: #085907;
+                            background :#cdebc4;
                         }
                     }
                     &.bold{

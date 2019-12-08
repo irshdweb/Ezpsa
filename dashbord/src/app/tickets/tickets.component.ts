@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tickets',
@@ -8,16 +9,34 @@ import { Component, OnInit } from '@angular/core';
 export class TicketsComponent implements OnInit {
   arrClick = false;
   hasLock = true;
-  constructor() { }
+  public arrow = "fa-chevron-left";
+  public msg = "Close";
 
-  aarHide(){
-    this.arrClick=true;
-    this.hasLock=false;
+
+  constructor(private router: Router) { 
+
   }
 
-  aarShow(){
-    this.arrClick=false;
-    this.hasLock=true;
+  aarHide(newIcon: string, newMsg: string){
+    this.arrClick = !this.arrClick;
+    this.hasLock = !this.hasLock;
+    if(this.arrow == 'fa-chevron-right'){
+      this.arrow='fa-chevron-left';
+    }
+    else{
+      this.arrow = newIcon ; 
+    }
+
+    if(this.msg == 'Open'){
+      this.msg='Close';
+    }
+    else{
+      this.msg = newMsg;
+    }
+  }
+
+  redirect() {
+    this.router.navigate(['./tickets/newtickets']);
   }
 
   ngOnInit() {

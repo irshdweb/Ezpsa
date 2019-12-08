@@ -183,7 +183,7 @@
     
     .floating-pop{
         font-size:25px;
-        margin-top:-70px;
+        margin-top:20px;
         position:relative;
         ul{
         list-style:none;
@@ -218,7 +218,11 @@
         }
         }
     }
-
+.checkWrap,.checkWraps{
+    background:#f1f1f1;
+    padding-top:10px;
+    padding-bottom:10px;
+}
     .inner{
         margin-bottom:30px;
         display:none;
@@ -235,8 +239,10 @@
         position:sticky;
         bottom:0;
         padding-top:10px;
+        margin-top:30px;
         padding-bottom:20px;
         width: 100%;
+        border-top:2px solid $primary_bg_color;
         //width:64%;
         //margin-left:-50px;
         background:#fff;
@@ -265,11 +271,11 @@
         padding-left:25px;
         padding-right:25px;
         padding-top:50px;
-        @include scrollbars(4px,rgb(182, 182, 182));
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar{
-            display:none;
-        }
+        @include scrollbars(4px,rgb(161, 161, 161));
+        //-ms-overflow-style: none;
+        //&::-webkit-scrollbar{
+            //display:none;
+        //}
         
         h3{
             font-weight:600;

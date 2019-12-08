@@ -1,39 +1,43 @@
-<div class="col-12 p-2 pl-lg-0 pt-lg-0 pr-4 pl-4">
+<div class="subHeader col-12 pl-4">
+    <div class="row  d-flex ml-0 mr-0 align-items-center">
+        <div class="col-lg-4 col-md-4 col-12 pl-0">
+            <h1>Equipments</h1>
+        </div>
+        <div class="col-lg-8 col-md-8 col-12 d-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
 
-    <div class="row ml-0 mr-0">
-        <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-mobile" [class.hide-me]="arrClick">
-            <i class="material-icons left-arr hide-on-mobile" (click)="aarHide();">arrow_back</i>
+            <div class="form-group d-flex align-items-center">
+                <input type="text" placeholder="Search User" aria-label="Number" matInput [formControl]="myControl"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </div>
+            <button class="main-btns">Download Agent <i class="fa fa-download" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="col-12 mainContainer pl-0 pr-0">
+
+    <div class="w-100 ml-0 mr-0">
+       <div class="inner-side-pannel hide-on-mobile" [class.hide-me]="arrClick">
+            <!--<i class="material-icons left-arr hide-on-mobile" (click)="aarHide();">arrow_back</i>-->
             <app-equipmentsidebar></app-equipmentsidebar>
         </div>
-        <i class="material-icons right-arr hide-on-mobile" (click)="aarShow();">arrow_forward</i>
-        <div class="col-12 inner-main-panel pr-0 pl-lg-5 pl-0 " [ngClass]="{'col-lg-9': hasLock, 'offset-lg-3': hasLock, 'offset-lg-0': aarHide, 'offset-lg-12': aarHide }">
-            <div class="col-lg-12 col-12 p-0 m-0 mt-lg-4 mb-lg-4 mt-4 mb-4 pt-3 pb-3">
-                <h1>Equipments</h1>
-            </div>
+
+        <!--<i class="material-icons right-arr hide-on-mobile" (click)="aarShow();">arrow_forward</i>-->
+        <!--<div class="inner-main-panel" [ngClass]="{'col-lg-9': hasLock, 'offset-lg-3': hasLock, 'offset-lg-0': aarHide, 'offset-lg-12': aarHide }">-->
+        <div class="inner-main-panel" [class.w-100]="arrClick">
             <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-desktop">
-                    <app-equipmentsidebar></app-equipmentsidebar>
-                </div>
-            <div class="col-12 search-bar-container pt-3 pb-3 d-lg-flex d-sm-flex align-items-center">
-                <div
-                    class="col-lg-6 col-sm-6 col-12 select-container pl-lg-0 justify-content-sm-center mb-sm-0 mb-lg-0 mb-3">
-                    <div class="form-group pl-3 col-12 col-lg-6">
-                        <input type="text" placeholder="Search User" aria-label="Number" matInput
-                            [formControl]="myControl" [matAutocomplete]="auto">
-                        <mat-autocomplete #auto="matAutocomplete">
-                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-                                {{option}}
-                            </mat-option>
-                        </mat-autocomplete>
-                    </div>
-                </div>
-                <div
-                    class="col-lg-6 col-sm-6 col-12 download-btn text-right pr-lg-0 justify-content-sm-center mt-sm-0 mt-lg-0 mt-3">
-                    <button class="download">Download Agent</button>
-                </div>
+                <app-equipmentsidebar></app-equipmentsidebar>
             </div>
-            <div class="col-lg-12 col-12 pt-0 pb-0 wrap mt-3">
+
+            <div class="col-lg-12 col-12 pt-0 pb-0 wrap">
                 <div class="row top-filters pl-3 pr-3">
-                    <div class="col-lg-6 col-12 col-sm-6 pb-4 pb-lg-0 pb-sm-0">
+                    <div class="col-lg-6 col-12 col-sm-6 pb-4 pb-lg-0 pb-sm-0 typeOne">
+                        <div class="click-arrow hide-on-mobile" matTooltip="{{msg}} Filters" (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
                         <div class="dropdown">
                             <button class="task-drp" type="button" data-toggle="dropdown">Task &#9660;</button>
                             <ul class="dropdown-menu">

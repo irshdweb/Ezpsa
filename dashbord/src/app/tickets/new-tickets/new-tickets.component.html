@@ -4,18 +4,18 @@
 
             <div class="leftPanmg">
                 <form [formGroup]="addTicketForm" novalidate>
-                    <!--<div class="alert alert-danger alert-dismissible fade show mt-3 mb-0 " role="alert">
+                    <div class="alert alert-danger alert-dismissible fade show mt-3 mb-0 " role="alert">
                     <strong>Warning:</strong> One servers covered by flat rate
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>-->
+                </div>
                     <div class="row mr-0 ml-0">
                         <div class="col-12 col-lg-7 col-md-7">
                             <h1>Add New Ticket</h1>
                         </div>
                         <div class="col-12 col-lg-5 col-md-5 d-flex justify-content-end align-items-center pt-0 pb-0">
-                            <mat-slide-toggle tabindex="0">Create a Ticket from template</mat-slide-toggle>
+                            <mat-slide-toggle tabindex="0">Template Ticket</mat-slide-toggle>
                         </div>
                     </div>
 
@@ -150,21 +150,21 @@
                                     [class.bebo]="clickTrue" formControlName="editorRich" required>
 
                                 </quill-editor>
-                                <div class="col-12 floating-pop">
+                                <div class="col-12 p-0 floating-pop">
                                     <ul>
                                         <li><a matTooltip="Formatting Options" (click)="showTool();">A</a></li>
                                         <li><i class="fa fa-paperclip" matTooltip="Attach File"
                                                 (click)="showAtch();"></i></li>
                                         <li><i class="fa fa-dropbox" matTooltip="Choose From Dropbox"></i></li>
                                         <li><svg matTooltip="Choose From Google Drive"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px">
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px" height="30px">
                                                 <path fill="#FFC107" d="M17 6L31 6 45 30 31 30z" />
                                                 <path fill="#1976D2" d="M9.875 42L16.938 30 45 30 38 42z" />
                                                 <path fill="#4CAF50" d="M3 30.125L9.875 42 24 18 17 6z" /></svg></li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-12 upldPanel mt-4" [class.showUp]="upld">
+                            <div class="col-12 upldPanel mt-3" [class.showUp]="upld">
                                 <div class="uploadfilecontainer d-flex justify-content-center align-items-center"
                                     (click)="fileInput.click()" appDrag (onFileDropped)="uploadFile($event)">
                                     <i class="fa fa-upload"></i> Choose a file or Drag it here
@@ -186,11 +186,14 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-12">
+                            <div class="col-12 col-sm-6 checkWrap">
                                 <mat-checkbox (change)="resTicket()" tabindex="11">Resolve Ticket</mat-checkbox>
                             </div>
+                            <div class="col-12 col-sm-6 checkWrap" [class.noneDisplay]="schTicket">
+                                    <mat-checkbox (change)="scheduleTicket()" tabindex="12">Schedule Ticket</mat-checkbox>
+                            </div>
                             <div class="clearfix"></div>
-                            <div class="row mt-3 col-11 inner offset-md-1 offset-0" [class.showResolve]="conTrue">
+                            <div class="row mt-3 col-11 inner" [class.showResolve]="conTrue">
                                 <div class="col-lg-3 col-md-4 col-6">
                                     <label>Time units</label>
                                     <input type="text" formControlName="timeUnit" [(ngModel)]="timeCal">
@@ -212,11 +215,9 @@
                             </div>
                         </div>
                         <div class="row mb-3" [class.noneDisplay]="schTicket">
-                            <div class="col-12">
-                                <mat-checkbox (change)="scheduleTicket()" tabindex="12">Schedule Ticket</mat-checkbox>
-                            </div>
+
                             <div class="clearfix"></div>
-                            <div class="row mt-3 col-11 inner offset-md-1 offset-0" [class.showSchedule]="conTrueOne">
+                            <div class="row mt-3 col-11 inner" [class.showSchedule]="conTrueOne">
                                 <div class="col-lg-12 col-md-12 col-12 mb-3">
                                     <mat-checkbox (change)="wholeDay()">Whole Day</mat-checkbox>
                                 </div>
@@ -238,11 +239,11 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <div class="col-12">
+                            <div class="col-12 checkWraps">
                                 <mat-checkbox (change)="advancedOption()" tabindex="13">View Advanced Options
                                 </mat-checkbox>
                                 <div class="clearfix"></div>
-                                <div class="row mt-3 col-11 inner offset-md-1 offset-0"
+                                <div class="row mt-3 col-12 inner"
                                     [class.showAdvancedOption]="conTrueTwo">
                                     <h5>Advanced options</h5>
                                     <mat-divider></mat-divider>
