@@ -23,6 +23,7 @@ export class NewTicketsComponent implements OnInit {
     assigned: [''],
     clientName: ['', Validators.required ],
     project: [''],
+    task: [''],
     contactName: [''],
     devices: [''],
     priorityType: [''],
@@ -47,6 +48,8 @@ schTicket = false;
 isDisabled = false;
 conTrueTwo = false;
 ifIntTicket = false;
+pickTemplate = false;
+showProject = false;
 resTicket(){
   this.conTrue = !this.conTrue;
   this.schTicket = !this.schTicket;
@@ -64,6 +67,10 @@ advancedOption(){
 
 intTicket(){
   this.ifIntTicket = !this.ifIntTicket;
+}
+
+selectTemplate(){
+  this.pickTemplate = !this.pickTemplate;
 }
 
 
@@ -131,8 +138,10 @@ intTicket(){
    
     $(document).ready(function() {
       $('.js-example-basic-multiple').select2();
-  });
-    
+    });
+
+    $('.clientSelect').on('select2:select', function (e) {
+      $("#hiddenRow").addClass("displayproperty");
+    });
   }
- 
 }

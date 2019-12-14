@@ -7,7 +7,7 @@ mat-toolbar {
     width:calc(100% - 80px);
     position:fixed;
     padding-left:23px;
-    z-index:9999;
+    z-index:2;
     //position:relative;
     -webkit-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
     -moz-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
@@ -61,6 +61,38 @@ mat-toolbar {
             bottom:0;
         }
     }
+    .search-float-wrap{
+        border:1px solid red;
+        max-width:400px;
+        width:100%;
+        text-align:right;
+        position:relative;
+        .searchIco{
+            height:30px !important;
+            width:30px !important;
+            border-radius: 50%;
+            background:$primary_bg_color;
+            text-align:center;
+            cursor:pointer;
+            transition: all 0.7s;
+            display:inline-block;
+            &:hover{
+                background:#525F80;
+            }
+            .material-icons-outlined{
+                color:#fff;
+                font-size:16px;
+            }
+        }
+        .search-panel-float{
+            width:100%;
+            position:absolute;
+            height:200px;
+            border:1px solid black;
+            z-index:1001;
+        }
+    }
+
 }
 
 @media screen and (max-width: 840px) {

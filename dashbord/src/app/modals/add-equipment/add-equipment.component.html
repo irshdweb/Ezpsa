@@ -1,227 +1,298 @@
 <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <h4 class="modal-title">Add New Equipment</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-      </div>
-      <form [formGroup]="angForm" novalidate>
-        <div class="modal-body">
-
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Name" class="form-control" type="text" formControlName="firstName">
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['firstName'].errors.required">
-              Name is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Description" type="text" formControlName="Description">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['Description'].invalid && (angForm.controls['Description'].dirty || angForm.controls['Description'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['Description'].errors.required">
-                Description is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-
-            <mat-select placeholder="Type" formControlName="Type">
-              <mat-option value="4">Access Point</mat-option>
-              <mat-option value="14">Desktop / Workstation</mat-option>
-              <mat-option value="8">Firewall / Router / Modem</mat-option>
-              <mat-option value="11">NAS/SAN</mat-option>
-              <mat-option value="5">Notebook</mat-option>
-              <mat-option value="12">Other</mat-option>
-              <mat-option value="10">Phone</mat-option>
-              <mat-option value="3">Printer</mat-option>
-              <mat-option value="2">Server</mat-option>
-              <mat-option value="9">Switch</mat-option>
-              <mat-option value="13">Unknown</mat-option>
-            </mat-select>
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['Type'].invalid && (angForm.controls['Type'].dirty || angForm.controls['Type'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['Type'].errors.required">
-              Select The Type.
-            </div>
-          </div>
-          <div class="w-100 pl-3 pr-3 pt-3 pb-3">
-            <div class="row">
-              <div class="col-lg-6">
-                <mat-checkbox>Virtual Machine</mat-checkbox>
-              </div>
-              <div class="col-lg-6">
-                <mat-checkbox>Active</mat-checkbox>
-              </div>
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-
-            <mat-select placeholder="Status" formControlName="Status">
-              <mat-option value="4">Access Point</mat-option>
-              <mat-option value="14">Desktop / Workstation</mat-option>
-              <mat-option value="8">Firewall / Router / Modem</mat-option>
-              <mat-option value="11">NAS/SAN</mat-option>
-              <mat-option value="5">Notebook</mat-option>
-              <mat-option value="12">Other</mat-option>
-              <mat-option value="10">Phone</mat-option>
-              <mat-option value="3">Printer</mat-option>
-              <mat-option value="2">Server</mat-option>
-              <mat-option value="9">Switch</mat-option>
-              <mat-option value="13">Unknown</mat-option>
-            </mat-select>
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['Status'].invalid && (angForm.controls['Status'].dirty || angForm.controls['Status'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['Status'].errors.required">
-              Select The Status.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Serial Number" type="text" formControlName="SerialNumber">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['SerialNumber'].invalid && (angForm.controls['SerialNumber'].dirty || angForm.controls['SerialNumber'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['SerialNumber'].errors.required">
-                Serial Number is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Location" type="text" formControlName="Location">
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['Location'].invalid && (angForm.controls['Location'].dirty || angForm.controls['Location'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['Location'].errors.required">
-                Location is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Manufacturer" type="text" formControlName="Manufacturer">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['Manufacturer'].invalid && (angForm.controls['Manufacturer'].dirty || angForm.controls['Manufacturer'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['Manufacturer'].errors.required">
-                Manufacturer is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Model" type="text" formControlName="Model">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['Model'].invalid && (angForm.controls['Model'].dirty || angForm.controls['Model'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['Model'].errors.required">
-              Model is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Firmware" type="text" formControlName="Firmware">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['Firmware'].invalid && (angForm.controls['Firmware'].dirty || angForm.controls['Firmware'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['Firmware'].errors.required">
-                Firmware is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="IP Address" type="text" formControlName="IPAddress">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['IPAddress'].invalid && (angForm.controls['IPAddress'].dirty || angForm.controls['IPAddress'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['IPAddress'].errors.required">
-                IP Address is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="MAC Address" type="text" formControlName="MACAddress">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['MACAddress'].invalid && (angForm.controls['MACAddress'].dirty || angForm.controls['MACAddress'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['MACAddress'].errors.required">
-              MAC Address is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Asset Number" type="text" formControlName="AssetNumber">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['AssetNumber'].invalid && (angForm.controls['AssetNumber'].dirty || angForm.controls['AssetNumber'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['AssetNumber'].errors.required">
-                Asset Number is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput placeholder="Barcode Number" type="text" formControlName="BarcodeNumber">
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['BarcodeNumber'].invalid && (angForm.controls['BarcodeNumber'].dirty || angForm.controls['BarcodeNumber'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['BarcodeNumber'].errors.required">
-                Barcode Number is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput [matDatepicker]="picker" placeholder="Purchase Date" formControlName="PurchaseDate">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['PurchaseDate'].invalid && (angForm.controls['PurchaseDate'].dirty || angForm.controls['PurchaseDate'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['PurchaseDate'].errors.required">
-                Purchase Date is required.
-            </div>
-          </div>
-          <mat-form-field class="w-100 pl-3 pr-3">
-            <input matInput [matDatepicker]="picker_1" placeholder="Warranty Expires" formControlName="WarrantyExpires">
-            <mat-datepicker-toggle matSuffix [for]="picker_1"></mat-datepicker-toggle>
-            <mat-datepicker #picker_1></mat-datepicker>
-
-          </mat-form-field>
-          <div
-            *ngIf="angForm.controls['WarrantyExpires'].invalid && (angForm.controls['WarrantyExpires'].dirty || angForm.controls['WarrantyExpires'].touched)"
-            class="alert alert-danger">
-            <div *ngIf="angForm.controls['WarrantyExpires'].errors.required">
-                Warranty Expires is required.
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer border-top-0">
-            <button mat-raised-button color="primary" type="submit">Save</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-        </div>
-      </form>
+<form [formGroup]="angForm" novalidate>
+  <div class="row mr-0 ml-0">
+    <div class="col-12 col-lg-7 col-md-7">
+      <h1>Add New Equipment</h1>
     </div>
 
   </div>
-</div>
+
+  <div class="col-12">
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Name</label>
+        <input matInput class="form-control" type="text" formControlName="firstName">
+
+        <div
+          *ngIf="angForm.controls['firstName'].invalid && (angForm.controls['firstName'].dirty || angForm.controls['firstName'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['firstName'].errors.required">
+            Name is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Description</label>
+        <input matInput placeholder="Description" type="text" formControlName="Description">
+
+
+        <div
+          *ngIf="angForm.controls['Description'].invalid && (angForm.controls['Description'].dirty || angForm.controls['Description'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['Description'].errors.required">
+            Description is required.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Type</label>
+
+        <select placeholder="Type" formControlName="Type">
+          <option value="4">Access Point</option>
+          <option value="14">Desktop / Workstation</option>
+          <option value="8">Firewall / Router / Modem</option>
+          <option value="11">NAS/SAN</option>
+          <option value="5">Notebook</option>
+          <option value="12">Other</option>
+          <option value="10">Phone</option>
+          <option value="3">Printer</option>
+          <option value="2">Server</option>
+          <option value="9">Switch</option>
+          <option value="13">Unknown</option>
+        </select>
+
+
+        <div
+          *ngIf="angForm.controls['Type'].invalid && (angForm.controls['Type'].dirty || angForm.controls['Type'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['Type'].errors.required">
+            Select The Type.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4 mt-4">
+
+
+      <div class="col-lg-6">
+        <mat-checkbox>Virtual Machine</mat-checkbox>
+      </div>
+      <div class="col-lg-6">
+        <mat-checkbox>Active</mat-checkbox>
+      </div>
+
+    </div>
+
+
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Status</label>
+        <select placeholder="Status" formControlName="Status">
+          <option value="4">Access Point</option>
+          <option value="14">Desktop / Workstation</option>
+          <option value="8">Firewall / Router / Modem</option>
+          <option value="11">NAS/SAN</option>
+          <option value="5">Notebook</option>
+          <option value="12">Other</option>
+
+        </select>
+
+
+        <div
+          *ngIf="angForm.controls['Status'].invalid && (angForm.controls['Status'].dirty || angForm.controls['Status'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['Status'].errors.required">
+            Select The Status.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Serial Number</label>
+        <input matInput placeholder="Serial Number" type="text" formControlName="SerialNumber">
+
+
+        <div
+          *ngIf="angForm.controls['SerialNumber'].invalid && (angForm.controls['SerialNumber'].dirty || angForm.controls['SerialNumber'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['SerialNumber'].errors.required">
+            Serial Number is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Location</label>
+        <input matInput placeholder="Location" type="text" formControlName="Location">
+
+        <div
+          *ngIf="angForm.controls['Location'].invalid && (angForm.controls['Location'].dirty || angForm.controls['Location'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['Location'].errors.required">
+            Location is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Manufacturer</label>
+        <input matInput placeholder="Manufacturer" type="text" formControlName="Manufacturer">
+
+
+        <div
+          *ngIf="angForm.controls['Manufacturer'].invalid && (angForm.controls['Manufacturer'].dirty || angForm.controls['Manufacturer'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['Manufacturer'].errors.required">
+            Manufacturer is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Model</label>
+        <input matInput placeholder="Model" type="text" formControlName="Model">
+
+
+        <div
+          *ngIf="angForm.controls['Model'].invalid && (angForm.controls['Model'].dirty || angForm.controls['Model'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['Model'].errors.required">
+            Model is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Firmware</label>
+        <input matInput placeholder="Firmware" type="text" formControlName="Firmware">
+
+
+        <div
+          *ngIf="angForm.controls['Firmware'].invalid && (angForm.controls['Firmware'].dirty || angForm.controls['Firmware'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['Firmware'].errors.required">
+            Firmware is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>IP Address</label>
+        <input matInput placeholder="IP Address" type="text" formControlName="IPAddress">
+
+
+        <div
+          *ngIf="angForm.controls['IPAddress'].invalid && (angForm.controls['IPAddress'].dirty || angForm.controls['IPAddress'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['IPAddress'].errors.required">
+            IP Address is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>MAC Address</label>
+        <input matInput placeholder="MAC Address" type="text" formControlName="MACAddress">
+
+
+        <div
+          *ngIf="angForm.controls['MACAddress'].invalid && (angForm.controls['MACAddress'].dirty || angForm.controls['MACAddress'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['MACAddress'].errors.required">
+            MAC Address is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Asset Number</label>
+        <input matInput placeholder="Asset Number" type="text" formControlName="AssetNumber">
+
+
+        <div
+          *ngIf="angForm.controls['AssetNumber'].invalid && (angForm.controls['AssetNumber'].dirty || angForm.controls['AssetNumber'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['AssetNumber'].errors.required">
+            Asset Number is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Barcode Number</label>
+        <input matInput placeholder="Barcode Number" type="text" formControlName="BarcodeNumber">
+
+
+        <div
+          *ngIf="angForm.controls['BarcodeNumber'].invalid && (angForm.controls['BarcodeNumber'].dirty || angForm.controls['BarcodeNumber'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['BarcodeNumber'].errors.required">
+            Barcode Number is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Purchase Date</label>
+        <input matInput [matDatepicker]="picker" placeholder="Purchase Date" formControlName="PurchaseDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+
+
+        <div
+          *ngIf="angForm.controls['PurchaseDate'].invalid && (angForm.controls['PurchaseDate'].dirty || angForm.controls['PurchaseDate'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['PurchaseDate'].errors.required">
+            Purchase Date is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-12">
+        <label>Warranty Expires</label>
+        <input matInput [matDatepicker]="picker_1" placeholder="Warranty Expires" formControlName="WarrantyExpires">
+        <mat-datepicker-toggle matSuffix [for]="picker_1"></mat-datepicker-toggle>
+        <mat-datepicker #picker_1></mat-datepicker>
+
+
+        <div
+          *ngIf="angForm.controls['WarrantyExpires'].invalid && (angForm.controls['WarrantyExpires'].dirty || angForm.controls['WarrantyExpires'].touched)"
+          class="alert alert-danger">
+          <div *ngIf="angForm.controls['WarrantyExpires'].errors.required">
+            Warranty Expires is required.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="button-wrap">
+    <div class="col-12  align-items-right justify-content-end">
+      <button type="reset" mat-raised-button color="primary" class="cancel">Cancel</button>
+      <button mat-raised-button color="primary" type="submit" tabindex="15">Save</button>
+
+    </div>
+  </div>
+</form>

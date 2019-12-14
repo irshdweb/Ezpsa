@@ -8,34 +8,44 @@ mat-sidenav-container{
         background:$primary_bg_color;
         width:80px;
         height:100%;
-    }
-    .close-menu{
-        width:80px;
-    }
-    .open-menu{
-        width:238px;
-        //position:absolute !important;
-    }
+        flex: 0 1 auto;
 
+        &.open-menu{
+            width:238px;
+        }
+    }
     &.hidetool{
         display:none !important;
     }
+
+    mat-sidenav-content {
+        margin-left: 80px !important;
+        flex: 1 1 auto;
+        &.open{
+            margin-left:238px !important;
+        }
+    }
 }
 
-.hide-outlet{
+.hide-outlet, .hideToolbar{
     display:none !important;
 }
 
 @media screen and (max-width: 840px) {
     mat-sidenav-container{
         mat-sidenav{
-            width:237px;   
+            width:238px !important;
+            &.open-menu{
+                width:238px !important;
+            }   
         }
-        .close-menu{
-            width:238px;
-        }
-        .open-menu{
-            width:238px;
+
+
+        mat-sidenav-content {
+            margin-left: 0px !important;
+            &.open{
+                margin-left:0px !important;
+            }
         }
     }
 }

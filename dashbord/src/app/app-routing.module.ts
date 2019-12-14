@@ -5,11 +5,13 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { AllEquipmentComponent } from './equipment/all-equipment/all-equipment.component'
 import { SettingsComponent } from './settings/settings.component';
 import { TicketsComponent } from './tickets/tickets.component';
-import { Last20Component } from './tickets/last20/last20.component'
-import { NewTicketsComponent } from './tickets/new-tickets/new-tickets.component'
+import { Last20Component } from './tickets/last20/last20.component';
+import { NewTicketsComponent } from './tickets/new-tickets/new-tickets.component';
+import { NewEquipmentsComponent } from './equipment/new-equipments/new-equipments.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'equipment/new-equipments', component: NewEquipmentsComponent },
   { 
     path: 'equipment', 
     component: EquipmentComponent,

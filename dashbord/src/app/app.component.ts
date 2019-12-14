@@ -11,7 +11,7 @@ import { NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   navExpand = false;
-
+  newPages = false;
     // Tracking device width to assign media query
     screenWidth: number;
     constructor(private router:Router) {
@@ -22,10 +22,13 @@ export class AppComponent {
       ).subscribe(res => {
         if (this.router.url == "/") {
           this.navExpand = true;
-        }
-    
-        else {
+        }else {
           this.navExpand = false;
+        }
+        if (this.router.url=="/tickets/newtickets" || this.router.url=="/equipment/new-equipments"){
+          this.newPages = true;
+        }else{
+          this.newPages= false;
         }
       });
 
@@ -39,15 +42,14 @@ export class AppComponent {
     }
 
     isMenuOpen = false;
-    contentMargin = 80;
-
+    ifOpen = false;
     public onCloseHalf(){
       this.isMenuOpen = !this.isMenuOpen;
       
       if(this.isMenuOpen){
-        this.contentMargin = 238;
+        this.ifOpen = true;
       }else{
-        this.contentMargin = 80;
+        this.ifOpen = false;
       }
     }
 

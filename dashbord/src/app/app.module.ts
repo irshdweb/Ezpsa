@@ -26,6 +26,7 @@ import { DragDirective } from './tickets/drag.directive';
 import { QuillModule } from 'ngx-quill';
 import { HourPipe } from './tickets/new-tickets/hour.pipe';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { NewEquipmentsComponent } from './equipment/new-equipments/new-equipments.component';
 
 
 
@@ -50,7 +51,8 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
     TicketFillterComponent,
     NewTicketsComponent,
     DragDirective,
-    HourPipe
+    HourPipe,
+    NewEquipmentsComponent
 
   ],
   imports: [

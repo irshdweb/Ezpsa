@@ -1,16 +1,14 @@
 <mat-sidenav-container [class.hidetool]="navExpand">
-    <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" 
-      [class.open-menu]="isMenuOpen" 
-      [class.close-menu]="!isMenuOpen">
+      <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen">
       <app-sidebar (menuButtonClickedMobiles)="sidenav.toggle()"></app-sidebar>
     </mat-sidenav>
-    <mat-sidenav-content [ngStyle] =" {'margin-left.px':contentMargin} ">
-      <app-toolbar (menuButtonClicked)="onCloseHalf()" (menuButtonClickedMobile)="sidenav.toggle()"></app-toolbar>
+    <mat-sidenav-content [class.open]="ifOpen">
+      <app-toolbar (menuButtonClicked)="onCloseHalf()" (menuButtonClickedMobile)="sidenav.toggle()" [class.hideToolbar]="newPages"></app-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
 <app-login [ngClass]="navExpand ? 'show-outlet' : 'hide-outlet'"></app-login>
-<app-add-equipment></app-add-equipment>
+
 <app-add-search></app-add-search>
 <app-column-settings></app-column-settings>
 <app-ticket-fillter></app-ticket-fillter>

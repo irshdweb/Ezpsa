@@ -1,13 +1,14 @@
 <mat-toolbar>
-    <div class="col-lg-2 col-3 p-0">
-        <a (click)="menuButtonClicked.emit(); changeIcon('clear_all')" class="hide-on-mobile"><i class="material-icons menu">{{icon}}</i></a>
+    <div class="col-lg-1 col-md-1 col-sm-3 col-3 p-0">
+        <!--<a (click)="menuButtonClicked.emit(); changeIcon('clear_all')" class="hide-on-mobile"><i class="material-icons menu">{{icon}}</i></a>-->
         <a (click)="menuButtonClickedMobile.emit();" class="hide-on-desktop"><i class="material-icons menu">{{icon}}</i></a>
     </div>
-    <div class="col-lg-5 col-3 p-0">
-        <input type="text" placeholder="Search device name, user, client, serial no.,IP address or label..."
-            class="txt-serach">
-    </div>
-    <div class="col-lg-5 col-6 justify-content-end d-flex align-items-center">
+    <div class="col-lg-11 col-md-11 col-sm-9 col-9 justify-content-end d-flex align-items-center">
+        
+      <div class="search-float-wrap">
+        <span class="searchIco"><i class="material-icons-outlined">search</i></span>
+        <div class="search-panel-float"></div>
+     </div>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Notification" class="icon-btn">
             <i class="material-icons-outlined" matBadge="15" matBadgeColor="warn" matBadgeSize="small">notifications</i>
         </button>

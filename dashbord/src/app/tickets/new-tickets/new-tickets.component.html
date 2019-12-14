@@ -4,25 +4,25 @@
 
             <div class="leftPanmg">
                 <form [formGroup]="addTicketForm" novalidate>
-                    <div class="alert alert-danger alert-dismissible fade show mt-3 mb-0 " role="alert">
+                    <!--<div class="alert alert-danger alert-dismissible fade show mt-3 mb-0 " role="alert">
                     <strong>Warning:</strong> One servers covered by flat rate
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
+                </div>-->
                     <div class="row mr-0 ml-0">
                         <div class="col-12 col-lg-7 col-md-7">
                             <h1>Add New Ticket</h1>
                         </div>
                         <div class="col-12 col-lg-5 col-md-5 d-flex justify-content-end align-items-center pt-0 pb-0">
-                            <mat-slide-toggle tabindex="0">Template Ticket</mat-slide-toggle>
+                            <button class="templateButton" (click)="selectTemplate();"><i class="fa fa-file" aria-hidden="true"></i> Pick a Template</button>
                         </div>
                     </div>
 
                     <div class="col-12">
-                        <div class="row mb-3">
+                        <div class="row mb-3  hideOninit" [class.displayproperty]="pickTemplate">
                             <div class="col-12">
-                                <label>Pick a Template</label>
+                                <label>Template</label>
                                 <select formControlName="template" tabindex="1" class="selectpicker idealSelect"
                                     data-live-search="true">
                                     <option value="volvo">Volvo</option>
@@ -47,8 +47,7 @@
                             <div class="col-12">
                                 <label>Client <span>*</span></label>
 
-                                <select class="js-example-basic-multiple" tabindex="3" formControlName="clientName"
-                                    multiple="multiple" required>
+                                <select class="js-example-basic-multiple clientSelect" tabindex="3" formControlName="clientName" required>
                                     <option value="Ab Soft Limited">Ab Soft Limited</option>
                                     <option value="ABC Bins Limited">ABC Bins Limited</option>
                                     <option value="Bank West">Bank West</option>
@@ -63,10 +62,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-12">
+                        <div class="row mb-3  hideOninit" id="hiddenRow">
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <label>Project</label>
                                 <select formControlName="project" tabindex="4">
+                                    <option value="volvo">Volvo</option>
+                                    <option value="saab">Saab</option>
+                                    <option value="mercedes">Mercedes</option>
+                                    <option value="audi">Audi</option>
+
+                                </select>
+
+                            </div>
+                            <div class="col-12 col-lg-6 col-md-6 col-sm-6">
+                                <label>Task</label>
+                                <select formControlName="task" tabindex="4">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="mercedes">Mercedes</option>
@@ -291,8 +301,9 @@
                     <div class="button-wrap">
 
                         <div class="col-12  align-items-right justify-content-end">
-                            <button mat-raised-button color="primary" type="submit">Save</button>
-                            <button type="reset" mat-raised-button color="primary" tabindex="15">Cancel</button>
+                                <button type="reset" mat-raised-button color="primary" class="cancel">Cancel</button>
+                            <button mat-raised-button color="primary" type="submit" tabindex="15">Save</button>
+                            
                         </div>
                     </div>
                 </form>
