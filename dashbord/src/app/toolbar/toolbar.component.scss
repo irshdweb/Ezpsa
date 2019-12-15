@@ -62,9 +62,6 @@ mat-toolbar {
         }
     }
     .search-float-wrap{
-        border:1px solid red;
-        max-width:400px;
-        width:100%;
         text-align:right;
         position:relative;
         .searchIco{
@@ -84,14 +81,17 @@ mat-toolbar {
                 font-size:16px;
             }
         }
-        .search-panel-float{
-            width:100%;
-            position:absolute;
-            height:200px;
-            border:1px solid black;
-            z-index:1001;
-        }
+
     }
+    /**.search-panel-float{
+        width:100%;
+        position:absolute;
+        height:100%;
+        background:rgb(116, 113, 113);
+        z-index:1001;
+        top:0;
+        bottom:0;
+    }**/
 
 }
 

@@ -5,10 +5,15 @@
     </div>
     <div class="col-lg-11 col-md-11 col-sm-9 col-9 justify-content-end d-flex align-items-center">
         
-      <div class="search-float-wrap">
+      <div class="search-float-wrap" [matMenuTriggerFor]="menuSearch">
         <span class="searchIco"><i class="material-icons-outlined">search</i></span>
-        <div class="search-panel-float"></div>
+        
      </div>
+     <mat-menu #menuSearch="matMenu" [overlapTrigger]="false" class="menu_search tool-menu">
+       <form (click)="$event.stopPropagation();">
+            <input type ="text" placeholder="Search device name, user, client, serial no.,IP address or label...">
+       </form>
+    </mat-menu>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Notification" class="icon-btn">
             <i class="material-icons-outlined" matBadge="15" matBadgeColor="warn" matBadgeSize="small">notifications</i>
         </button>
