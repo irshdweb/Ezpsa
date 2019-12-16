@@ -41,7 +41,9 @@
     box-shadow: none !important;
     padding-left:15px;
     padding-right:15px;
-    //padding-top:10px;
+    min-height:auto !important;
+    height:auto !important;
+    overflow:hidden !important;
     input{
         width:100%;
         padding-left:12px;
@@ -56,6 +58,14 @@
             border:2px solid #0348b6;
         }
     }
+    .btn-group{
+        &.btn-group-toggle{
+            padding:20px;
+            background:#fff;
+            margin-top:20px;
+            width:100%;
+        }
+    } 
 }
 .mat-menu-panel.menu_1{
     width:361px;

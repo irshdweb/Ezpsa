@@ -10,8 +10,21 @@
         
      </div>
      <mat-menu #menuSearch="matMenu" [overlapTrigger]="false" class="menu_search tool-menu">
-       <form (click)="$event.stopPropagation();">
-            <input type ="text" placeholder="Search device name, user, client, serial no.,IP address or label...">
+       <form (click)="$event.stopPropagation()">
+            <input type ="text" placeholder="Search device name, user, client, serial no.,IP address or label..."/>
+            <div class="btn-group btn-group-toggle" id="btnGroup" data-toggle="buttons">
+                <label class="btn btn-secondary rbt active">
+                <input type="radio" name="options" id="hatchback" autocomplete="off" checked> Hatchback
+                </label>
+             
+                <label class="btn btn-secondary rbt">
+                <input type="radio" name="options" id="sedan" autocomplete="off"> Sedan
+                </label>
+             
+                <label class="btn btn-secondary rbt">
+                <input type="radio" name="options" id="suv" autocomplete="off"> SUV
+                </label>
+             </div>
        </form>
     </mat-menu>
         <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Notification" class="icon-btn">
