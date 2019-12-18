@@ -5,6 +5,15 @@
     margin-left:26px;
 }
 
+.material-icons{
+    &.menu{
+        color:#fff;margin-top:20px;
+        margin-left:20px;
+        font-size:30px;
+        cursor:pointer;
+    }
+} 
+
 .clear{
     position:absolute;
     color:#fff;
@@ -15,7 +24,7 @@
 }
 
 ul{
-    margin-top:58px;
+    margin-top:38px;
     li{
         padding:0;
         margin:0;

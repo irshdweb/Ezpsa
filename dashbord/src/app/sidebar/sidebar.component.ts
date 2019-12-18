@@ -7,7 +7,7 @@ import {  Component, Output, EventEmitter, OnInit, Input  } from '@angular/core'
 })
 export class SidebarComponent implements OnInit {
   @Output() menuButtonClickedMobiles = new EventEmitter();
-  
+  @Output() menuButtonClicked = new EventEmitter();
   constructor() { }
 
   ngOnInit() {

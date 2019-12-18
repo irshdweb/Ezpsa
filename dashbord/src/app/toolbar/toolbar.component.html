@@ -1,9 +1,10 @@
 <mat-toolbar>
-    <div class="col-lg-1 col-md-1 col-sm-3 col-3 p-0">
+    <div class="col-lg-4 col-md-4 col-sm-4 col-3 p-0">
         <!--<a (click)="menuButtonClicked.emit(); changeIcon('clear_all')" class="hide-on-mobile"><i class="material-icons menu">{{icon}}</i></a>-->
         <a (click)="menuButtonClickedMobile.emit();" class="hide-on-desktop"><i class="material-icons menu">{{icon}}</i></a>
+        <img src="../../assets/logo.svg" class="hide-on-mobile" style="width:100px;">
     </div>
-    <div class="col-lg-11 col-md-11 col-sm-9 col-9 justify-content-end d-flex align-items-center">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-9 justify-content-end d-flex align-items-center">
         
       <div class="search-float-wrap" [matMenuTriggerFor]="menuSearch">
         <span class="searchIco"><i class="material-icons-outlined">search</i></span>
@@ -11,19 +12,23 @@
      </div>
      <mat-menu #menuSearch="matMenu" [overlapTrigger]="false" class="menu_search tool-menu">
        <form (click)="$event.stopPropagation()">
-            <input type ="text" placeholder="Search device name, user, client, serial no.,IP address or label..."/>
+            <input type ="text" placeholder="Search device name, user, client, serial no.,IP address or label..." />
             <div class="btn-group btn-group-toggle" id="btnGroup" data-toggle="buttons">
-                <label class="btn btn-secondary rbt active">
-                <input type="radio" name="options" id="hatchback" autocomplete="off" checked> Hatchback
+                <label class="btn btn-secondary" [ngClass]="clicked === 0 ? 'active' : 'non-active'" (click)="select(0)">
+                <input type="radio" name="options" id="hatchback" autocomplete="off" checked> All
                 </label>
              
-                <label class="btn btn-secondary rbt">
-                <input type="radio" name="options" id="sedan" autocomplete="off"> Sedan
+                <label class="btn btn-secondary" [ngClass]="clicked === 1 ? 'active' : 'non-active'" (click)="select(1)">
+                <input type="radio" name="options" id="sedan" autocomplete="off"> Ticket
                 </label>
              
-                <label class="btn btn-secondary rbt">
-                <input type="radio" name="options" id="suv" autocomplete="off"> SUV
+                <label class="btn btn-secondary" [ngClass]="clicked === 2 ? 'active' : 'non-active'" (click)="select(2)">
+                <input type="radio" name="options" id="suv" autocomplete="off"> Client
                 </label>
+
+                <label class="btn btn-secondary" [ngClass]="clicked === 3 ? 'active' : 'non-active'" (click)="select(3)">
+                    <input type="radio" name="options" id="suv" autocomplete="off"> Project
+                    </label>
              </div>
        </form>
     </mat-menu>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ColsetService } from '../../colset.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-last20',
@@ -30,11 +33,14 @@ export class Last20Component implements OnInit {
   mr = true;
   pr = true;
   gw = true;
+  
+  itemsPerPage: number = 10;
+ 
 
-  constructor(private route: ActivatedRoute, private router: Router) { 
+  constructor(private route: ActivatedRoute, private router: Router, private __selectvalue: ColsetService) { 
     this.config = {
       currentPage: 1,
-      itemsPerPage: 8,
+      itemsPerPage: 12,
       totalItems: 0
     };
     route.queryParams.subscribe(
@@ -66,7 +72,8 @@ export class Last20Component implements OnInit {
     this.router.navigate(['tickets'], { queryParams: { page: newPage } });
   }
 
-  ngOnInit() {
+ ngOnInit() {
+
   }
 
 }

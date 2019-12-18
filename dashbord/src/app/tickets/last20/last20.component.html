@@ -1,4 +1,5 @@
-<div class="col-12 equipments">
+<div class="col-12 equipments pl-0 pr-0">
+    <div class="col-12 pl-4 pr-4">
     <div class="table-responsive text-nowrap">
         <table class="table table-striped">
             <thead>
@@ -22,7 +23,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of collection | paginate: config">
+                <tr *ngFor="let item of collection | paginate:  config">
+                    <!--<tr *ngFor="let item of collection | paginate: config">-->
                     <td class="displayAll">
                         <mat-checkbox [checked]="myModel"></mat-checkbox>
                     </td>
@@ -49,6 +51,35 @@
             </tbody>
         </table>
     </div>
-    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+    </div>
+    <div class="row pagin-wrap mr-0 ml-0">
+        <div class="col-6">
+            <!--[(ngModel)] = 'itemsCount'-->
+            <!--<select (change)="onChangeEvent($event)">-->
+            <select #viewItem [(ngModel)]="itemsPerPage" placeholder="10">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="70">70</option>
+                <option value="100">100</option>
+            </select> Per Page
+
+
+
+        </div>
+        <div class="col-6"><pagination-controls (pageChange)="pageChange($event)" class="my-pagination"
+                      
+                      maxSize="5"
+                      directionLinks="true"
+                      autoHide="true"
+                      responsive="true"
+                      previousLabel="Previous"
+                      nextLabel="Next"
+                      screenReaderPaginationLabel="Pagination"
+                      screenReaderPageLabel="page"
+                      screenReaderCurrentLabel="You're on page"
+            ></pagination-controls></div>
+    </div>
 </div>
 

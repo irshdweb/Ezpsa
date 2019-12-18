@@ -9,6 +9,9 @@
 
 
 .modal-body{
+    max-height:500px;
+    overflow-y:auto;
+    @include scrollbars(8px,#979797);
     .saveserachPan{
         .nSaved{
             padding-left:5px;

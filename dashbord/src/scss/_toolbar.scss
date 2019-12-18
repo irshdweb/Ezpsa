@@ -62,8 +62,32 @@
         &.btn-group-toggle{
             padding:20px;
             background:#fff;
-            margin-top:20px;
+            margin-top:10px;
             width:100%;
+            border-radius:5px;
+            -webkit-box-shadow: 0px 3px 14px -2px rgba(0,0,0,0.51);
+            -moz-box-shadow: 0px 3px 14px -2px rgba(0,0,0,0.51);
+            box-shadow: 0px 3px 14px -2px rgba(0,0,0,0.51);
+        }
+
+        .btn-secondary{
+            
+            background:#fff !important;
+            color:$primary_bg_color;
+            height:40px;
+            border-radius:40px;
+            margin-right:10px;
+            cursor:pointer;
+            &.active{
+                background:$primary_bg_color !important;
+                color:#fff;
+
+                &:focus{
+                    box-shadow: none !important;
+                    outline: none !important;
+                    border: none !important;
+                }
+            }
         }
     } 
 }

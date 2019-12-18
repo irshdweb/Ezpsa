@@ -39,6 +39,11 @@ export class TicketsComponent implements OnInit {
     this.router.navigate(['./tickets/newtickets']);
   }
 
+  clickHide = false;
+  showHide(){
+    this.clickHide = !this.clickHide;
+  }
+
   ngOnInit() {
   }
 

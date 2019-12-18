@@ -3,9 +3,9 @@
         <div class="col-lg-4 col-md-4 col-12 pl-0">
             <h1>Equipments</h1>
         </div>
-        <div class="col-lg-8 col-md-8 col-12 d-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
+        <div class="col-lg-8 col-md-8 col-12 d-md-flex d-sm-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
 
-            <div class="form-group d-flex align-items-center">
+            <!--<div class="form-group d-flex align-items-center">
                 <input type="text" placeholder="Search User" aria-label="Number" matInput [formControl]="myControl"
                     [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete">
@@ -13,9 +13,72 @@
                         {{option}}
                     </mat-option>
                 </mat-autocomplete>
+            </div>-->
+            <div class="dropdown">
+                <button data-toggle="dropdown" class="main-btns tick"><span>Task</span><i
+                        class="material-icons-outlined" aria-label="">expand_more</i></button>
+                <div class="dropdown-menu fixed-height">
+                    <div (click)="$event.stopPropagation()">
+                        <li class="text-left">
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
+                                disabled="disabled">
+                                Reassign Client
+                            </button>
+                        </li>
+                        <li class="text-left">
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
+                                disabled="disabled">
+                                Reassign Types
+                            </button>
+                        </li>
+                        <li class="text-left">
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
+                                disabled="disabled">
+                                Delete
+                            </button>
+                        </li>
+                        <li class="divider">
+                            <mat-divider></mat-divider>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
+                                disabled="disabled">
+                                Run Script
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
+                                disabled="disabled">
+                                Move To Group
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
+                                disabled="disabled">
+                                Uninstall The Agent
+                            </button>
+                        </li>
+                        <li class="divider">
+                            <mat-divider></mat-divider>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal">
+                                Export To CSV
+                            </button>
+                        </li>
+                    </div>
+                </div>
             </div>
-            <button class="main-btns">Download Agent <i class="fa fa-download" aria-hidden="true"></i>
+            <button class="main-btns tick" (click)="redirect();">Add New <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
+            <button class="main-btns tick">Download Agent <i class="fa fa-download" aria-hidden="true"></i>
+            </button>
+            <form class="srchForm">
+                <input type="text" placeholder="Search Equipment" class="search-text"/>
+
+            </form>
+            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalSearch">
+                <i class="material-icons-outlined filterico">filter_list</i></a>
         </div>
     </div>
 </div>
@@ -23,7 +86,6 @@
 
     <div class="w-100 ml-0 mr-0">
        <div class="inner-side-pannel hide-on-mobile" [class.hide-me]="arrClick">
-            <!--<i class="material-icons left-arr hide-on-mobile" (click)="aarHide();">arrow_back</i>-->
             <app-equipmentsidebar></app-equipmentsidebar>
         </div>
 
@@ -34,76 +96,19 @@
                 <app-equipmentsidebar></app-equipmentsidebar>
             </div>
 
-            <div class="col-lg-12 col-12 pt-0 pb-0 wrap">
-                <div class="row top-filters pl-3 pr-3">
-                    <div class="col-lg-6 col-12 col-sm-6 pb-4 pb-lg-0 pb-sm-0 typeOne">
+            <div class="col-lg-12 col-12 pt-0 pb-0 pl-0 pr-0 wrap">
+                <div class="row top-filters pl-2 pr-3 mr-0 ml-0">
+                    <div class="col-lg-6 col-12 col-sm-6 pb-0 pb-lg-0 pb-sm-0 typeOne">
+                        <div class="wrapping">
                         <div class="click-arrow hide-on-mobile" matTooltip="{{msg}} Filters" (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
-                        <div class="dropdown">
-                            <button class="task-drp" type="button" data-toggle="dropdown">Task &#9660;</button>
-                            <ul class="dropdown-menu">
-                                <li class="text-left">
-                                    <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
-                                        disabled="disabled">
-                                        Reassign Client
-                                    </button>
-                                </li>
-                                <li class="text-left">
-                                    <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
-                                        disabled="disabled">
-                                        Reassign Types
-                                    </button>
-                                </li>
-                                <li class="text-left">
-                                    <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
-                                        disabled="disabled">
-                                        Delete
-                                    </button>
-                                </li>
-                                <li class="divider">
-                                    <mat-divider></mat-divider>
-                                </li>
-                                <li>
-                                    <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
-                                        disabled="disabled">
-                                        Run Script
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
-                                        disabled="disabled">
-                                        Move To Group
-                                    </button>
-                                </li>
-                                <li>
-                                    <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
-                                        disabled="disabled">
-                                        Uninstall The Agent
-                                    </button>
-                                </li>
-                                <li class="divider">
-                                    <mat-divider></mat-divider>
-                                </li>
-                                <li>
-                                    <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal">
-                                        Export To CSV
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModal"><i
-                                class="material-icons-outlined" matTooltip="Add Equipment"
-                                aria-label="">playlist_add</i></a>
-                        <a href="javascript:void(0);"><i class="material-icons-outlined">delete</i></a>
+
+
                         <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalColumnSettings"><i
                                 class="material-icons-outlined" matTooltip="Column Setting"
                                 aria-label="">view_column</i></a>
+                            </div>
                     </div>
-                    <div
-                        class="col-lg-6 col-12 col-sm-6 justify-content-lg-end justify-content-sm-end justify-content-center d-flex">
-                        <input type="text" class="srch-tbl" placeholder="Search Equipment">
-                        <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalSearch"><i
-                                class="material-icons-outlined">filter_list</i></a>
-                    </div>
+
                 </div>
                 <router-outlet name="second"></router-outlet>
             </div>

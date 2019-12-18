@@ -1,14 +1,28 @@
+.fd-bar{
+    height:calc(100% - 123px);
+    padding-bottom:30px;
+    overflow-y:auto;
+    @include scrollbars(4px,#979797);
+}
 .eq-menu{
-    width:90%;
+    width:37px;
     height:37px;
     border:none;
-    font-weight:600;
-    font-size:16px;
-    background:#D32744;
-    margin-top:55px;
-    color:#fff;
-    transition: all 0.3s;
-    border-radius:5px;
+    margin-top:15px;
+    //border-radius:5px;
+    float:right;
+    line-height:48px;
+    text-align:center;
+    font-size:14px;
+    border: 1px solid #acacac;
+    transition: all 0.5s;
+    background-image: linear-gradient(to bottom,#fff,#f3f5f7);
+    &:hover{
+        
+        -webkit-box-shadow: inset -1px 2px 20px -10px rgba(0,0,0,0.67);
+        -moz-box-shadow: inset -1px 2px 20px -10px rgba(0,0,0,0.67);
+        box-shadow: inset -1px 2px 20px -10px rgba(0,0,0,0.67);
+    }
 }
 
 .dropdown-menu{
@@ -49,7 +63,7 @@
 }
 
 .main-nav-side{
-    margin-top:35px;
+    margin-top:15px;
     display:block;
     ul{
         list-style:none;
@@ -81,7 +95,7 @@
                 }
             }
             a{
-                font-size:15.7px;
+                font-size:14.7px;
                 color:#333547;
                 display:block;
                 width:100%;
@@ -97,8 +111,11 @@
                     
                 }
                 .material-icons{
+                    font-size:14px;
+                    margin-top:3px;
                     &.arrow{
                         margin-right:0;
+                        font-size:16px;
                     }
                     
                 }
@@ -163,7 +180,6 @@
     .eq-menu{
         margin-top:10px;
         margin-bottom:10px;
-        width:70%;
         float:left;
     }
     .dropdown-menu{
@@ -172,9 +188,11 @@
     }
     .menuSecond{
         float:right;
-        margin-top:13px;
-        font-size:30px;
-        color:#D32744;
+        margin-top:10px;
+        font-size:20px;
+        padding:7px;
+        color:#ffffff;
+        background:#a1a1a1;
     }
 
     .main-nav-side{

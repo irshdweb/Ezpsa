@@ -1,4 +1,7 @@
 import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
+import * as $ from 'jquery';
+
+declare let $: any;
 
 @Component({
   selector: 'app-toolbar',
@@ -23,7 +26,18 @@ public changeIcon(newIcon: string ){
 @Output() menuButtonClickedMobile = new EventEmitter();
   constructor() { }
 
+  clicked = 0;
+  
+  select(i) {
+    this.clicked = i;
+  }
+
   ngOnInit() {
+    /*$('.rbt').click(function () {
+      $('.rbt').removeClass('acs');
+      $(this).addClass('acs');
+      event.stopPropagation;
+    });*/
   }
 
 }

@@ -32,11 +32,12 @@ export class AllEquipmentComponent implements OnInit {
   pr = true;
   gw = true;
   
+  itemsPerPage: number = 10;
 
   constructor(private route: ActivatedRoute, private router: Router, private __selectvalue: ColsetService) {
     this.config = {
       currentPage: 1,
-      itemsPerPage: 10,
+      itemsPerPage: 15,
       totalItems: 0
     };
     route.queryParams.subscribe(

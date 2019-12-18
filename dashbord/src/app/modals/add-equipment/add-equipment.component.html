@@ -255,9 +255,10 @@
       <div class="col-12">
         <label>Purchase Date</label>
         <input matInput [matDatepicker]="picker" placeholder="Purchase Date" formControlName="PurchaseDate">
+        <span style="display:none;">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-
+        </span>
 
         <div
           *ngIf="angForm.controls['PurchaseDate'].invalid && (angForm.controls['PurchaseDate'].dirty || angForm.controls['PurchaseDate'].touched)"
@@ -273,9 +274,10 @@
       <div class="col-12">
         <label>Warranty Expires</label>
         <input matInput [matDatepicker]="picker_1" placeholder="Warranty Expires" formControlName="WarrantyExpires">
+        <span style="display:none;">
         <mat-datepicker-toggle matSuffix [for]="picker_1"></mat-datepicker-toggle>
         <mat-datepicker #picker_1></mat-datepicker>
-
+      </span>
 
         <div
           *ngIf="angForm.controls['WarrantyExpires'].invalid && (angForm.controls['WarrantyExpires'].dirty || angForm.controls['WarrantyExpires'].touched)"

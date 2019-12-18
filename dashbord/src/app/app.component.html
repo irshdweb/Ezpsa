@@ -1,6 +1,6 @@
 <mat-sidenav-container [class.hidetool]="navExpand">
       <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen">
-      <app-sidebar (menuButtonClickedMobiles)="sidenav.toggle()"></app-sidebar>
+      <app-sidebar (menuButtonClickedMobiles)="sidenav.toggle()" (menuButtonClicked)="onCloseHalf()"></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content [class.open]="ifOpen">
       <app-toolbar (menuButtonClicked)="onCloseHalf()" (menuButtonClickedMobile)="sidenav.toggle()" [class.hideToolbar]="newPages"></app-toolbar>

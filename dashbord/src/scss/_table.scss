@@ -2,7 +2,7 @@
     .table-responsive{
         @include scrollbars(7px,#888);
         .table-striped{
-            margin-top:30px;
+            margin-top:0px;
             tr{
                     border-bottom:1px solid #f5f7f9;
                     background:#fff;
@@ -55,9 +55,28 @@
             }
         }
     }
-    pagination-controls{
-        float:right;
+    .pagin-wrap{
         margin-top:30px;
+        background:#f5f7f9;
+        position:sticky;
+        bottom:0;
+        padding-top:20px;
+        padding-bottom:20px;
+        border-top:1px solid #a1a1a1;
+        pagination-controls{
+           padding:0 !important;
+           margin-top:0;
+           width:100%;
+           height:auto !important;
+
+            ::ng-deep .ngx-pagination{
+                width:100% !important;
+                float:right !important;
+                text-align:right;
+
+                margin-bottom:0 !important;
+            }
+        }
     }
 }
 
