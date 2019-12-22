@@ -5,6 +5,25 @@
         </div>
         <div
             class="col-lg-9 col-md-9 col-12 d-md-flex d-sm-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
+            
+            <div class="dropdown">
+                <button data-toggle="dropdown" class="main-btns tick" matTooltip="Ticket Menu"><i class="material-icons-outlined flt-left" aria-label="">playlist_add</i></button>
+                <div class="dropdown-menu fixed-height">
+                    <div>
+                        <li class="text-left">
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal">
+                                Add Group
+                            </button>
+                        </li>
+                        <li class="text-left">
+                            <button type="button" data-toggle="modal" data-target="#myModalSearch" class="btn btn-flat bg-white btn-block text-left text-normal">
+                                Add Saved Search
+                            </button>
+                        </li>
+                        
+                    </div>
+                </div>
+            </div>
             <div class="dropdown">
                 <button data-toggle="dropdown" class="main-btns tick"><span>Action </span><i
                         class="material-icons-outlined" aria-label="">expand_more</i></button>
@@ -141,18 +160,16 @@
             </div>
 
             <div class="col-lg-12 col-12 pt-0 pb-0 pl-0 pr-0 wrap">
-                <div class="row top-filters pl-2 pr-3 mr-0 ml-0">
-                    <div class="col-lg-6 col-12 col-sm-6 pb-0 pb-lg-0 pb-sm-0 typeOne">
-                        <div class="wrapping">
-                            <div class="click-arrow hide-on-mobile" matTooltip="{{msg}} Filters"
-                                (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
-                            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalColumnSettings"><i
-                                    class="material-icons-outlined" matTooltip="Column Setting"
-                                    aria-label="">view_column</i></a>
-                        </div>
-                    </div>
+
+
+                <div class="wrapping">
+                    <div class="click-arrow hide-on-mobile" matTooltip="{{msg}} Filters"
+                        (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
 
                 </div>
+
+
+
                 <router-outlet></router-outlet>
 
             </div>

@@ -3,6 +3,7 @@
     padding-bottom:30px;
     overflow-y:auto;
     @include scrollbars(4px,#979797);
+
 }
 .eq-menu{
     width:37px;
@@ -186,14 +187,24 @@
         margin-top:20px;
         //transform: translate3d(0px, 47px, 0px) !important;
     }
-    .menuSecond{
-        float:right;
-        margin-top:10px;
-        font-size:20px;
-        padding:7px;
-        color:#ffffff;
-        background:#a1a1a1;
+    .mobilefilters{
+        background:$primary_bg_color;
+        color:#fff;
+        cursor:pointer;
+        padding:10px;
+        span{
+            margin-top:5px;
+            display:inline-block;
+            
+        }
+        .menuSecond{
+            font-size:20px;
+            margin-top:3px;
+            border:1px solid #fff;
+            padding:5px;
+        }
     }
+
 
     .main-nav-side{
         display:none;

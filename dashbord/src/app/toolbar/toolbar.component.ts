@@ -10,17 +10,6 @@ declare let $: any;
 })
 export class ToolbarComponent implements OnInit {
 
-//Changing menu icon 
-public icon = 'menu'; 
-
-public changeIcon(newIcon: string ){
-    if(this.icon == 'clear_all'){
-      this.icon='menu';
-    }
-    else{
-      this.icon = newIcon ; 
-    }
-}
 //passing method to another component
 @Output() menuButtonClicked = new EventEmitter();
 @Output() menuButtonClickedMobile = new EventEmitter();
@@ -33,11 +22,6 @@ public changeIcon(newIcon: string ){
   }
 
   ngOnInit() {
-    /*$('.rbt').click(function () {
-      $('.rbt').removeClass('acs');
-      $(this).addClass('acs');
-      event.stopPropagation;
-    });*/
   }
 
 }

@@ -32,7 +32,10 @@ export class AppComponent {
         }
       });
 
-
+      //this.router.events.subscribe(event => {
+        // close sidenav on routing
+       
+      //});
       // set screenWidth on page load
       this.screenWidth = window.innerWidth;
       window.onresize = () => {

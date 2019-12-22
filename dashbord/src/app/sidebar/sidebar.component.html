@@ -1,6 +1,6 @@
 <a (click)="menuButtonClickedMobiles.emit();" class="hide-on-desktop"><i class="material-icons clear">clear</i></a>
-<img src="../../assets/logo.svg" alt="Logo" class="logo-img">
-<a (click)="menuButtonClicked.emit();" class="hide-on-mobile"><i class="material-icons menu">menu</i></a>
+<img src="../../assets/logo.svg" alt="Logo" class="logo-img hide-on-desktop">
+<a (click)="menuButtonClicked.emit(); changeIcon('menu_open');" class="hide-on-mobile"><i class="material-icons menu">{{icon}}</i></a>
 <ul class="side-nav p-0">
     <li><a href=""><i class="material-icons">speed</i><span> Dashboard</span></a></li>
     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink='/tickets'><i class="material-icons">receipt</i> <span>Tickets</span></a></li>

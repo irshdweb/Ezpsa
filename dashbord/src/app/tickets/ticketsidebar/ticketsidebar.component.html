@@ -1,18 +1,8 @@
-<div class="col-12 fd-bar">
-<div class="col-12 p-0 text-center">
-    <div class="dropdown">
-        <button class="eq-menu" type="button" matTooltip="Ticket Menu" data-toggle="dropdown" (click)="showClosedMenu()"><i class="material-icons">playlist_add</i></button>
-        
-        <ul class="dropdown-menu">
-            <li><a href="javascript:void(0);" data-toggle="modal" data-target="#myModal">Add New Ticket</a></li>
-            <li><a href="javascript:void(0);">Add Group</a></li>
-            <li><a href="javascript:void(0);" data-toggle="modal" data-target="#myModalSearch">Add Saved Search</a></li>
-
-        </ul>
+<div class="col-12 fd-bar p-2">
+    <div class="col-12 p-10 clearfix hide-on-desktop mobilefilters" (click)="showMenu()">
+        <span>Tickets Filters</span><i class="material-icons menuSecond float-right">menu</i>
     </div>
-    <i class="material-icons menuSecond hide-on-desktop" (click)="showMenu()">menu</i>
-</div>
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
 <div class="row mr-0 ml-0 main-nav-side" [ngClass]="eqMenuTrigger ? 'showMenu' : 'hideMenu'">
     <ul>
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a
