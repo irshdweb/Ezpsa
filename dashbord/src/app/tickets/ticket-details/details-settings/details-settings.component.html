@@ -1,0 +1,100 @@
+<div class="row mr-0 ml-0 pr-4 pl-4 devices mt-4">
+    <div class="col-md-6 col-sm-6 col-12 pl-sm-0 mb-4"><h2>Chargeable option</h2></div>
+    <div class="clearfix"></div>
+    <div class="col-12">
+        <div class="row">
+            <mat-radio-button value="1">Ticket is being charged through the linked project.</mat-radio-button>
+        </div>
+        <div class="row">
+            <mat-radio-button value="1">Charge the time recorded against this Ticket as time and material</mat-radio-button>
+        </div>
+        <div class="row">
+            <mat-radio-button value="1">Charge a fixed price for this Ticket</mat-radio-button>
+        </div>
+        <div class="row">
+            <mat-radio-button value="1">No Charge</mat-radio-button>
+        </div>
+        <div class="row">
+            <label>Task Template</label>
+            <select>
+                <option value="volvo">Critical</option>
+                <option value="saab">Urgent</option>
+                <option value="mercedes">Medium</option>
+                <option value="audi">Low</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>Estimated Hours</label>
+            <input type="text"/>
+        </div>
+        <div class="row">
+            <label>Client Purchase Order</label>
+            <input type="text"/>
+        </div>
+        <div class="row">
+            <label>Units:2 , Amount:$0.00</label>
+            <input type="text"/>
+        </div>
+    </div>
+    
+    <div class="col-12 pl-sm-0 mb-2">
+        <mat-divider class="mt-3 mb-3"></mat-divider>
+        <h2>Chargeable option</h2>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-12">
+        <div class="row">
+            <mat-checkbox>Ticket recurs</mat-checkbox>
+        </div>
+    </div>
+
+    <div class="col-12 pl-sm-0 mb-2">
+        <mat-divider class="mt-3 mb-3"></mat-divider>
+        <h2>Ticket Notification</h2>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-12">
+        <div class="row">
+            <ng-select [multiple]="true" [(ngModel)]="selectedCars">
+                <ng-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled">{{car.name}}</ng-option> 
+            </ng-select> 
+            <a class="aLink">Add New</a>
+        </div>
+    </div>
+
+    <div class="col-12 pl-sm-0 mb-2">
+        <mat-divider class="mt-3 mb-3"></mat-divider>
+        <h2>Options</h2>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-12">
+        <div class="row">
+            <mat-checkbox>Internal Ticket</mat-checkbox>
+        </div>
+        <div class="row">
+            <mat-checkbox>Store this Ticket as a template</mat-checkbox>
+        </div>
+        <div class="row">
+            <mat-checkbox>Processed</mat-checkbox>
+        </div>
+        <div class="row">
+            <mat-checkbox>Lock Checklist</mat-checkbox>
+        </div>
+        <div class="row">
+            <mat-checkbox>Comment Required</mat-checkbox>
+        </div>
+        <div class="row">
+            <mat-checkbox>No SLA Response Required</mat-checkbox>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <div class="col-12">
+        <div class="row d-flex">
+            <button mat-raised-button color="primary" type="submit" tabindex="15">Close</button>
+            <button mat-raised-button color="primary" type="submit" tabindex="15">Save</button>
+            <button mat-raised-button color="primary" type="submit" tabindex="15">Delete</button>
+
+        </div>
+    </div>
+</div>

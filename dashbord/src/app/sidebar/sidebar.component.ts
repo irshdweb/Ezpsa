@@ -18,6 +18,7 @@ public changeIcon(newIcon: string ){
     }
 }
   @Output() menuButtonClickedMobiles = new EventEmitter();
+  @Output() menuButtonClickedItem = new EventEmitter();
   @Output() menuButtonClicked = new EventEmitter();
   constructor() { }
 

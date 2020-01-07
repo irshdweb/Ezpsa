@@ -1,0 +1,113 @@
+<div class="row mr-0 ml-0 pr-4 pl-4 d-flex justify-content-right devices mt-4">
+    <div class="col-md-3 col-sm-3 col-12 pl-sm-0 d-flex align-items-center"><h2>Timesheet</h2></div>
+    <div class="col-md-9 col-sm-9 col-12 pr-sm-0 d-flex justify-content-end align-items-center">
+        <select name="carlist" form="carform">
+            <option selected="selected" value="-1">Choose an action...</option>
+            <option value="-5">View billed &amp; un-billed</option>
+            <option value="-4">View billed only</option>
+            <option value="-3">View un-billed only</option>
+            <option value="-1"> --- </option>
+            <option value="1">Mark as billed</option>
+            <option value="2">Mark as un-billed</option>
+            <option value="3">Delete Parts</option>
+          </select>
+
+    </div>
+
+    <div class="col-12 pl-sm-0 pr-sm-0">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>    
+                        <th class="displayAll">
+                            <mat-checkbox [(ngModel)]="myModel"></mat-checkbox>
+                        </th>
+                        <th>Date</th>	
+                        <th>Ticket No</th>	
+                        <th>Description</th>
+                        <th>User</th>	
+                        <th> Start Time	</th>
+                        <th>End Time</th>	
+                        <th>Pause</th>	
+                        <th> Hours</th>	
+                        <th>Task</th>	
+                        <th>Type</th>	
+                        <th>Billed</th>	 
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr [class.complete]="checkTrue">
+                        <td class="displayAll">
+                            <mat-checkbox [checked]="myModel"></mat-checkbox>
+                        </td>
+                        <td>6/11/2019</td>	
+                        <td>299	</td>
+                        <td>Not AvailablePerry Mendoza 2 posted a comment.</td>
+                        <td>John Smith	</td>	
+                        <td>6/11/2019</td>
+                        <td>6/11/2019</td>
+                        <td>6/11/2019	</td>	                        
+                        <td>0.50	</td>
+                        <td>(Task not found)</td>	
+                        <td> <i class="fa fa-money"></i></td>
+                        <td></td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="row ml-0 mr-0 d-flex justify-content-end">
+            <div class="col-sm-6 col-12 finalcalc">
+                <table>
+                        <th></th>
+                        <th>Units</th>
+                        <th>Hours</th>
+                        <th>Charge Out</th>
+                        <tr>
+                            <td>Chargeable</td>	
+                                <td>2	</td>	
+                                    <td>0.50</td>		
+                                        <td>$0.00</td>	
+                        </tr>
+                        <tr>
+                            <td> Non Chargeable	</td>	
+                            <td>20	</td>	
+                            <td>5.00	</td>	
+                            <td> $0.00</td>	
+                        </tr>
+                        <tr class="bold">
+                            <td>Total	</td>	
+                            <td>22	</td>	
+                            <td>5.50	</td>	
+                            <td>$0.00</td>	
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="row pagin-wrap mr-0 ml-0">
+    <div class="col-6">
+        
+        <div class="select-box">
+            <select #viewItem [(ngModel)]="itemsPerPage" placeholder="10">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="70">70</option>
+                <option value="100">100</option>
+            </select> Per Page
+        </div>
+
+
+
+    </div>
+    <div class="col-6">
+        <pagination-controls (pageChange)="pageChange($event)" class="my-pagination" maxSize="5"
+            directionLinks="true" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
+            screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"></pagination-controls>
+    </div>
+</div>-->

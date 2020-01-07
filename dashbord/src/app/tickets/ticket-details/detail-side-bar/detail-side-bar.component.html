@@ -1,0 +1,142 @@
+<div class="col-12 p-10 clearfix hide-on-desktop mobilefilters" (click)="showMenu()">
+    <span>Tickets Filters</span><i class="material-icons menuSecond float-right">menu</i>
+</div>
+<div class="clearfix"></div>
+<div class="col-12 ticket-sidebar" [ngClass]="eqMenuTrigger ? 'showMenu' : 'hideMenu'">
+    <div class="hdr"><i class="material-icons-outlined tag">local_offer</i> Ticket Information</div>
+    <div class="row mb-2">
+        <div class="col-12">
+            <label>Status </label>
+            <select tabindex="8" required>
+                <option value="1">Initial loading</option>
+                <option selected="selected" value="10">In progress</option>
+                <option value="20">Waiting on client</option>
+                <option value="30">Waiting for it to reoccur</option>
+                <option value="40">Hold</option>
+                <option value="50">Resolved</option>
+                <option value="60">Closed</option>
+                <option value="70">Schedule Service Call</option>
+                <option value="90">Peer Review</option>
+                <option value="100">Ready For Testing</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-12">
+            <label>Issue Type</label>
+            <select tabindex="2" required>
+                <option value="1">-</option>
+                <option value="3">Incident</option>
+                <option value="4">Problem</option>
+                <option value="2">Question</option>
+                <option value="5">Task</option>
+            </select>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-12">
+            <label>Priority</label>
+            <select tabindex="3">
+                <option value="volvo">Critical</option>
+                <option value="saab">Urgent</option>
+                <option value="mercedes">Medium</option>
+                <option value="audi">Low</option>
+            </select>
+
+
+        </div>
+    </div>
+    <div class="row mb-2">
+        <div class="col-12">
+            <table>
+                <tr>
+                    <td>Source: </td>
+                    <td>StaffWebSite</td>
+                </tr>
+                <tr>
+                    <td> Logged: </td>
+                    <td>Perry Mendoza 2</td>
+                </tr>
+                <tr>
+                    <td>Logged:</td>
+                    <td> Perry Mendoza 2</td>
+                </tr>
+                <tr>
+                    <td>Team: </td>
+                    <td>Level 1 Support Te...</td>
+                </tr>
+                <tr>
+                    <td>Device: </td>
+                    <td>Change Device ABC</td>
+                </tr>
+                <tr>
+                    <td> Created: </td>
+                    <td>17/07/2017 20:12</td>
+                </tr>
+                <tr>
+                    <td>Response Due: </td>
+                    <td>27/12/2019 08:30</td>
+                </tr>
+                <tr>
+                    <td>Updated: </td>
+                    <td>31/12/2019 00:53</td>
+                </tr>
+                <tr>
+                    <td> Actual Hrs: </td>
+                    <td>0.50</td>
+                </tr>
+                <tr>
+                    <td>Scheduled</td>
+                </tr>
+                <tr>
+                    <td>From:</td>
+                    <td>1/11/2019 16:02</td>
+                </tr>
+                <tr>
+                    <td>To:</td>
+                    <td>1/11/2019 17:02</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="hdr"><i class="material-icons-outlined tag">perm_contact_calendar</i> Contact Information</div>
+    <div class="row mb-2 mr-0 ml-0">
+        <div class="col-12 contact-wrap">
+            <div  class="thumwrap d-flex align-items-center">
+                <div class="thumb">A</div>
+            </div>
+            <div class="textwrap pt-3">
+                <span class="title">AB Soft Limited</span><br/>
+                <a href="">0772567894</a><br/>
+                <a href="">info@email.com</a>
+                <div class="icon d-flex justify-content-end">
+                    <i class="material-icons-outlined" matTooltip="Update">edit</i>
+                    <i class="material-icons-outlined" matTooltip="Add Note">note_add</i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hdr"><i class="material-icons-outlined tag">receipt</i> Recent Tickets</div>
+    <div class="row mb-2 mr-0 ml-0">
+        <div class="col-12 contact-wrap ticket">
+            <strong>#175</strong> - Rachel has deleted ...<br/>
+            <span class="status closed"> Closed</span>
+        </div>
+    </div>
+    <div class="row mb-2 mr-0 ml-0">
+        <div class="col-12 contact-wrap ticket">
+            <strong>#175</strong> - Rachel has deleted ...<br/>
+            <span class="status progress"> In Progress</span>
+        </div>
+    </div>
+    <div class="hdr"><i class="material-icons-outlined tag">group</i> Followers</div>
+    <ng-select [multiple]="true" [(ngModel)]="selectedCars">
+        <ng-option *ngFor="let car of cars" [value]="car.id" [disabled]="car.disabled">{{car.name}}</ng-option>
+    </ng-select>
+    <div class="hdr"><i class="material-icons-outlined tag">attach_file</i> Tags</div>
+    <ng-select [multiple]="true" [(ngModel)]="selectedTags">
+        <ng-option *ngFor="let tag of tags" [value]="tag.id" [disabled]="tag.disabled">{{tag.name}}</ng-option>
+    </ng-select>
+      
+</div>

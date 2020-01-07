@@ -48,7 +48,7 @@ export class Last20Component implements OnInit {
 
     for (let i = 1; i <= 100; i++) {
       let Obj = {
-        'ticket_num': `900${i}`,
+        'ticket_id': `900${i}`,
         'title': `Helpdesk - After hours`,
         'contact': `Ali Law1${i}`,
         'assigned': `Sales Team - ${i}`,
@@ -70,6 +70,10 @@ export class Last20Component implements OnInit {
   }
   pageChange(newPage: number) {
     this.router.navigate(['tickets'], { queryParams: { page: newPage } });
+  }
+
+  Onclick(item){
+    this.router.navigate(['/tickets/ticket-id', item.ticket_id])
   }
 
  ngOnInit() {

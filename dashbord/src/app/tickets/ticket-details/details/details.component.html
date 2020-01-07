@@ -1,0 +1,223 @@
+<div class="row mr-0 ml-0 pr-4 pl-4">
+    <div class="col-12 p-0">
+<mat-accordion>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Current Items to check
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="row text-center">
+            
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>
+</div>
+</div>
+
+<div class="row mr-0 ml-0 pr-4 pl-4">
+    <div class="col-12 initial-note">
+        <div class="w-100">
+            <div class="leftthumb d-flex justify-content-center">
+                <div class="name-img-box">A</div>
+            </div>
+            <div class="rightnote">
+                <h3>Sample customer</h3>
+                <span class="date">
+                    Sep 10, 2019, 4:02 PM
+                </span>                    
+                <p [class.viewMore]="activeMore">Hi There,<br/><br/>
+                This is your first ticket. Ta-da! Any customer request sent to your supported channels 
+                (email, chat, voicemail, web form, and tweet) will become a Support ticket, just like 
+                this one. Respond to this ticket by typing a message above and clicking Submit. 
+                You can also see how an email becomes a ticket by emailing your 
+                new account, support@itwebhelp.zendesk.com. Your ticket will appear in ticket views.</p> 
+                <span class="readBtn" (click)="viewMore('Read Less -')">{{btnText}}</span>
+                <div class="clearfix"></div>
+                <mat-divider></mat-divider>
+                <div class="col-12 img-attached d-flex align-items-center"><i class="material-icons-outlined">description</i> <a href="img.png">img.png</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mr-0 ml-0 pr-4 pl-4 contentWrap">
+    <div class="col-12 initial-note">
+        <quill-editor [styles]="editorStyle" tabindex="10" [modules]="config"
+        [class.bebo]="clickTrue"  required>
+
+        </quill-editor>
+        <div class="col-12 p-0 floating-pop">
+            <ul>
+                <li><a matTooltip="Formatting Options" (click)="showTool();">A</a></li>
+                <li><i class="fa fa-paperclip" matTooltip="Attach File"
+                        (click)="showAtch();"></i></li>
+                <li><i class="fa fa-dropbox" matTooltip="Choose From Dropbox"></i></li>
+                <li><svg matTooltip="Choose From Google Drive"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="30px" height="30px">
+                        <path fill="#FFC107" d="M17 6L31 6 45 30 31 30z" />
+                        <path fill="#1976D2" d="M9.875 42L16.938 30 45 30 38 42z" />
+                        <path fill="#4CAF50" d="M3 30.125L9.875 42 24 18 17 6z" /></svg></li>
+            </ul>
+        </div>
+        <div class="col-12 upldPanel mt-3" [class.showUp]="upld">
+            <div class="uploadfilecontainer d-flex justify-content-center align-items-center"
+                (click)="fileInput.click()" appDrag (onFileDropped)="uploadFile($event)">
+                <i class="fa fa-upload"></i> Choose a file or Drag it here
+                <input hidden multiple type="file" #fileInput
+                    (change)="uploadFile($event.target.files)">
+            </div>
+        </div>
+        <div class="w-100 pl-3 pr-3 ">
+            <div class="row mt-3 p-3">
+                <div class="files-list" *ngFor="let file of files;let i= index">
+                    <div class="wrapClass">
+                        <!--<img [src]="imgURL" width="30">--><i
+                            class="material-icons-outlined">insert_drive_file</i>
+                        {{ file | ellipsis: 16}}
+                        <i class="material-icons delete" (click)="deleteAttachment(i)">close</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-12 d-flex flex-row-reverse mt-3 chkWrap">
+             <mat-checkbox></mat-checkbox> Is chargeable?
+        </div>
+        <div class="col-12 d-flex flex-row-reverse mt-2 chkWrap">
+            <mat-checkbox></mat-checkbox> Comment only visible internally (private)
+       </div>
+       <div class="col-12 d-flex flex-row-reverse mt-2 chkWrap">
+        <mat-checkbox></mat-checkbox> Send email to client
+        </div>
+        <div class="col-12 d-flex flex-row-reverse mt-4 chkWrap">
+            <input type="text"  [(ngModel)]="timeCal"> <input type="text" readonly class="displayTime" value="{{ timeCal * 15 | hour }}"> 
+        </div>
+        <div class="col-12 d-flex flex-row-reverse mt-4 chkWrap">
+            <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" placeholder="Time">
+            <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
+
+            <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" placeholder="Date">
+            <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+        </div>
+        <div class="col-12 d-flex flex-row-reverse mt-4 chkWrap">
+            <button mat-raised-button color="primary" type="submit" tabindex="15">Take</button>
+            <button mat-raised-button color="primary" type="submit" tabindex="15">Assign</button>
+            <button mat-raised-button color="primary" type="submit" tabindex="15">Submit And Resolve</button>
+            <button mat-raised-button color="primary" type="submit" tabindex="15">Submit</button>
+        </div>
+    </div>
+</div>
+<div class="row mr-0 ml-0 pr-4 pl-4 contentWrap">
+    <div class="col-12 pl-0 pr-0 initial-note last pt-0 no-bg">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="true">Comments Only</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#allevents" role="tab" aria-controls="events" aria-selected="false">All events and notification</a>
+            </li>
+          </ul>
+          <div class="tab-content clearfix" id="myTabContent">
+            <div class="tab-pane fade show active" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+                <div class="w-100  pt-5 commentarea clearfix">
+                    <div class="leftthumb d-flex justify-content-center">
+                        <div class="name-img-box">A</div>
+                    </div>
+                    <div class="rightnote">
+                        <div class="row">
+                            <div class="col-md-6"><h3>Sample customer</h3></div>
+                            <div class="col-md-6 text-right">
+                                <span class="date">
+                                    Sep 10, 2019, 4:02 PM
+                                </span> 
+                            </div>
+                        </div>                   
+                        <p class="viewMore">Hi There,<br/><br/>
+                        This is your first ticket. Ta-da! Any customer request sent to your supported channels 
+                        (email, chat, voicemail, web form, and tweet) will become a Support ticket, just like 
+                        this one. Respond to this ticket by typing a message above and clicking Submit. 
+                        You can also see how an email becomes a ticket by emailing your 
+                        new account, support@itwebhelp.zendesk.com. Your ticket will appear in ticket views.</p> 
+                       
+                        <div class="col-md-3 col-sm-4 col-12 img-attached d-flex align-items-center"><i class="material-icons-outlined">description</i> <a href="img.png">img.png</a></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <mat-divider></mat-divider>
+                <div class="w-100  pt-5 commentarea clearfix">
+                    <div class="leftthumb d-flex justify-content-center">
+                        <div class="name-img-box">A</div>
+                    </div>
+                    <div class="rightnote">
+                        <div class="row">
+                            <div class="col-md-6"><h3>Sample customer</h3></div>
+                            <div class="col-md-6 text-right">
+                                <span class="date">
+                                    Sep 10, 2019, 4:02 PM
+                                </span> 
+                            </div>
+                        </div>                   
+                        <p class="viewMore">
+                        This is your first ticket. Ta-da! Any customer request sent to your supported channels 
+                        (email, chat, voicemail, web form, and tweet) will become a Support ticket, just like 
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="tab-pane fade" id="allevents" role="tabpanel" aria-labelledby="events-tab">
+                <div class="pt-5 w-100"></div>
+                <div class="w-100  pt-3 pb-0 mb-0 commentarea clearfix">
+                    <div class="leftthumb d-flex justify-content-center">
+                        <div class="name-img-box">A</div>
+                    </div>
+                    <div class="rightnote">
+                        <div class="row">
+                            
+                            <div class="col-md-6"><h3>Sample customer</h3></div>
+                            <div class="col-md-6 text-right">
+                                triggered an event.
+                            </div>
+                        </div>                   
+                        <p class="viewMore">
+                        This was viewed
+                        <span class="date mt-4">
+                            Sep 10, 2019, 4:02 PM
+                        </span> 
+                        </p>
+                        <div class="clearfix"></div>
+                        <mat-divider class="mt-4 mb-4"></mat-divider>
+                    </div>
+
+                </div>
+
+                <div class="w-100  pt-3 pb-0 mb-0 commentarea clearfix">
+                    <div class="leftthumb d-flex justify-content-center">
+                        <div class="name-img-box">A</div>
+                    </div>
+                    <div class="rightnote">
+                        <div class="row">
+                            
+                            <div class="col-md-6"><h3>Sample customer</h3></div>
+                            <div class="col-md-6 text-right">
+                                triggered an event.
+                            </div>
+                        </div>                   
+                        <p class="viewMore">
+                        This was viewed
+                        <span class="date mt-4">
+                            Sep 10, 2019, 4:02 PM
+                        </span> 
+                        </p>
+                        <div class="clearfix"></div>
+                        <mat-divider class="mt-4 mb-4"></mat-divider>
+                    </div>
+
+                </div>
+                
+            </div>
+          </div>
+    </div>
+</div>
+

@@ -1,0 +1,28 @@
+@import "../../../../scss/mixins";
+@import "../../../../scss/variables";
+@import "../../../../scss/table";
+@import "../../../../scss/detailsComman";
+
+.fa-money{
+    font-size:20px;
+}
+
+.finalcalc{
+    color: #383d41;
+    background-color: #e2e3e5;
+    border:1px solid #d6d8db;
+    padding:30px;
+    margin-top:20px;
+    table{
+        width:100%;
+        text-align:right;
+        .bold{
+            font-weight:bold;
+            font-size:17px;
+            border-top: 1px solid #d6d8db;
+            td{
+                padding-top:15px;
+            }
+        }
+    }
+}

@@ -224,6 +224,10 @@
                     margin-top:0px;
                     font-size:12px;
                 }
+                &.detailspage{
+                    float:none;
+                    //margin-top:-15px;
+                }
             }
         }
     }
@@ -317,6 +321,10 @@
                     }
                     &.eq{
                         width:25%;
+                        //font-size:12px;
+                    }
+                    &.eq5{
+                        width:18%;
                         //font-size:12px;
                     }
                 }

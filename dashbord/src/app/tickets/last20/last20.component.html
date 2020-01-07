@@ -23,12 +23,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of collection | paginate:  config">
+                    <tr *ngFor="let item of collection | paginate:  config" (click)="Onclick(item)">
                         <!--<tr *ngFor="let item of collection | paginate: config">-->
                         <td class="displayAll">
                             <mat-checkbox [checked]="myModel"></mat-checkbox>
                         </td>
-                        <td [class.hideCol]="devi_na" class="bold popDetails">{{ item.ticket_num }}</td>
+                        <td [class.hideCol]="devi_na" class="bold popDetails">{{ item.ticket_id }}</td>
                         <td [class.hideCol]="a_status" class="popDetails">
                             <div class="{{ item.priority }} prio-box"><span matTooltip="{{ item.priority }}">!</span>
                             </div> {{ item.title }}

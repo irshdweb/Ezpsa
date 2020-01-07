@@ -1,0 +1,35 @@
+@import "../../../../scss/mixins";
+@import "../../../../scss/variables";
+@import "../../../../scss/table";
+@import "../../../../scss/detailsComman";
+@import "../../../../scss/form-controlls";
+
+.row{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-right:0 !important;
+    margin-left:0 !important;
+    label{
+        width:100%;
+        font-weight:bold;
+    }
+    select, input, ng-select{
+        max-width:500px;
+        width:100%;
+    }
+    .aLink{
+        margin-left:10px;
+    }
+    .mat-raised-button{
+        &.mat-primary{
+            font-family:$font_family;
+            height:30px;
+            background:$primary_bg_color;
+            margin-left:10px;
+            line-height:17px !important;
+        } 
+        &.cancel{
+            opacity: 0.5;
+        }
+    }
+}

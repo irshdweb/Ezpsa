@@ -1,0 +1,193 @@
+@import "../../../../scss/mixins";
+@import "../../../../scss/variables";
+@import "../../../../scss/common-addnew";
+
+
+mat-expansion-panel{
+    box-shadow: none !important;
+}
+
+.initial-note{
+    background:#fff;
+    margin-top:15px;
+    padding-top:30px;
+    padding-bottom:30px;
+    .leftthumb{
+        width:120px;
+        float:left;
+        .name-img-box{
+            width:75px;
+            height:75px;
+            background:green;
+            border-radius:50%;
+            text-align:center;
+            color:#fff;
+            font-size:30px;
+            line-height:70px;
+            margin-right:auto;
+            margin-left:auto;
+        }
+    }
+    .rightnote{
+        width:calc(100% - 120px);
+        float:right !important;
+        padding-right:30px;
+        h3{
+            font-size:18px;
+            font-weight:900;
+            margin-top:0;
+            margin-bottom:10px;
+        }
+        .date{
+            font-size:13px;
+            font-weight:100;
+            display:block;
+            margin-bottom:15px;
+        }
+        p{
+            height:100px;
+            width:100%;
+            overflow:hidden;
+            text-overflow: ellipsis;
+            //white-space: nowrap; 
+            transition: all 0.5s;
+            &.viewMore{
+                overflow: visible;
+                height: auto;
+            }
+        }
+        .readBtn{
+            font-size:13px;
+            font-weight:bold;
+            cursor:pointer;
+            //float:right;
+            margin-top:-20px;
+            //margin-bottom:10px;
+            &:hover{
+                text-decoration:underline;
+            }
+        }
+        mat-divider{
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .img-attached{
+            background:#f1f1f1;
+            height:40px;
+            a{
+                color:rgb(68, 68, 68);
+            }
+            .material-icons-outlined{
+                font-size:20px;
+                margin-right:12px;
+                color:#8699AD;
+            }
+        }
+    }
+
+    .chkWrap{
+        mat-checkbox{
+            margin-left:10px;
+        }
+        input{
+            max-width:150px;
+            width:100%;
+            margin-left:15px;
+            &.displayTime{
+                font-size:16px !important;
+                font-weight:600 !important;
+                text-align:right;
+                padding-right:10px;
+            }
+        }
+        .mat-raised-button{
+            &.mat-primary{
+                font-family:$font_family;
+                
+                background:$primary_bg_color;
+                margin-left:10px;
+                //float:right;
+            } 
+            &.cancel{
+                opacity: 0.5;
+            }
+        }
+    }
+    .nav-tabs{
+        border-bottom:none !important;
+        .nav-link{
+            color:$primary_bg_color;
+            border:none !important;
+            &.active{
+                background:#fff;
+                color:$primary_bg_color;
+                border:none !important;
+                border-bottom:none !important;
+            }
+            &:hover{
+               //border:1px solid #fff !important;
+               border:none !important;
+            }
+        }
+    }
+    .tab-content{
+        background:#fff;
+        height:auto;
+        padding-bottom:30px;
+        margin-top:-1px;
+        .commentarea{
+            padding-bottom:40px;
+        }
+    }
+    &.last{
+        padding-bottom:50px;
+    }
+    &.no-bg{
+        background:none;
+    }
+}
+@media screen and (max-width: 840px) {
+    .initial-note{
+        
+        .leftthumb{
+            width:100%;
+        }
+        .rightnote{
+            width:100%;
+            margin-top:30px;
+            padding:30px;
+            .date{
+                float:left !important;
+            }
+            .text-right{
+                text-align:left !important;
+            }
+        }
+        .chkWrap{
+            flex-direction: column!important;
+            .mat-raised-button{
+                margin-bottom:7px;
+            }
+            input{
+                width:100%;
+                max-width: 100%;
+                margin-bottom:5px;
+            }
+            mat-checkbox{
+                margin-left:0;
+                width:20px;
+                float:left;
+            }
+        }
+    }
+    .nav-tabs{
+        .nav-item{
+            width:100%;
+            margin-bottom:7px;
+        }
+        .nav-link{
+            border-radius:0px;
+        }
+    }
+}
+

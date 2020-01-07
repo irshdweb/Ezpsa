@@ -8,6 +8,15 @@ import { TicketsComponent } from './tickets/tickets.component';
 import { Last20Component } from './tickets/last20/last20.component';
 import { NewTicketsComponent } from './tickets/new-tickets/new-tickets.component';
 import { NewEquipmentsComponent } from './equipment/new-equipments/new-equipments.component';
+import { TicketDetailsComponent } from './tickets/ticket-details/ticket-details.component';
+import { DetailsComponent } from './tickets/ticket-details/details/details.component';
+import { DevicesComponent } from './tickets/ticket-details/devices/devices.component';
+import { PartsComponent } from './tickets/ticket-details/parts/parts.component';
+import { TimesheetComponent } from './tickets/ticket-details/timesheet/timesheet.component';
+import { OtherDetailsComponent } from './tickets/ticket-details/other-details/other-details.component';
+import { SchedulesComponent } from './tickets/ticket-details/schedules/schedules.component';
+import { DetailsSettingsComponent } from './tickets/ticket-details/details-settings/details-settings.component';
+import { DetailsChecklistComponent } from './tickets/ticket-details/details-checklist/details-checklist.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -21,6 +30,21 @@ const routes: Routes = [
   },
   { path: 'settings', component: SettingsComponent },
   { path: 'tickets/newtickets', component: NewTicketsComponent },
+  { 
+    path: 'tickets/ticket-id/:ticket_id', 
+    component: TicketDetailsComponent,
+    children:[
+      { path: '', redirectTo: 'details', pathMatch: 'full'},
+      { path: 'details', component: DetailsComponent},
+      { path: 'devices', component: DevicesComponent},
+      { path: 'parts', component: PartsComponent},
+      { path: 'timesheet', component: TimesheetComponent},
+      { path: 'other-details', component: OtherDetailsComponent},
+      { path: 'schedules', component: SchedulesComponent},
+      { path: 'settings', component: DetailsSettingsComponent},
+      { path: 'checklist', component: DetailsChecklistComponent},
+    ] 
+  },
   { 
     path: 'tickets', 
     component: TicketsComponent,

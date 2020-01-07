@@ -1,0 +1,72 @@
+<div class="row mr-0 ml-0 pr-4 pl-4 d-flex justify-content-right devices mt-4">
+    <div class="col-md-6 col-sm-6 col-12 pl-sm-0"><h2>Devices</h2></div>
+    <div class="col-md-6 col-sm-6 col-12 pr-sm-0 d-flex justify-content-end align-items-center">
+        <i class="material-icons-outlined" matTooltip="Delete Device">delete</i>
+        <i class="material-icons-outlined" matTooltip="Add New Device">add_box</i>
+        <ng-select class="searchtag">
+            <ng-option *ngFor="let tag of tags" [value]="tag.id" [disabled]="tag.disabled">{{tag.name}}</ng-option>
+        </ng-select>
+    </div>
+    <div class="clearfix"></div>
+    <div class="col-12 pl-sm-0 pr-sm-0">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="displayAll">
+                            <mat-checkbox [(ngModel)]="myModel"></mat-checkbox>
+                        </th>
+                        <th>Device</th>	
+                        <th>Name</th>		
+                        <th>Serial No.</th>		
+                        <th>Type</th>		
+                        <th>Install date</th>		
+                        <th>Asset No.</th>	
+                        <th>Status</th>	
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!--<tr *ngFor="let item of collection | paginate: config">-->
+                        <td class="displayAll">
+                            <mat-checkbox [checked]="myModel"></mat-checkbox>
+                        </td>
+                        <td>EZPSASVR</td>	
+                        <td>Jaypee Ibanez</td>	
+                        <td>fb1b9b1f-cd9b-4e47-41d5-43d280fc36fe</td>	
+                        <td>Server	</td>
+                        <td>4/07/2016 11:39:16 AM</td>	
+                        <td>12546</td>	 	
+                        <td>Managed</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--<div class="row pagin-wrap mr-0 ml-0">
+    <div class="col-6">
+        
+        <div class="select-box">
+            <select #viewItem [(ngModel)]="itemsPerPage" placeholder="10">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="70">70</option>
+                <option value="100">100</option>
+            </select> Per Page
+        </div>
+
+
+
+    </div>
+    <div class="col-6">
+        <pagination-controls (pageChange)="pageChange($event)" class="my-pagination" maxSize="5"
+            directionLinks="true" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
+            screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"></pagination-controls>
+    </div>
+</div>-->

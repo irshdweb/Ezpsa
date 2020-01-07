@@ -1,4 +1,4 @@
-.equipments{
+
     .table-responsive{
         @include scrollbars(7px,#888);
         .table-striped{
@@ -90,7 +90,7 @@
             float:left;
         }
     }
-}
+
 
 ::ng-deep .mat-checkbox .mat-checkbox-frame {
     border-color: $check_box_border;

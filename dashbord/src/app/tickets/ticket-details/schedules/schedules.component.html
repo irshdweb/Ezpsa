@@ -1,0 +1,60 @@
+<div class="row mr-0 ml-0 pr-4 pl-4 d-flex justify-content-right devices mt-4">
+    <div class="col-12 pl-sm-0"><h2>Schedule</h2></div>
+
+    <div class="col-12 pl-sm-0 pr-sm-0">
+        <div class="table-responsive text-nowrap">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        
+                        <th>Start Time	</th>
+                        <th>Description	</th>
+                        <th>Duration	</th>
+                        <th>Assigned	</th>
+                        <th>Location	</th>
+                        <th>Complete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr [class.complete]="checkTrue">
+                        <!--<tr *ngFor="let item of collection | paginate: config">-->
+                    <td> 1/11/2019 4:02:00 PM</td>	
+                    <td> Don't send email on status change unless the new status is Resolved</td>		
+                    <td> 1 hr</td>		
+                    <td>John Smith</td>		
+                    <td> New Zealand</td>	
+                    <td><mat-checkbox (change)="checkChange()"></mat-checkbox></td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!--<div class="row pagin-wrap mr-0 ml-0">
+    <div class="col-6">
+        
+        <div class="select-box">
+            <select #viewItem [(ngModel)]="itemsPerPage" placeholder="10">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="50">50</option>
+                <option value="70">70</option>
+                <option value="100">100</option>
+            </select> Per Page
+        </div>
+
+
+
+    </div>
+    <div class="col-6">
+        <pagination-controls (pageChange)="pageChange($event)" class="my-pagination" maxSize="5"
+            directionLinks="true" autoHide="true" responsive="true" previousLabel="Previous" nextLabel="Next"
+            screenReaderPaginationLabel="Pagination" screenReaderPageLabel="page"
+            screenReaderCurrentLabel="You're on page"></pagination-controls>
+    </div>
+</div>-->

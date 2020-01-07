@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "scss/mixins";
 @import "scss/variables";
+@import "~@ng-select/ng-select/themes/default.theme.css";
 h1{
     font-family:$font_family;
     margin:0;

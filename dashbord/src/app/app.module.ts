@@ -27,8 +27,19 @@ import { QuillModule } from 'ngx-quill';
 import { HourPipe } from './tickets/new-tickets/hour.pipe';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { NewEquipmentsComponent } from './equipment/new-equipments/new-equipments.component';
-
-
+import { CookieService } from 'ngx-cookie-service';
+import { TicketDetailsComponent } from './tickets/ticket-details/ticket-details.component';
+import { ToastrModule } from 'ngx-toastr';
+import { DetailsComponent } from './tickets/ticket-details/details/details.component';
+import { DevicesComponent } from './tickets/ticket-details/devices/devices.component';
+import { PartsComponent } from './tickets/ticket-details/parts/parts.component';
+import { TimesheetComponent } from './tickets/ticket-details/timesheet/timesheet.component';
+import { OtherDetailsComponent } from './tickets/ticket-details/other-details/other-details.component';
+import { SchedulesComponent } from './tickets/ticket-details/schedules/schedules.component';
+import { DetailsSettingsComponent } from './tickets/ticket-details/details-settings/details-settings.component';
+import { DetailsChecklistComponent } from './tickets/ticket-details/details-checklist/details-checklist.component';
+import { DetailSideBarComponent } from './tickets/ticket-details/detail-side-bar/detail-side-bar.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -52,7 +63,17 @@ import { NewEquipmentsComponent } from './equipment/new-equipments/new-equipment
     NewTicketsComponent,
     DragDirective,
     HourPipe,
-    NewEquipmentsComponent
+    NewEquipmentsComponent,
+    TicketDetailsComponent,
+    DetailsComponent,
+    DevicesComponent,
+    PartsComponent,
+    TimesheetComponent,
+    OtherDetailsComponent,
+    SchedulesComponent,
+    DetailsSettingsComponent,
+    DetailsChecklistComponent,
+    DetailSideBarComponent
 
   ],
   imports: [
@@ -66,8 +87,13 @@ import { NewEquipmentsComponent } from './equipment/new-equipments/new-equipment
     ReactiveFormsModule,
     OwlDateTimeModule, 
     OwlNativeDateTimeModule,
+    NgSelectModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      preventDuplicates: true,
+    }), // ToastrModule added
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
