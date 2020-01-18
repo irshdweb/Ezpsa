@@ -40,6 +40,8 @@ import { DetailsSettingsComponent } from './tickets/ticket-details/details-setti
 import { DetailsChecklistComponent } from './tickets/ticket-details/details-checklist/details-checklist.component';
 import { DetailSideBarComponent } from './tickets/ticket-details/detail-side-bar/detail-side-bar.component';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HttpClientModule} from '@angular/common/http';
+import { AuthGuard } from './services/auth.guard';
 
 
 @NgModule({
@@ -88,12 +90,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
     OwlDateTimeModule, 
     OwlNativeDateTimeModule,
     NgSelectModule,
+    HttpClientModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true,
     }), // ToastrModule added
   ],
-  providers: [CookieService],
+  providers: [CookieService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

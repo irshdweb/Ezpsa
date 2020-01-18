@@ -6,6 +6,17 @@
 
 .mat-card{
     border-radius:10px;
+
+    .loader-wrap{
+        position: absolute;
+        width:calc(100% - 32px);
+        height:calc(100% - 32px);
+        font-size:50px;
+        background: rgba(0, 0, 0, 0.7);
+        text-align:center;
+        z-index:999;
+        color:#fff;
+    }
     .material-icons{
         font-size:70px;
         color:#ADAEB5;
@@ -24,6 +35,15 @@
             background:$primary_bg_color;
             width:100%;
         
+    }
+    .mat-raised-button[disabled]{
+        background:#f1f1f1;
+    }
+
+}
+.alert{
+    &.hide{
+        display:none;
     }
 }
 

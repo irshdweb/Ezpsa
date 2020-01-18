@@ -17,22 +17,25 @@ import { OtherDetailsComponent } from './tickets/ticket-details/other-details/ot
 import { SchedulesComponent } from './tickets/ticket-details/schedules/schedules.component';
 import { DetailsSettingsComponent } from './tickets/ticket-details/details-settings/details-settings.component';
 import { DetailsChecklistComponent } from './tickets/ticket-details/details-checklist/details-checklist.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'equipment/new-equipments', component: NewEquipmentsComponent },
+  { path: 'equipment/new-equipments', component: NewEquipmentsComponent, canActivate:[AuthGuard] },
   { 
     path: 'equipment', 
-    component: EquipmentComponent,
+    component: EquipmentComponent, 
+    canActivate:[AuthGuard],
     children:[
       { path: '', component: AllEquipmentComponent, outlet: 'second' },
     ] 
   },
-  { path: 'settings', component: SettingsComponent },
-  { path: 'tickets/newtickets', component: NewTicketsComponent },
+  { path: 'settings', component: SettingsComponent, canActivate:[AuthGuard] },
+  { path: 'tickets/newtickets', component: NewTicketsComponent, canActivate:[AuthGuard] },
   { 
     path: 'tickets/ticket-id/:ticket_id', 
     component: TicketDetailsComponent,
+    canActivate:[AuthGuard],
     children:[
       { path: '', redirectTo: 'details', pathMatch: 'full'},
       { path: 'details', component: DetailsComponent},
@@ -48,6 +51,7 @@ const routes: Routes = [
   { 
     path: 'tickets', 
     component: TicketsComponent,
+    canActivate:[AuthGuard],
     children:[
       { path: '', component: Last20Component}
      

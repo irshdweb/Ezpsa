@@ -1,28 +1,33 @@
 <div class="container d-flex vh-100">
     <div class="row justify-content-center align-self-center w-100 ml-0 mr-0">
         <div class="col-12 col-lg-5">
+            <div *ngIf="isLoginError" class="alert alert-danger mt-3 text-center fade show" role="alert" [class.hide]="removeAlert">
+                <i class="fa fa-exclamation-triangle"></i> The user name or password is incorrect.
+            </div>
                 <mat-card class="login-wrap">
+                    <div *ngIf="preLoder" class="loader-wrap d-flex align-items-center justify-content-center"><i class="fa fa-spinner fa-spin"></i> </div>
                     <div class="row justify-content-center ml-0 mr-0 mb-2">
                         <i class="material-icons">account_circle</i>
                     </div>
                     <div class="row justify-content-center ml-0 mr-0 mb-3 admin-log">
                             User Login
                     </div>
-                    <form [formGroup]="loginForm" novalidate>
+                    <form #loginForm="ngForm" (ngSubmit)="onLoginSubmit(Email.value, Password.value)">
                         <div class="row">
                             <mat-form-field class="w-100 pl-5 pr-5">
-                                <input matInput placeholder="Email" type="email" formControlName="email" name="email" class="w-100" >
+                                <input matInput placeholder="User Name" required type="text" #Email ngModel name="Email" class="w-100" >
                             </mat-form-field>
                         </div>
                         <div class="row">
                             <mat-form-field class="w-100 pl-5 pr-5">
-                                <input matInput placeholder="Password" type="password" formControlName="password" name="password" class="w-100">
+                                <input matInput placeholder="Password" required type="password" #Password ngModel name="Password" class="w-100">
                             </mat-form-field>
                         </div>
                         <div class="row w-100 pl-4 pr-4 mt-3 ml-0 mr-0">
-                            <button mat-raised-button color="primary" class="float-right" (click)="redirect()">Login</button>
+                            <button [disabled]="!loginForm.valid" mat-raised-button color="primary" class="float-right">Login</button>
                         </div>
                     </form>
+
                 </mat-card>
         </div>
     </div>
