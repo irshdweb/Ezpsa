@@ -40,8 +40,9 @@ import { DetailsSettingsComponent } from './tickets/ticket-details/details-setti
 import { DetailsChecklistComponent } from './tickets/ticket-details/details-checklist/details-checklist.component';
 import { DetailSideBarComponent } from './tickets/ticket-details/detail-side-bar/detail-side-bar.component';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthGuard } from './services/auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 
 @NgModule({
@@ -96,7 +97,12 @@ import { AuthGuard } from './services/auth.guard';
       preventDuplicates: true,
     }), // ToastrModule added
   ],
-  providers: [CookieService, AuthGuard],
+  providers: [CookieService, AuthGuard,
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true 
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

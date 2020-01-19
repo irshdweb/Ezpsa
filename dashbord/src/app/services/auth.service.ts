@@ -15,4 +15,8 @@ export class AuthService {
     var reqHeader = new HttpHeaders({ 'Content-Type': 'application/x-www-urlencoded','No-Auth':'True' });
     return this.http.post(this.baseUrl + '/token', data, { headers: reqHeader });
   }
+
+  getToken(){
+    return localStorage.getItem('userToken')
+  }
 }

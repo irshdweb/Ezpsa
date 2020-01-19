@@ -48,25 +48,22 @@ export class AppComponent {
       };
     }
 
-    isMenuOpen = false;
-    ifOpen = false;
-    private cookievalue:string;
+    //isMenuOpen :boolean;
+    ifOpen  = false;
+
+    //localStorage['op'] = JSON.stringify(test);
+   isMenuOpen:boolean = false;
+    
     public onCloseHalf(){
       this.isMenuOpen = !this.isMenuOpen;
-      this.cookieService.set("mainState",new Boolean(this.ifOpen).toString());
-      this.cookieService.set("mainStateCl",new Boolean(!this.ifOpen).toString());
-
-      this.cookievalue = this.cookieService.get('mainState');
-      this.cookievalue = this.cookieService.get('mainStateCl');
-
       if(this.isMenuOpen){
-        this.cookieService.set("op", new Boolean(this.ifOpen=true).toString());
-        //console.log(this.cookieService.get('op'));
-        this.cookievalue = this.cookieService.get('op');
+        this.ifOpen = true;
+        localStorage.setItem("op", new Boolean(this.ifOpen=true).toString());
+        //localStorage.getItem ('op');
       }else{
-        this.cookieService.set("cl", new Boolean(this.ifOpen=false).toString());
-        //console.log(this.cookieService.get('cl'));
-        this.cookievalue = this.cookieService.get('cl');
+        this.ifOpen = false;
+        localStorage.removeItem("op");
+        //localStorage.getItem ('op');
       }
     }
 
