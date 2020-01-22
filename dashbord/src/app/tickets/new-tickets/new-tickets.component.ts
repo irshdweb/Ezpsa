@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { AuthService } from 'src/app/services/auth.service';
 import { QuillModule } from 'ngx-quill';
 import * as $ from 'jquery';
+import { HttpErrorResponse } from '@angular/common/http';
+
 
 declare let $: any;
 
@@ -14,7 +17,14 @@ declare let $: any;
 export class NewTicketsComponent implements OnInit {
   timeCal : any;
   addTicketForm: FormGroup;
-  constructor(private fb: FormBuilder) {
+  assignList:any;
+  priorities:any;
+  issues:any;
+  templates:any;
+  getContactsDetails:any;
+
+  constructor(private fb: FormBuilder, 
+              private service:AuthService) {
    this.createForm();
  }
   createForm() {
@@ -134,7 +144,66 @@ selectTemplate(){
     this.upld = !this.upld;
   }
 
+
+
+
+  DropLoder = false;
+  eventHandler(searchValue: string): void { 
+    //console.log('Email :'+ email, 'Password :'+ password);
+    this.DropLoder = true;
+    this.service.getContacts(searchValue).subscribe((data : any)=>{
+        this.getContactsDetails = data;
+        this.DropLoder = false;
+    },
+    (err : HttpErrorResponse)=>{
+      console.log(err);
+      this.DropLoder = false;
+    });
+  }
+
+
   ngOnInit() {
+    this.service.getAssignList().subscribe(
+      res=>{
+        this.assignList = res;
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+    
+
+    this.service.getPriority().subscribe(
+      res=>{
+        this.priorities = res;
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+
+    
+
+    this.service.getIssues().subscribe(
+      res=>{
+        this.issues = res;
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+
+    this.service.getTemplates().subscribe(
+      res=>{
+        this.templates = res;
+      },
+      err=>{
+        console.log(err);
+      }
+    )
+
+    
+
    
     $(document).ready(function() {
       $('.js-example-basic-multiple').select2();

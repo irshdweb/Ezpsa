@@ -23,23 +23,24 @@
                         <div class="row mb-3  hideOninit" [class.displayproperty]="pickTemplate">
                             <div class="col-12">
                                 <label>Template</label>
-                                <select formControlName="template" tabindex="1" class="selectpicker idealSelect"
+                                <!--<select formControlName="template" tabindex="1" class="selectpicker idealSelect"
                                     data-live-search="true">
                                     <option value="volvo">Volvo</option>
                                     <option value="saab">Saab</option>
                                     <option value="mercedes">Mercedes</option>
                                     <option value="audi">Audi</option>
-                                </select>
+                                </select>-->
+                                <ng-select [multiple]="false"  tabindex="1">
+                                    <ng-option *ngFor="let template of templates" [value]="template.Value">{{template.Label}}</ng-option>
+                                </ng-select>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-12">
                                 <label>Assigned</label>
-                                <select formControlName="assigned" tabindex="2">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="audi">Audi</option>
+                                <select  tabindex="2" >
+                                    <option *ngFor="let assign of assignList" [selected]="assign.Default == true" [value]="assign.Value">{{assign.Label}}</option>
+                                    
                                 </select>
                             </div>
                         </div>
@@ -47,11 +48,17 @@
                             <div class="col-12">
                                 <label>Client <span>*</span></label>
 
-                                <select class="js-example-basic-multiple clientSelect" tabindex="3" formControlName="clientName" required>
+                                <!--<select class="js-example-basic-multiple clientSelect" tabindex="3" formControlName="clientName" required>
                                     <option value="Ab Soft Limited">Ab Soft Limited</option>
                                     <option value="ABC Bins Limited">ABC Bins Limited</option>
                                     <option value="Bank West">Bank West</option>
-                                </select>
+                                </select>-->
+
+                                <ng-select [multiple]="false"  tabindex="3" (input)="eventHandler($event.target.value)" class="drop-spinner">
+                                     <ng-option *ngIf="DropLoder"><i class="fa fa-spinner fa-spin"></i> </ng-option>
+                                    <ng-option *ngFor="let contactsDetail of getContactsDetails" [value]="contactsDetail.id">{{contactsDetail.name}}</ng-option>
+                                </ng-select>
+
                                 <div class="clearfix"></div>
                                 <a class="float-right flt-tags">+ Add New</a>
                                 <div *ngIf="addTicketForm.controls['clientName'].invalid && (addTicketForm.controls['clientName'].dirty || addTicketForm.controls['clientName'].touched)"
@@ -118,10 +125,8 @@
                             <div class="col-12">
                                 <label>Priority</label>
                                 <select formControlName="priorityType" tabindex="7">
-                                    <option value="volvo">Critical</option>
-                                    <option value="saab">Urgent</option>
-                                    <option value="mercedes">Medium</option>
-                                    <option value="audi">Low</option>
+                                    <option *ngFor="let priority of priorities" [value]="priority.ID">{{priority.Desc}}</option>
+                                    
                                 </select>
 
 
@@ -131,11 +136,7 @@
                             <div class="col-12">
                                 <label>Issue Type <span>*</span></label>
                                 <select formControlName="issue" tabindex="8" required>
-                                    <option value="1">-</option>
-                                    <option value="3">Incident</option>
-                                    <option value="4">Problem</option>
-                                    <option value="2">Question</option>
-                                    <option value="5">Task</option>
+                                    <option *ngFor="let issue of issues" [value]="issue.ID">{{issue.Desc}}</option>
                                 </select>
 
 

@@ -34,6 +34,29 @@ select,input,.js-example-basic-multiple{
     }
 }
 
+
+::ng-deep  .ng-select{
+    .ng-arrow-wrapper{
+        display:none;
+    }
+    &.ng-select-single{
+        .ng-select-container{
+            &:focus{
+                border:2px solid #0348b6 !important;
+            }
+        }
+    } 
+
+}
+
+.drop-spinner{
+    .fa{
+        font-size:15px;
+    }
+
+}
+
+
 ::ng-deep .select2-container{
     display:block !important;
     width: 100% !important;

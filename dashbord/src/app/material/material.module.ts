@@ -18,6 +18,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [],
@@ -41,7 +42,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatTooltipModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressBarModule
   ],
   exports: [ 
     MatButtonModule, 
@@ -64,7 +66,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatTooltipModule,
     MatAutocompleteModule,
     MatSlideToggleModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressBarModule
   ],
   providers: [MatDatepickerModule,MatNativeDateModule]
 })

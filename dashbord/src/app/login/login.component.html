@@ -1,3 +1,4 @@
+<mat-progress-bar mode="indeterminate" *ngIf="preLoder"></mat-progress-bar>
 <div class="container d-flex vh-100">
     <div class="row justify-content-center align-self-center w-100 ml-0 mr-0">
         <div class="col-12 col-lg-5">
@@ -5,7 +6,7 @@
                 <i class="fa fa-exclamation-triangle"></i> The user name or password is incorrect.
             </div>
                 <mat-card class="login-wrap">
-                    <div *ngIf="preLoder" class="loader-wrap d-flex align-items-center justify-content-center"><i class="fa fa-spinner fa-spin"></i> </div>
+                   <!-- <div *ngIf="preLoder" class="loader-wrap d-flex align-items-center justify-content-center"><i class="fa fa-spinner fa-spin"></i> </div>-->
                     <div class="row justify-content-center ml-0 mr-0 mb-2">
                         <i class="material-icons">account_circle</i>
                     </div>
