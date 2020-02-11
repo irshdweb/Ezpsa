@@ -4,24 +4,27 @@
 </div>
 <div class="clearfix"></div>
 <div class="row mr-0 ml-0 main-nav-side" [ngClass]="eqMenuTrigger ? 'showMenu' : 'hideMenu'">
-    <ul>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a [routerLink]=''><i class="material-icons">personal_video</i> All Equipments <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">event_available</i> Managed <span>(3)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">event_busy</i> Non Managed <span>(2)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">dns</i> Servers <span>(0)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i class="material-icons">devices</i> Devices <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+    <div *ngIf="DropLoderList" class="right-loader left">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+    <ul [class.fade]="DropLoderList">
+        <li class="d-flex align-items-center"  *ngFor="let lftFilter of leftSideFilters?.StandardGroups">
+            <a (click)="changeList(lftFilter.ID);"><i class="material-icons">{{lftFilter.Icon}}</i> {{lftFilter.Label}} <span> ({{lftFilter.Count}}) </span></a>
+        </li>
+        <li class="d-flex align-items-center">
             <a (click)="showGroup(); changeIcons('keyboard_arrow_down')"><i class="material-icons">group</i> Groups <span><i class="material-icons arrow">{{icons}}</i></span></a>
         </li>
         <div class="clearfix sub_menu hide-menu" [class.show-menu]="drop">
-                <li class="d-flex align-items-center"><a><i class="material-icons">add</i> Add Group</a></li>
+                <li class="d-flex align-items-center" *ngFor="let lftFilter of leftSideFilters?.ManualGroups"><a (click)="changeList(lftFilter.GroupID);"> {{lftFilter.GroupName}}</a></li>
+                <li class="d-flex align-items-center add-btn"><a><i class="material-icons">add</i> Add Group</a></li>
         </div>
 
         <li class="d-flex align-items-center">
             <a (click)="showGroup1(); changeIcons1('keyboard_arrow_down')"><i class="material-icons">filter_list</i> Saved Searches <span><i class="material-icons arrow">{{icons1}}</i></span></a>
         </li>
         <div class="clearfix sub_menu hide-menu" [class.show-menu]="drop1">
-                <li class="d-flex align-items-center"><a><i class="material-icons">add</i> Add Saved Search</a></li>
+                <li class="d-flex align-items-center" *ngFor="let lftFilter of leftSideFilters?.SavedSearches"><a (click)="changeList(lftFilter.SearchID);"> {{lftFilter.Name}}</a></li>
+                <li class="d-flex align-items-center add-btn"><a><i class="material-icons">add</i> Add Saved Search</a></li>
         </div>
     </ul>
 </div>

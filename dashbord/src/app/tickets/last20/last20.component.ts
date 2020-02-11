@@ -70,6 +70,7 @@ export class Last20Component implements OnInit {
   }
   pageChange(newPage: number) {
     this.router.navigate(['tickets'], { queryParams: { page: newPage } });
+    console.log(newPage);
   }
 
   Onclick(item){

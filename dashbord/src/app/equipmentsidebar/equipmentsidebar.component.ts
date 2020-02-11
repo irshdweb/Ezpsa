@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {Observable} from 'rxjs';
+import { FormBuilder } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { ColsetService } from '../colset.service';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 @Component({
   selector: 'app-equipmentsidebar',
@@ -46,9 +52,50 @@ public changeIcons1(newIcon1: string ){
   }
 }
 
-  constructor() { }
+
+leftSideFilters : any;
+getfilters : any;
+getInitial:boolean = true;
+userID : any;
+DropLoderList = false;
+
+constructor(
+  private router: Router, 
+  private fb: FormBuilder, 
+  private service:AuthService,
+  private __selectvalue1: ColsetService,
+  private __selectvalue2: ColsetService
+  ) 
+  { }
+
+  changeList(eva:any){
+    this.__selectvalue2.sendLeftValue(eva);
+  }
 
   ngOnInit() {
+      this.loadLeftFilters();
+      this.loadFilterByClient();
+  }
+
+  loadFilterByClient(){
+    this.__selectvalue1.showvale1$.subscribe(
+      message =>{
+        this.userID = message;
+        this.loadLeftFilters();
+        this.DropLoderList = true;
+      }
+    );
+  }
+
+  loadLeftFilters(){
+    this.service.getequipmentFilters(this.userID).subscribe(
+      res=>{
+        this.leftSideFilters= res;
+        this.DropLoderList = false;
+      },
+      err=>{
+      }
+    )
   }
 
 }

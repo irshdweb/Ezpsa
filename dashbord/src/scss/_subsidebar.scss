@@ -71,6 +71,9 @@
         margin-left:0;
         padding-left:0;
         width:100%;
+        &.fade{
+            opacity: 0.2;
+        }
         li{
             padding-top:10px;
             padding-bottom:0px;
@@ -143,8 +146,15 @@
             position:relative;
             clear: both;
             li{
+                padding-left:60px;
+                padding-top:0;
                 &:hover{
                     background:none;
+                }
+                &.add-btn{
+                    a{
+                        font-weight:bold;
+                    }
                 }
             }
             &.hide-menu{

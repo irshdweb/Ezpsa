@@ -41,6 +41,10 @@ export class LoginComponent implements OnInit {
       this.removeAlert = false;
       //console.log(err);
       //this.toastr.error("The user name or password is incorrect.");
+      if(err.status == 401){
+        localStorage.removeItem('token');
+        this.router.navigateByUrl('/');
+      }
       
     });
   }

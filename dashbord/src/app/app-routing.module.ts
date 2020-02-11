@@ -27,7 +27,7 @@ const routes: Routes = [
     component: EquipmentComponent, 
     canActivate:[AuthGuard],
     children:[
-      { path: '', component: AllEquipmentComponent, outlet: 'second' },
+      { path: '', component: AllEquipmentComponent},
     ] 
   },
   { path: 'settings', component: SettingsComponent, canActivate:[AuthGuard] },

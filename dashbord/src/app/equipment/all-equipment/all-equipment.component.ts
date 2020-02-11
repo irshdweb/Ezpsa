@@ -3,15 +3,24 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ColsetService } from '../../colset.service';
 import { Message } from '@angular/compiler/src/i18n/i18n_ast';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-all-equipment',
   templateUrl: './all-equipment.component.html',
   styleUrls: ['./all-equipment.component.scss']
 })
 export class AllEquipmentComponent implements OnInit {
-  config: any;
-  collection = [];
+  //config: any;
+  totalCount:number;
+  equipments:any;
+  p: number;
+  itemPerPage: number = 10;
   myModel = false;
+  tableLoader:boolean = false;
+  clientInfo: any;
+  leftparam : any;
+  notFoundWarn : boolean = false;
+  agentStatusUpdate : string;
 
   d_name = true;
   a_status = true;
@@ -32,46 +41,20 @@ export class AllEquipmentComponent implements OnInit {
   pr = true;
   gw = true;
   
-  itemsPerPage: number = 10;
+  
 
-  constructor(private route: ActivatedRoute, private router: Router, private __selectvalue: ColsetService) {
-    this.config = {
-      currentPage: 1,
-      itemsPerPage: 15,
-      totalItems: 0
-    };
-    route.queryParams.subscribe(
-      params => this.config.currentPage = params['page'] ? params['page'] : 1);
 
-    for (let i = 1; i <= 100; i++) {
-      let Obj = {
-        'devicename': `Desktop X450- ${i}`,
-        'agent_status': `Online`,
-        'dec': `EMP00 ${i}`,
-        'asset': `EMP00 ${i}`,
-        'serial': `EMP00 ${i}`,
-        'version': `1.176. ${i}`,
-        'last': `${i} Year Ago`,
-        'user': `User ${i}`,
-        'agent': `Managed`,
-        'status': `EMP00 ${i}`,
-        'ip': `10.2.3 ${i}`,
-        'gateway': `20.198. ${i}`,
-        'mac': `EM ${i}`,
-        'location': `EM ${i}`,
-        'date': `EM ${i}`,
-        'contact': `EMP00 ${i}`,
-        'pur': `EMP00 ${i}`,
-        'warranty': `EMP00 ${i}`
-      }
-       this.collection.push(Obj);
-    }
-  }
-  pageChange(newPage: number) {
-    this.router.navigate(['equipment'], { queryParams: { page: newPage } });
-  }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private service:AuthService,
+    private __selectvalue: ColsetService,
+    private __selectvalue1: ColsetService,
+    private __selectvalue2: ColsetService
+    ) 
+  {}
 
- ngOnInit() {
+ngOnInit() {
   
    this.__selectvalue.showvale$.subscribe(
       message =>{
@@ -297,8 +280,72 @@ this.__selectvalue.showvale$.subscribe(
     }
   }
 );
-   
-  }
+
+this.loadequipments();
+this.loadFromClient();
+this.loadFromLeftFilters();
+}
+
+loadFromClient(){
+  this.__selectvalue1.showvale1$.subscribe(
+    message =>{
+        //console.log(message);
+        this.clientInfo = message;
+        this.loadequipments();
+        this.tableLoader = true;
+    }
+  );
+}
+
+loadFromLeftFilters(){
+  this.__selectvalue2.showvale2$.subscribe(
+    resp =>{
+        //console.log(resp);
+        this.leftparam = resp
+        this.loadequipments();
+        this.tableLoader = true;
+    }
+  );
+}
+
+pageChanged(event:number){
+  //console.log(event);
+  this.p = event;
+  this.loadequipments();
+  this.tableLoader = true
+}
+
+itemPerView(itemsSelect:number){
+  //console.log(itemsSelect);
+  this.itemPerPage = itemsSelect;
+  this.loadequipments();
+  this.tableLoader = true;
+}
+
+loadequipments(){
+  this.service.getrightinitial(
+    this.p, 
+    this.itemPerPage, 
+    this.clientInfo,
+    this.leftparam
+    ).subscribe(
+    res=>{
+      this.equipments= res;
+      //console.log(this.equipments);
+      this.totalCount = this.equipments.Count;
+      this.tableLoader = false;
+
+      if(this.totalCount === 0){
+        this.notFoundWarn = true;
+      }else{
+        this.notFoundWarn = false;
+      }
+    },
+    err=>{
+      console.log(err);
+    }
+  )
+}
 
 }
 

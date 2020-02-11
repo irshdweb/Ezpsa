@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormControl, FormBuilder, Form} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { ColsetService } from '../colset.service';
 
 @Component({
   selector: 'app-equipment',
@@ -14,9 +16,19 @@ export class EquipmentComponent implements OnInit {
   options: string[] = ['Jhon Doe', 'Kennedy', 'Ann'];
   filteredOptions: Observable<string[]>;
  
+  equipmentContacts : any;
 
-  constructor(private router: Router) { 
 
+  constructor(private router: Router, 
+    private fb: FormBuilder, 
+    private service:AuthService,
+    private __selectvalue: ColsetService
+    ) { 
+
+  }
+
+   onChangeclientselect(selectedClient:any) {
+    this.__selectvalue.sendjson(selectedClient);
   }
 
 ngOnInit() {
@@ -25,7 +37,16 @@ ngOnInit() {
         startWith(''),
         map(value => this._filter(value))
       );
-  }
+
+      this.service.getequipmentContact().subscribe(
+        res=>{
+          this.equipmentContacts= res;
+        },
+        err=>{
+          console.log(err);
+        }
+      )
+}
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();

@@ -22,6 +22,8 @@ export class NewTicketsComponent implements OnInit {
   issues:any;
   templates:any;
   getContactsDetails:any;
+  getDevicesList:any;
+  getRecentTicketsList : any;
 
   constructor(private fb: FormBuilder, 
               private service:AuthService) {
@@ -60,6 +62,7 @@ conTrueTwo = false;
 ifIntTicket = false;
 pickTemplate = false;
 showProject = false;
+
 resTicket(){
   this.conTrue = !this.conTrue;
   this.schTicket = !this.schTicket;
@@ -162,6 +165,8 @@ selectTemplate(){
   }
 
 
+
+
   ngOnInit() {
     this.service.getAssignList().subscribe(
       res=>{
@@ -202,15 +207,37 @@ selectTemplate(){
       }
     )
 
-    
 
-   
-    $(document).ready(function() {
-      $('.js-example-basic-multiple').select2();
-    });
-
-    $('.clientSelect').on('select2:select', function (e) {
-      $("#hiddenRow").addClass("displayproperty");
-    });
+  this.onChangeclient(this.selectinitialCount);
+  //this.getTickets();
   }
+
+selectinitialCount : any;
+fadeDiv: boolean = false;
+  onChangeclient(selectinitialCount) {
+    //console.log(selectinitialCount);
+    this.fadeDiv =true;
+    this.service.getDevicesList(selectinitialCount).subscribe((data : any)=>{
+      this.getDevicesList = data;
+      //console.log(this.getDevicesList);
+    },
+    (err : HttpErrorResponse)=>{ 
+        console.log(err);
+    })
+
+
+    this.service.getRecentTicket(selectinitialCount).subscribe((data : any)=>{
+      this.getRecentTicketsList = data
+      //console.log(this.getRecentTicketsList);
+      this.fadeDiv = false;
+    },
+    (err : HttpErrorResponse)=>{ 
+        console.log(err);
+    })
+
+  }
+
+  
+
+
 }

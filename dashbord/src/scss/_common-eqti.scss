@@ -42,7 +42,7 @@
             }
         }
         &.tick{
-            margin-left:16px;
+            margin-left:10px;
         }
     }
     .form-group{
@@ -123,8 +123,10 @@
         }
     }
     form{
-        width:27%;
-        margin-left:15px;
+        width:18%;
+        margin-left:10px;
+
+        
         .search-text{
             width:100%;
             padding-left:10px;
@@ -133,16 +135,51 @@
             border-radius:3px;
             border: 1px solid #acacac;
             background:none;
-            font-size:14px;
+            font-size:13px;
         }
+
     }
+
+    .srchForm{
+        width:18%;
+        margin-left:10px;
+
+        ng-select{
+            width:100%;
+            padding-left:10px;
+            
+            height:33px;
+            border-radius:3px;
+            border: 1px solid #acacac;
+            background:none;
+            font-size:13px;
+        }
+
+    }
+    
     .filterico{
         color:#000;
         margin-left:25px;
     }
 }
 }
-
+::ng-deep  .srchForm{
+    .ng-select.ng-select-single{
+        .ng-select-container{
+            background:none;
+            height:31px !important;
+            min-height:13px !important;
+            border:none !important;
+ 
+        }
+        .ng-arrow-wrapper{
+            display:none;
+        }
+        &.ng-select-focused:not(.ng-select-opened)>.ng-select-container{
+            box-shadow:none !important;
+        }
+    } 
+}
 
 
 

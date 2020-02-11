@@ -1,11 +1,16 @@
 
     .table-responsive{
         @include scrollbars(7px,#888);
+        min-height:calc(100vh - 210px);
         .table-striped{
             margin-top:0px;
+            
             tr{
                     border-bottom:1px solid #f5f7f9;
                     background:#fff;
+                    &.fade{
+                        opacity: 0.2;
+                    }
                     
                 
                 th{
@@ -32,14 +37,21 @@
                         padding-bottom:1px;
                         color:#fff;
                         font-size:12px;
-                        &.offline{
-                            border:1px solid #CD1A1A;
-                            color:#CD1A1A;
+                        &.online0{
+                            color: #721c24;
+                            background-color: #f8d7da;
+                            border: 1px solid #f5c6cb;
+                            &::after{
+                                content:'Offline';
+                            }
                         }
-                        &.online{
+                        &.online1{
                             border:1px solid #bebebe;
                             color: #085907;
                             background :#cdebc4;
+                            &::after{
+                            content:'Online';
+                            }
                         }
                     }
                     &.bold{
@@ -56,10 +68,10 @@
         }
     }
     .pagin-wrap{
-        margin-top:30px;
+        margin-top:0px;
         background:#f5f7f9;
-        position:sticky;
-        bottom:0;
+        position: sticky;
+        bottom: 0;
         padding-top:20px;
         padding-bottom:20px;
         border-top:1px solid #a1a1a1;
