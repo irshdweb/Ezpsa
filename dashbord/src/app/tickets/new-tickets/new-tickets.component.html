@@ -76,14 +76,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row mb-3  hideOninit" id="hiddenRow">
+                        <div class="row mb-3  hideOninit" [class.displayproperty]="onselectanyClient">
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <label>Project</label>
-                                <select formControlName="project" tabindex="4">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="audi">Audi</option>
+                                <select formControlName="project" tabindex="4" (change)="projectchange($event.target.value)">
+                                    <option *ngFor="let getclientProject of getclientProjects" [value]="getclientProject.Value">{{getclientProject.Label}}</option>
 
                                 </select>
 
@@ -91,10 +88,7 @@
                             <div class="col-12 col-lg-6 col-md-6 col-sm-6">
                                 <label>Task</label>
                                 <select formControlName="task" tabindex="4">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="audi">Audi</option>
+                                    <option *ngFor="let getTask of getTasklists" [value]="getTask.ItemNo">{{getTask.Name}}</option>
 
                                 </select>
 
@@ -104,11 +98,7 @@
                             <div class="col-12">
                                 <label>Contact Name</label>
                                 <select formControlName="contactName" tabindex="5">
-                                    <option value="volvo">Volvo</option>
-                                    <option value="saab">Saab</option>
-                                    <option value="mercedes">Mercedes</option>
-                                    <option value="audi">Audi</option>
-
+                                    <option *ngFor="let contactName of getLinkedContactName" [value]="contactName.Value">{{contactName.Label}}</option>
                                 </select>
 
                                 <a class="float-right flt-tags">+ Add New</a>
@@ -117,16 +107,8 @@
                         <div class="row">
                             <div class="col-12">
                                 <label>Devices</label>
-
-                                <!--<select class="js-example-basic-multiple" tabindex="6" formControlName="devices"
-                                    multiple="multiple" required>
-                                    <option value="Ab Soft Limited">Ab Soft Limited</option>
-                                    <option value="ABC Bins Limited">ABC Bins Limited</option>
-                                    <option value="Bank West">Bank West</option>
-                                </select>-->
-
-                                <ng-select [multiple]="true" tabindex="6" class="drop-spinner">
-                                    <ng-option *ngIf="DropLoderList"><i class="fa fa-spinner fa-spin"></i> </ng-option>
+                                <ng-select [multiple]="true" tabindex="6" class="drop-spinner" (input)="searchDeviceList($event.target.value)">
+                                    <ng-option *ngIf="DropLoderDevList"><i class="fa fa-spinner fa-spin"></i> </ng-option>
                                     <ng-option *ngFor="let getdevilist of getDevicesList"
                                         [value]="getdevilist.DeviceID">{{getdevilist.DeviceName}}</ng-option>
 
@@ -278,22 +260,28 @@
                                     <div class="col-12 mt-3">
                                         <label>Logged By</label>
                                         <select>
-                                            <option value="volvo">Critical</option>
-                                            <option value="saab">Urgent</option>
-                                            <option value="mercedes">Medium</option>
-                                            <option value="audi">Low</option>
+                                            <option *ngFor="let contactName of getLinkedContactName" [value]="contactName.Value">{{contactName.Label}}</option>
                                         </select>
                                     </div>
                                     <div class="col-12 mt-3">
                                         <label>Additional People to Notify</label>
 
 
-                                        <select class="js-example-basic-multiple" formControlName="peopleNotify"
+                                        <!--<select class="js-example-basic-multiple" formControlName="peopleNotify"
                                             multiple="multiple" required>
                                             <option value="Ab Soft Limited">Ab Soft Limited</option>
                                             <option value="ABC Bins Limited">ABC Bins Limited</option>
                                             <option value="Bank West">Bank West</option>
-                                        </select>
+                                        </select>-->
+
+                                        <ng-select [multiple]="true" (input)="eventHandler($event.target.value)" class="drop-spinner">
+                                            <ng-option *ngIf="DropLoder"><i class="fa fa-spinner fa-spin"></i> </ng-option>
+                                    <ng-option *ngFor="let contactsDetail of getContactsDetails"
+                                        [value]="contactsDetail.id">{{contactsDetail.name}}</ng-option>
+    
+                                    </ng-select>
+
+                                
 
                                     </div>
                                     <div class="col-12 mt-3">
@@ -347,99 +335,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="col-12 p-0 tickPan orange" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="blue status"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 p-0 tickPan blue" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="status"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 p-0 tickPan" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="orange status"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 p-0 tickPan orange" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="status"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="mt-5">Similar Tickets </h3>
-                    <div class="timeUp"><i class="fa fa-cog"></i> Last Update 12 mins ago</div>
-                    <div class="col-12 p-0 tickPan orange" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="status orange"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 p-0 tickPan orange" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="status"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 p-0 tickPan blue" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="status blue"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 p-0 tickPan" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="status"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 p-0 tickPan orange" matTooltip="Active">
-                        <div class="row ml-0 mr-0">
-                            <div class="col-3  d-flex align-items-center justify-content-center">9002</div>
-                            <div class="col-9  d-flex align-items-center">
-                                <div class="hd">This is Sample Ticket <span class="status"
-                                        matTooltip="Active"></span><br />
-                                    <span class="dec">Last Update : 10/12/2019</span> </div>
-                            </div>
-                        </div>
-                    </div>-->
                 </div>
             </div>
         </div>

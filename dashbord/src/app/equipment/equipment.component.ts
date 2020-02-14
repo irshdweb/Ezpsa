@@ -17,6 +17,7 @@ export class EquipmentComponent implements OnInit {
   filteredOptions: Observable<string[]>;
  
   equipmentContacts : any;
+  selectedClient : any;
 
 
   constructor(private router: Router, 

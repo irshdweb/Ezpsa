@@ -1,7 +1,10 @@
 <div class="col-12 equipments pl-0 pr-0">
   
     <div class="col-12 pl-4 pr-4">
-        <mat-progress-bar mode="indeterminate" *ngIf="tableLoader"></mat-progress-bar>
+        <!--<mat-progress-bar mode="indeterminate" *ngIf="tableLoader"></mat-progress-bar>-->
+        <div *ngIf="notFoundWarn" class="alert alert-danger mt-3 mx-auto text-center" role="alert">
+            No Any Data Found
+          </div>
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">
                 <thead>
@@ -33,11 +36,11 @@
                         
                     </tr>
                 </thead>
-                <div *ngIf="notFoundWarn" class="alert alert-danger mt-3 mx-auto text-center" role="alert">
-                    No Any Data Found
-                  </div>
+
                 <tbody>
-                    
+                    <div *ngIf="tableLoader" class="right-loader">
+                        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                    </div>    
                     <tr  [class.fade]="tableLoader" *ngFor="let item of equipments?.List | paginate: { itemsPerPage: itemPerPage, currentPage: p, totalItems: totalCount}">
                         
                         <td class="displayAll">

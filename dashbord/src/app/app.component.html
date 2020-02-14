@@ -1,9 +1,9 @@
 <mat-sidenav-container [class.hidetool]="navExpand">
-      <mat-sidenav #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen">
+      <mat-sidenav *ngIf="showSidenavAll" #sidenav [opened]="screenWidth > 840" [mode]="(screenWidth > 840) ? 'side' : 'over'" [class.open-menu]="isMenuOpen" [class.close-menu]="!isMenuOpen">
       <app-sidebar (menuButtonClickedMobiles)="sidenav.toggle()" (menuButtonClicked)="onCloseHalf()" (menuButtonClickedItem)="onCloseItem()"></app-sidebar>
     </mat-sidenav>
     <mat-sidenav-content [class.open]="ifOpen">
-      <app-toolbar (menuButtonClicked)="onCloseHalf()" (menuButtonClickedMobile)="sidenav.toggle()" [class.hideToolbar]="newPages"></app-toolbar>
+      <app-toolbar *ngIf="showSidenavAll" (menuButtonClicked)="onCloseHalf()" (menuButtonClickedMobile)="sidenav.toggle()" [class.hideToolbar]="newPages"></app-toolbar>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

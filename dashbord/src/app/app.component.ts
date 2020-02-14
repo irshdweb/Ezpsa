@@ -13,6 +13,9 @@ import { CookieService } from 'ngx-cookie-service';
 export class AppComponent {
   navExpand = false;
   newPages = false;
+  showSidenavAll = true;
+
+  
   @ViewChild('sidenav', { static: false }) sidenav: any;
     // Tracking device width to assign media query
     screenWidth: number;
@@ -27,11 +30,21 @@ export class AppComponent {
         }else {
           this.navExpand = false;
         }
+
+
         if (this.router.url=="/tickets/newtickets" || this.router.url=="/equipment/new-equipments"){
           this.newPages = true;
         }else{
           this.newPages= false;
         }
+
+        if (this.router.url=="/reset-password" || this.router.url=="/forgot-password"){
+          this.showSidenavAll = false;
+        }else{
+          this.showSidenavAll= true;
+        }
+
+
       });
 
       this.router.events.subscribe(event => {
@@ -74,6 +87,6 @@ export class AppComponent {
     }
 
     ngOnInit() {
-    
+
   }
 }

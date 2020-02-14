@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       //console.log(err);
       //this.toastr.error("The user name or password is incorrect.");
       if(err.status == 401){
-        localStorage.removeItem('token');
+        localStorage.removeItem('userToken');
         this.router.navigateByUrl('/');
       }
       
@@ -50,8 +50,10 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    //if (localStorage.getItem('userToken') != null)
-    //this.router.navigate(["/equipment"]);
+    //if (localStorage.getItem('userToken') !== null)
+    //this.router.navigateByUrl("/equipment");
+
   }
+  
 
 }

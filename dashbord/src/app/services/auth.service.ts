@@ -53,11 +53,19 @@ export class AuthService {
   }
 
   //Get Device List
-  getDevicesList(selectinitialCount : any){
+  getDevicesList(selectinitialCount : any, typedval:any){
     let deviceparam = new HttpParams();
 
     if (selectinitialCount != null){
       deviceparam = deviceparam.set('masterId',selectinitialCount)
+    }
+
+    if (typedval != null){
+      deviceparam = deviceparam.set('searchTerm',typedval)
+    }
+
+    if (typedval == ''){
+      deviceparam = deviceparam.set('searchTerm', '0')
     }
 
     deviceparam = deviceparam.append('searchTerm','0');
@@ -68,19 +76,60 @@ export class AuthService {
     return this.http.get(this.baseUrl+'/Device/SearchDevices', {params: deviceparam})
   }
 
-//Get Recent Ticket
+  //Get Contact Name
+  getLinkedContactName(selectinitialCount: any){
+    let contactparam = new HttpParams();
 
-getRecentTicket(selectinitialCount:any){
-  let ticketparam = new HttpParams;
+    if (selectinitialCount != null){
+      contactparam = contactparam.set('masterId',selectinitialCount)
+    }
 
-  if(selectinitialCount !=null){
-    ticketparam = ticketparam.set('masterId', selectinitialCount)
+    contactparam = contactparam.append('masterId','0');
+    return this.http.get(this.baseUrl+'/Contact/GetLinkedContacts', {params: contactparam})
   }
 
-  ticketparam = ticketparam.append('masterId','0')
+//Get Recent Ticket
 
-  return this.http.get(this.baseUrl+'/Ticket/GetRecentTickets', {params: ticketparam})
-}
+  getRecentTicket(selectinitialCount:any){
+    let ticketparam = new HttpParams;
+
+    if(selectinitialCount !=null){
+      ticketparam = ticketparam.set('masterId', selectinitialCount)
+    }
+
+    ticketparam = ticketparam.append('masterId','0')
+
+    return this.http.get(this.baseUrl+'/Ticket/GetRecentTickets', {params: ticketparam})
+  }
+
+
+  //Get project
+
+  getClientProject(selectinitialCount){
+    let projectparam = new HttpParams();
+
+    if(selectinitialCount !=null){
+      projectparam = projectparam.set('masterId', selectinitialCount)
+    }
+
+    projectparam = projectparam.append('masterId','0')
+
+    return this.http.get(this.baseUrl+'/Contact/GetContactProjects', {params: projectparam})
+  }
+
+  getProjectTask(projectID:any){
+    let projecttaskparam = new HttpParams();
+
+    if(projecttaskparam !=null){
+      projecttaskparam = projecttaskparam.set('projectID', projectID)
+    }
+
+    projecttaskparam = projecttaskparam.append('projectID','0')
+
+    return this.http.get(this.baseUrl+'/Contact/GetProjectTasks', {params: projecttaskparam})
+  }
+
+
 
   /*****************************************************
    ******************************************************

@@ -1,0 +1,60 @@
+.login-wrap{
+    min-height:400px;
+}
+
+.mat-card{
+    border-radius:10px;
+
+    .loader-wrap{
+        position: absolute;
+        width:calc(100% - 32px);
+        height:calc(100% - 32px);
+        font-size:50px;
+        background: rgba(0, 0, 0, 0.7);
+        text-align:center;
+        z-index:999;
+        color:#fff;
+    }
+    .material-icons{
+        font-size:70px;
+        color:#ADAEB5;
+    }
+    .admin-log{
+        font-size:30px;
+        font-weight:bold;
+        text-transform:uppercase;
+    }
+    .small-text{
+        font-size: 15px;
+    }
+    mat-form-field{
+        font-family:$font_family;
+    }
+    .mat-raised-button.mat-primary{
+            font-family:$font_family;
+            float:right!important;
+            background:$primary_bg_color;
+            width:100%;
+        
+    }
+    .mat-raised-button[disabled]{
+        background:#f1f1f1;
+    }
+
+    a{
+        color:$primary_bg_color;
+    }
+
+}
+.alert{
+    &.hide{
+        display:none;
+    }
+}
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: $primary_bg_color;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: #E4E8EB;
+}

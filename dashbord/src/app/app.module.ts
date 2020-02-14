@@ -43,6 +43,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AuthGuard } from './services/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { CreatePasswordComponent } from './create-password/create-password.component';
 
 
 @NgModule({
@@ -76,7 +78,9 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     SchedulesComponent,
     DetailsSettingsComponent,
     DetailsChecklistComponent,
-    DetailSideBarComponent
+    DetailSideBarComponent,
+    ResetPasswordComponent,
+    CreatePasswordComponent
 
   ],
   imports: [

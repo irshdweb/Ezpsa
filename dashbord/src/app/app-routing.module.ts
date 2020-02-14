@@ -18,9 +18,13 @@ import { SchedulesComponent } from './tickets/ticket-details/schedules/schedules
 import { DetailsSettingsComponent } from './tickets/ticket-details/details-settings/details-settings.component';
 import { DetailsChecklistComponent } from './tickets/ticket-details/details-checklist/details-checklist.component';
 import { AuthGuard } from './services/auth.guard';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { CreatePasswordComponent } from './create-password/create-password.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'forgot-password', component: ResetPasswordComponent },
+  { path: 'reset-password', component: CreatePasswordComponent },
   { path: 'equipment/new-equipments', component: NewEquipmentsComponent, canActivate:[AuthGuard] },
   { 
     path: 'equipment', 

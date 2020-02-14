@@ -24,6 +24,12 @@ export class NewTicketsComponent implements OnInit {
   getContactsDetails:any;
   getDevicesList:any;
   getRecentTicketsList : any;
+  selected : any;
+  getLinkedContactName:any;
+  onselectanyClient :boolean = false;
+  getclientProjects:any;
+  getTasklists:any;
+  notifyDropLoder : boolean = false;
 
   constructor(private fb: FormBuilder, 
               private service:AuthService) {
@@ -209,15 +215,18 @@ selectTemplate(){
 
 
   this.onChangeclient(this.selectinitialCount);
-  //this.getTickets();
+
   }
 
-selectinitialCount : any;
-fadeDiv: boolean = false;
+  selectinitialCount : any;
+  typedval:any;
+  fadeDiv: boolean = false;
+  DropLoderDevList: boolean = false;
+
   onChangeclient(selectinitialCount) {
     //console.log(selectinitialCount);
     this.fadeDiv =true;
-    this.service.getDevicesList(selectinitialCount).subscribe((data : any)=>{
+    this.service.getDevicesList(selectinitialCount, this.typedval).subscribe((data : any)=>{
       this.getDevicesList = data;
       //console.log(this.getDevicesList);
     },
@@ -235,9 +244,52 @@ fadeDiv: boolean = false;
         console.log(err);
     })
 
+
+    this.service.getLinkedContactName(selectinitialCount).subscribe((data : any)=>{
+      this.getLinkedContactName = data
+  
+    },
+    (err : HttpErrorResponse)=>{ 
+        console.log(err);
+    })
+
+
+    this.service.getClientProject(selectinitialCount).subscribe((data : any)=>{
+      this.getclientProjects = data
+
+      if (data.length != 0){
+        this.onselectanyClient = true;
+      }else
+      this.onselectanyClient = false;
+  
+    },
+    (err : HttpErrorResponse)=>{ 
+        console.log(err);
+    })
+
   }
 
+  searchDeviceList(typedval:any){
+    this.DropLoderDevList = true;
+    this.service.getDevicesList(this.selectinitialCount, typedval).subscribe((data : any)=>{
+      this.getDevicesList = data;
+      this.DropLoderDevList = false;
+    },
+    (err : HttpErrorResponse)=>{ 
+        console.log(err);
+        this.DropLoderDevList = false;
+    })
+  }
+
+  projectchange(projectID:any){
+    //console.log(projectID);
+    this.service.getProjectTask(projectID).subscribe((data : any)=>{
+      this.getTasklists = data
   
-
-
+    },
+    (err : HttpErrorResponse)=>{ 
+        console.log(err);
+    })
+  }
+  
 }

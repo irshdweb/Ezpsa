@@ -33,9 +33,10 @@ export class TokenInterceptorService implements HttpInterceptor{
             succ =>{},
             err =>{
               // if token expired
-              if(err.status == 401){
-                localStorage.removeItem('token');
+              if(err.status === 401){
+                localStorage.removeItem('userToken')
                 this.router.navigateByUrl('/');
+                console.log('Token Expired Please login First')
               }
             }
           )
