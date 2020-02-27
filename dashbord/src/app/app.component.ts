@@ -16,7 +16,7 @@ export class AppComponent {
   showSidenavAll = true;
 
   
-  @ViewChild('sidenav', { static: false }) sidenav: any;
+  @ViewChild('sidenav') sidenav: any;
     // Tracking device width to assign media query
     screenWidth: number;
     constructor(private router:Router, private cookieService:CookieService) {
