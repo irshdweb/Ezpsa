@@ -5,10 +5,15 @@
         padding-right:50px;
         background:#fff;
         width: calc(100% - 34%);
-        //margin-top:63px;
         h1{
             margin-top:20px;
+            //margin-bottom:30px;
+
+        }
+        .breadcum{
             margin-bottom:30px;
+            display:inline-block;
+            position:relative;
         }
         label {
             span{
@@ -76,22 +81,26 @@
 
 
     .recent-ticket{
-        height:100%;
+        height:inherit;
         margin-right:20px;
         background:#f1f1f1;
         position:fixed;
+        float:right;
         right:0;
         width:30%;
-        overflow:auto;
         padding-left:25px;
         padding-right:25px;
         padding-top:50px;
-        @include scrollbars(4px,rgb(161, 161, 161));
-        //-ms-overflow-style: none;
-        //&::-webkit-scrollbar{
-            //display:none;
-        //}
-        
+        .wrap{
+           height:90vh;
+           //padding-right:48px;
+           overflow-y: auto;
+           @include scrollbars(8px,#f1f1f1, #f1f1f1);
+        }
+        &:hover > .wrap{
+            @include scrollbars(8px,#aaaaaa, #f1f1f1);
+        }
+
         h3{
             font-weight:600;
             font-size:22px;
@@ -121,25 +130,46 @@
             -moz-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
             box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
             //border-right:4px solid #40683a;
+            cursor:pointer;
             &.faded{
                 opacity: 0.2;
             }
-            &.orange{
-                border-right:4px solid orange;
+            &.Resolved, &.resolved{
+                
+                border-right:4px solid rgb(27, 75, 5);
             }
 
-            &.blue{
+            &.Initial, &.initial{
                 border-right:4px solid skyblue;
             }
+            &.Closed, &.closed{
+                border-right:4px solid rgb(172, 57, 67);
+            }
+            &.progress, &.Progress{
+                border-right:4px solid orange;
+                display:block;
+            }
+            &.Reopen, &.reopen{
+                border-right:4px solid rgb(106, 10, 214);
+                display:block;
+            }
+            &.client{
+                border-right:4px solid rgb(5, 153, 109);
+                display:block;
+            }
             .col-3{
-                height:90px;
+                height:inherit;
                 background:#f9f9f9;
                 font-weight:900;
                 font-size:13px;
                 color:#ff0000;
+                padding-top:20px;
+                padding-bottom:20px;
             }
             .col-9{
-                height:90px;
+                height:auto;
+                padding-top:20px;
+                padding-bottom:20px;
             }
 
             .hd{
@@ -204,7 +234,30 @@
         display:none;
     }
 }
+@media screen and (max-width: 1100px) {
+    .recent-ticket{
 
+        height:inherit;
+        position:relative !important;
+        margin-right:0;
+        padding-left:0 !important;
+        padding-right:0 !important;
+
+        .wrap{
+            height:100% !important;
+         }
+
+         .tickPan{
+             .col-3, .col-9{
+                 padding-top:0 !important;
+                 padding-bottom:0 !important;
+             }
+             .hd{
+                 font-size:13px;
+             }
+         }
+    }
+}
 @media screen and (max-width: 840px) {
     .leftPanmg{
         width:100% !important;
@@ -213,8 +266,14 @@
 
     .recent-ticket{
         width:100% !important;
-        height:400px;
+        height:inherit;
         position:relative !important;
         margin-right:0;
+        padding-left:25px !important;
+        padding-right:25px !important;
+
+        .wrap{
+            height:100% !important;
+         }
     }
 }

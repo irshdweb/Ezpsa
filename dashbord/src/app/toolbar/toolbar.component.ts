@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import * as $ from 'jquery';
+import { ColsetService } from '../colset.service';
 
 declare let $: any;
 
@@ -11,11 +12,15 @@ declare let $: any;
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+  issideOpen : any;
 
 //passing method to another component
 @Output() menuButtonClicked = new EventEmitter();
 @Output() menuButtonClickedMobile = new EventEmitter();
-constructor(private router : Router, private toastr: ToastrService) { }
+constructor(private router : Router, 
+            private toastr: ToastrService,
+            private __selectvalue3 :ColsetService
+){ }
 
   clicked = 0;
   
@@ -30,6 +35,24 @@ constructor(private router : Router, private toastr: ToastrService) { }
   }
 
   ngOnInit() {
+
+    this.__selectvalue3.showvale3$.subscribe(
+      message =>{
+        //console.log(message)
+        if(message  ==='open')
+          this.issideOpen = true;
+        else
+        this.issideOpen = false;
+      }
+   );
+
+  //Get Initial state for toolbarwidth
+  if(localStorage.getItem('mainsidenavState') === 'false' || localStorage.getItem('mainsidenavState') == null ){
+    this.issideOpen = false;
+    }else{
+      this.issideOpen = true;
+    }
+
   }
 
 }

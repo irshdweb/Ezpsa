@@ -16,6 +16,8 @@ export class EquipmentsidebarComponent implements OnInit {
   eqMenuTrigger = false;
   drop = false;
   drop1 = false;
+  selectedIndex: number = 0;
+
   showMenu(){
     this.eqMenuTrigger = !this.eqMenuTrigger;  
   }
@@ -70,6 +72,7 @@ constructor(
 
   changeList(eva:any){
     this.__selectvalue2.sendLeftValue(eva);
+
   }
 
   ngOnInit() {
@@ -97,5 +100,9 @@ constructor(
       }
     )
   }
+
+  setIndex(index: number) {
+    this.selectedIndex = index;
+ }
 
 }

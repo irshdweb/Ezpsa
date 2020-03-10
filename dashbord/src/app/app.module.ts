@@ -25,7 +25,6 @@ import { NewTicketsComponent } from './tickets/new-tickets/new-tickets.component
 import { DragDirective } from './tickets/drag.directive';
 import { QuillModule } from 'ngx-quill';
 import { HourPipe } from './tickets/new-tickets/hour.pipe';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { NewEquipmentsComponent } from './equipment/new-equipments/new-equipments.component';
 import { CookieService } from 'ngx-cookie-service';
 import { TicketDetailsComponent } from './tickets/ticket-details/ticket-details.component';
@@ -45,6 +44,7 @@ import { AuthGuard } from './services/auth.guard';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { CreatePasswordComponent } from './create-password/create-password.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -92,10 +92,9 @@ import { CreatePasswordComponent } from './create-password/create-password.compo
     NgxPaginationModule,
     QuillModule.forRoot(),
     ReactiveFormsModule,
-    OwlDateTimeModule, 
-    OwlNativeDateTimeModule,
     NgSelectModule,
     HttpClientModule,
+    NgbModule,
     ToastrModule.forRoot({
       timeOut: 3000,
       preventDuplicates: true,

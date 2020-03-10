@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { QuillModule } from 'ngx-quill';
 import * as $ from 'jquery';
 import { HttpErrorResponse } from '@angular/common/http';
+import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 
 
 declare let $: any;
@@ -30,10 +30,29 @@ export class NewTicketsComponent implements OnInit {
   getclientProjects:any;
   getTasklists:any;
   notifyDropLoder : boolean = false;
+  ticketstatusupdate:any;
 
-  constructor(private fb: FormBuilder, 
-              private service:AuthService) {
+  hoveredDate: NgbDate;
+  fromDate: NgbDate;
+  toDate: NgbDate;
+
+  time = {hour: 1, minute: 30};
+  spinners = false;
+  meridian = true;
+
+  
+
+  constructor(
+    private fb: FormBuilder, 
+    private service:AuthService,
+    private calendar: NgbCalendar, 
+    public formatter: NgbDateParserFormatter
+              
+  ){
    this.createForm();
+
+   this.fromDate = calendar.getToday();
+    this.toDate = calendar.getNext(calendar.getToday(), 'd', 0);
  }
   createForm() {
    this.addTicketForm = this.fb.group({
@@ -51,14 +70,12 @@ export class NewTicketsComponent implements OnInit {
     timeUnit:[''],
     StartDate:[''],
     EndDate:[''],
-    peopleNotify:['']
+    peopleNotify:[''],
+    timepick:['']
    });
  }
 
- public selectedMoments = [
-  new Date(2019, 1, 12, 10, 30),
-  new Date(2019, 3, 21, 20, 30)
-];
+
 
 conTrue = false;
 conTrueOne = false;
@@ -125,9 +142,7 @@ selectTemplate(){
   editorStyle ={
     minHeight: '100px',
     height:'auto',
-    //boxShadow:'inset -1px 7px 35px -22px #757375',
     borderRadius:'5px',
-    //color:'#a1a1a1',
     fontSize:'15px',
     border:'1px solid #9e9e9e'
   }
@@ -239,6 +254,7 @@ selectTemplate(){
       this.getRecentTicketsList = data
       //console.log(this.getRecentTicketsList);
       this.fadeDiv = false;
+      //if(this.getRecentTicketsList.Status === ""
     },
     (err : HttpErrorResponse)=>{ 
         console.log(err);
@@ -290,6 +306,36 @@ selectTemplate(){
     (err : HttpErrorResponse)=>{ 
         console.log(err);
     })
+  }
+
+//Ng Datepicker scripts
+
+  onDateSelection(date: NgbDate) {
+    if (!this.fromDate && !this.toDate) {
+      this.fromDate = date;
+    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
+      this.toDate = date;
+    } else {
+      this.toDate = null;
+      this.fromDate = date;
+    }
+  }
+
+  isHovered(date: NgbDate) {
+    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+  }
+
+  isInside(date: NgbDate) {
+    return date.after(this.fromDate) && date.before(this.toDate);
+  }
+
+  isRange(date: NgbDate) {
+    return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
+  }
+
+  validateInput(currentValue: NgbDate, input: string): NgbDate {
+    const parsed = this.formatter.parse(input);
+    return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
   }
   
 }

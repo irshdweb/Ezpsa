@@ -12,6 +12,9 @@ mat-toolbar {
     -webkit-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
     -moz-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
     box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
+    &.expandsidenav{
+        width:calc(100% - 237px);
+    }
     .icon-btn{
         margin-left:22px;
         cursor: pointer;
@@ -95,7 +98,7 @@ mat-toolbar {
 
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 1040px) {
     mat-toolbar {
         width:100%;
         .txt-serach{

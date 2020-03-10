@@ -33,6 +33,7 @@ ul{
         display:block;
         margin-bottom:1px;
         transition: all 0.3s;
+        overflow:hidden;
         &:hover{
             background:$nav_hover_bg;
             //padding-left:32px;

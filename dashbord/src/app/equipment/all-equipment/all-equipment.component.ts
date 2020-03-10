@@ -16,6 +16,8 @@ export class AllEquipmentComponent implements OnInit {
   p: number;
   itemPerPage: number = 10;
   myModel = false;
+  isChecked = false;
+  deslectcheck = false;
   tableLoader:boolean = false;
   clientInfo: any;
   leftparam : any;
@@ -53,6 +55,10 @@ export class AllEquipmentComponent implements OnInit {
     private __selectvalue2: ColsetService
     ) 
   {}
+
+  //checkValue(){
+    //this.deslectcheck = !this.deslectcheck
+  //}
 
 ngOnInit() {
   

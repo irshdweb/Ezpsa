@@ -9,6 +9,9 @@
     box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
     z-index:2;
     border-top: 1px #ebeff3 solid;
+    &.expandsidenav{
+        width:calc(100% - 237px);
+    }
 .row{
     height:60px;
     .main-btns{
@@ -136,6 +139,10 @@
             border: 1px solid #acacac;
             background:none;
             font-size:13px;
+            @media screen and (max-width: 840px) {
+                padding-left:5px;
+                font-size:12px;
+            }
         }
 
     }
@@ -143,7 +150,11 @@
     .srchForm{
         width:18%;
         margin-left:10px;
-
+        @media screen and (max-width: 740px) {
+            width:100%;
+            margin-left:0;
+            margin-bottom:10px;
+        }
         ng-select{
             width:100%;
             padding-left:10px;
@@ -153,6 +164,10 @@
             border: 1px solid #acacac;
             background:none;
             font-size:13px;
+            @media screen and (max-width: 840px) {
+                padding-left:0px;
+                font-size:12px;
+            }
         }
 
     }
@@ -160,6 +175,26 @@
     .filterico{
         color:#000;
         margin-left:25px;
+    }
+
+    .click-arrow{                
+        width:20px;
+        height:20px;
+        border:1px solid #464646;
+        margin-right:10px;
+        margin-top:2px;
+        text-align:center;
+        cursor:pointer;
+        border-radius:2px;
+        background:#f5f7f9;
+        .fa{
+            margin-top:0px;
+            font-size:10px;
+        }
+        &.detailspage{
+            float:none;
+            //margin-top:-15px;
+        }
     }
 }
 }
@@ -247,33 +282,19 @@
             position:absolute;
             z-index:1;
             cursor:pointer;
-            .click-arrow{
-                float:right;
-                width:20px;
-                height:50px;
-                border:1px solid #d4d4d4;
-                margin-right:0px;
-                text-align:center;
-                cursor:pointer;
-                line-height:44px;
-                background:#f5f7f9;
-                .fa{
-                    margin-top:0px;
-                    font-size:12px;
-                }
-                &.detailspage{
-                    float:none;
-                    //margin-top:-15px;
-                }
-            }
+
         }
     }
 }
 }
-
+@media screen and (max-width: 1040px) {
+    .subHeader{
+        width:100%;
+    }
+}
 @media screen and (max-width: 840px) {
     .subHeader{
-        position:relative;
+        //position:relative;
         z-index:1;
         width:100%;
         box-shadow:none;
@@ -295,7 +316,7 @@
     }
     }
     .mainContainer{
-    margin-top:30px;
+    //margin-top:30px;
     .inner-main-panel{
         float:none;
         width:100%;
@@ -316,11 +337,13 @@
 @media screen and (max-width: 750px) {
     .subHeader{
         height:auto !important;
-        display:block !important;
+        //display:block !important;
         padding-top:20px;
         padding-bottom:20px;
         margin-top:70px;
         //background:none;
+        float:left;
+        position:relative;
         .row{
             height:auto;
         h1{
@@ -388,6 +411,7 @@
     }
     }
     .mainContainer{
+        margin-top:30px;
         .inner-main-panel{
             .wrap{
                 margin-top:0;

@@ -1,38 +1,58 @@
 <div class="col-12 equipments pl-0 pr-0">
   
-    <div class="col-12 pl-4 pr-4">
+    <div class="col-12 pl-3 pr-3">
         <!--<mat-progress-bar mode="indeterminate" *ngIf="tableLoader"></mat-progress-bar>-->
         <div *ngIf="notFoundWarn" class="alert alert-danger mt-3 mx-auto text-center" role="alert">
             No Any Data Found
           </div>
         <div class="table-responsive text-nowrap">
+            <button class="main-btns tick eq">Run Script <i class="fa fa-code" aria-hidden="true"></i>
+            </button>
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="displayAll">
-                            <mat-checkbox [(ngModel)]="myModel"></mat-checkbox>
+                        <th class="displayAll" style="left:0;position:sticky;z-index:4;">
+                            <mat-checkbox [(ngModel)]="myModel" [checked]="deslectcheck"></mat-checkbox>
+                            Device Name
                         </th>
-                        <th [class.hideCol]="devi_na">Device Name</th>
-                        <th [class.hideCol]="ct">Contact</th>
-                        <th [class.hideCol]="sn">Serial No.</th>
+                        <!--<th [class.hideCol]="devi_na">Device Name</th>-->
                         <th [class.hideCol]="a_status">Agent Status</th>
+                        <th [class.hideCol]="la_update">Last Connected</th>
+                        <th [class.hideCol]="la_user">Last User </th>
+                        <th [class.hideCol]="ip">IP Address</th>
+                        <th [class.hideCol]="gw">Gateway</th>
+                        <th [class.hideCol]="sn">Serial No.</th>
+                        <th [class.hideCol]="mc">MAC Address </th>
+                        <th [class.hideCol]="d_name">Agent Version </th>
+                        <th [class.hideCol]="lc">Location </th>
+                        <th [class.hideCol]="id">Install Date</th>
+                        <th [class.hideCol]="mr">Memory</th>
+                        <th [class.hideCol]="pr">Purchased </th>
                         <th [class.hideCol]="dec">Description</th>
+                        <th [class.hideCol]="wa_ex">Warranty Expiry</th>
+                        <th [class.hideCol]="st">Status </th>
+                        <th [class.hideCol]="an">Asset No.</th>
+
+                        <th [class.hideCol]="ct">Contact</th>
+                        
+                        
+                        
 
                         <th [class.hideCol]="dec">Type</th>
 
-                        <th [class.hideCol]="id">Install Date</th>
-                        <th [class.hideCol]="an">Asset No.</th>
-                        <th [class.hideCol]="ip">IP Address</th>
-                        <th [class.hideCol]="gw">Gateway</th>
-                        <th [class.hideCol]="d_name">Agent Version </th>
-                        <th [class.hideCol]="pr">Purchased </th>
-                        <th [class.hideCol]="mr">Memory</th>
-                        <th [class.hideCol]="wa_ex">Warranty Expiry</th>
-                        <th [class.hideCol]="la_update">Last Agent Update</th>
-                        <th [class.hideCol]="la_user">Last User </th>
-                        <th [class.hideCol]="st">Status </th>
-                        <th [class.hideCol]="mc">MAC Address </th>
-                        <th [class.hideCol]="lc">Location </th>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                       
                         
                     </tr>
                 </thead>
@@ -43,31 +63,49 @@
                     </div>    
                     <tr  [class.fade]="tableLoader" *ngFor="let item of equipments?.List | paginate: { itemsPerPage: itemPerPage, currentPage: p, totalItems: totalCount}">
                         
-                        <td class="displayAll">
+                        <td class="displayAll" style="left:0;position:sticky;background:#fff;">
                             <mat-checkbox [checked]="myModel"></mat-checkbox>
+                            {{ item.DeviceName }}
                         </td>
-                        <td [class.hideCol]="devi_na">{{ item.DeviceName }}</td>
-                        <td [class.hideCol]="ct">{{ item.Name }}</td>
-                        <td [class.hideCol]="sn">{{ item.SerialNumber }}</td>
+                        <!--<td [class.hideCol]="devi_na" style="position:sticky !important;">{{ item.DeviceName }}</td>-->
                         <td [class.hideCol]="a_status"><span class="status-pan online{{ item.AgentStatus }}"></span>
                         </td>
+                        <td [class.hideCol]="la_update">{{ item.AgentLastUpdate | date: 'dd/MM/yyyy' }}</td>
+                        <td [class.hideCol]="la_user">{{ item.LastUser }}</td>
+                        <td [class.hideCol]="ip">{{ item.IpAddress }}</td>
+                        <td [class.hideCol]="gw">{{ item.PublicIPAddress }}</td>
+                        <td [class.hideCol]="sn">{{ item.SerialNumber }}</td>
+                        <td [class.hideCol]="mc">{{ item.MacAddress }}</td>
+                        <td [class.hideCol]="d_name">{{ item.AgentVersion }}</td>
+                        <td [class.hideCol]="lc">{{ item.Location }}</td>
+                        <td [class.hideCol]="id">{{ item.DateCreated |  date: 'dd/MM/yyyy' }}</td>
+                        <td [class.hideCol]="mr">{{ item.Memory }}</td>
+                        <td [class.hideCol]="pr">{{ item.PurchaseDate | date: 'dd/MM/yyyy' }}</td>
                         <td [class.hideCol]="dec">{{ item.Description }}</td>
+                        <td [class.hideCol]="wa_ex">{{ item.WarrantyExpire | date: 'dd/MM/yyyy' }}</td>
+                        <td [class.hideCol]="st">{{ item.Status }}</td>
+                        <td [class.hideCol]="an">{{ item.AssetNumber }}</td>
+
+                        <td [class.hideCol]="ct">{{ item.Name }}</td>
+                        
+                        
+                        
 
                         <td [class.hideCol]="dec">{{ item.PCType}}</td>
 
-                        <td [class.hideCol]="id">{{ item.DateCreated |  date: 'dd/MM/yyyy' }}</td>
-                        <td [class.hideCol]="an">{{ item.AssetNumber }}</td>
-                        <td [class.hideCol]="ip">{{ item.IpAddress }}</td>
-                        <td [class.hideCol]="gw">{{ item.PublicIPAddress }}</td>
-                        <td [class.hideCol]="d_name">{{ item.AgentVersion }}</td>
-                        <td [class.hideCol]="pr">{{ item.PurchaseDate | date: 'dd/MM/yyyy' }}</td>
-                        <td [class.hideCol]="mr">{{ item.Memory }}</td>
-                        <td [class.hideCol]="wa_ex">{{ item.WarrantyExpire | date: 'dd/MM/yyyy' }}</td>
-                        <td [class.hideCol]="la_update">{{ item.AgentLastUpdate | date: 'dd/MM/yyyy' }}</td>
-                        <td [class.hideCol]="la_user">{{ item.LastUser }}</td>
-                        <td [class.hideCol]="st">{{ item.Status }}</td>
-                        <td [class.hideCol]="mc">{{ item.MacAddress }}</td>
-                        <td [class.hideCol]="lc">{{ item.Location }}</td>
+                        
+                        
+                        
+                        
+                        
+                        
+                       
+                       
+                        
+                        
+                        
+                        
+                       
                         
                         
                         
@@ -79,7 +117,7 @@
             </table>
         </div>
     </div>
-    <div class="row pagin-wrap mr-0 ml-0">
+    <div class="row pagin-wrap mr-0 ml-0 d-flex align-items-center">
         <div class="col-6">
             <!--[(ngModel)] = 'itemsCount'-->
             <!--<select (change)="onChangeEvent($event)">-->

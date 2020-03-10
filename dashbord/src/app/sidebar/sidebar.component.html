@@ -1,11 +1,11 @@
-<a (click)="menuButtonClickedMobiles.emit();" class="hide-on-desktop"><i class="material-icons clear">clear</i></a>
+<a (click)="menuButtonClickedMobiles.emit();" class="hide-on-desktop-only"><i class="material-icons clear">clear</i></a>
 <img src="../../assets/logo.svg" alt="Logo" class="logo-img hide-on-desktop">
-<a (click)="menuButtonClicked.emit(); changeIcon('menu_open');" class="hide-on-mobile"><i class="material-icons menu">{{icon}}</i></a>
+<a (click)="menuButtonClicked.emit(); changeIcon('menu_open');" class="hide-on-mobile-only"><i class="material-icons menu">{{icon}}</i></a>
 <ul class="side-nav p-0">
     <li (click)="menuButtonClickedItem.emit();"><a href=""><i class="material-icons">speed</i><span> Dashboard</span></a></li>
     <li (click)="menuButtonClickedItem.emit();" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink='/tickets'><i class="material-icons">receipt</i> <span>Tickets</span></a></li>
     <li (click)="menuButtonClickedItem.emit();"><a href=""><i class="material-icons">vibration</i> <span>Alerts</span></a></li>
-    <li (click)="menuButtonClickedItem.emit();" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink='/equipment'><i class="material-icons">device_hub</i> <span>Equipments</span></a></li>
+    <li (click)="menuButtonClickedItem.emit();" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink='/equipment'><i class="material-icons">device_hub</i> <span>Devices</span></a></li>
     <li (click)="menuButtonClickedItem.emit();"><a href=""><i class="material-icons">code</i> <span>Scripts</span></a></li>
     <li (click)="menuButtonClickedItem.emit();"><a href=""><i class="material-icons">supervisor_account</i> <span>Clients</span></a></li>
     <li (click)="menuButtonClickedItem.emit();"><a href=""><i class="material-icons">supervised_user_circle</i> <span>Users</span></a></li>

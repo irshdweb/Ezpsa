@@ -7,22 +7,28 @@ import {  Component, Output, EventEmitter, OnInit, Input  } from '@angular/core'
 })
 export class SidebarComponent implements OnInit {
   //Changing menu icon 
-public icon = 'menu'; 
+  public icon :string; 
 
-public changeIcon(newIcon: string ){
-    if(this.icon == 'menu_open'){
-      this.icon='menu';
-    }
-    else{
-      this.icon = newIcon ; 
-    }
-}
+  public changeIcon(newIcon: string ){
+      if(this.icon == 'menu_open' || localStorage.getItem('mainsidenavState') === 'false'){
+        this.icon='menu';
+      }
+      else{
+        this.icon = 'menu_open' ; 
+      }
+  }
+
   @Output() menuButtonClickedMobiles = new EventEmitter();
   @Output() menuButtonClickedItem = new EventEmitter();
   @Output() menuButtonClicked = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
+    if(localStorage.getItem('mainsidenavState') === 'false' || localStorage.getItem('mainsidenavState') == null ){
+      this.icon = 'menu';
+    }else{
+      this.icon = 'menu_open';
+    }
   }
 
 }

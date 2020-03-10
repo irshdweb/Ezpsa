@@ -8,7 +8,7 @@
         <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
     </div>
     <ul [class.fade]="DropLoderList">
-        <li class="d-flex align-items-center active"  *ngFor="let lftFilter of leftSideFilters?.StandardGroups">
+        <li class="d-flex align-items-center" [class.active]="selectedIndex === i" *ngFor="let lftFilter of leftSideFilters?.StandardGroups; let i = index"  (click)="setIndex(i)">
             <a (click)="changeList(lftFilter.ID);"><i class="material-icons">{{lftFilter.Icon}}</i> {{lftFilter.Label}} <span> ({{lftFilter.Count}}) </span></a>
         </li>
         <li class="d-flex align-items-center">

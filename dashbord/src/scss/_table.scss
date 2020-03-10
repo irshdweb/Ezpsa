@@ -1,15 +1,36 @@
 
     .table-responsive{
-        @include scrollbars(7px,#888);
-        min-height:calc(100vh - 210px);
+        height:calc(100vh - 210px);
+        overflow:auto;
+        @media screen and (max-width: 840px) {
+            height:auto;
+            margin-bottom:100px;
+        }
+        &::-webkit-scrollbar {
+            width: 25px;
+        }
+          
+        &::-webkit-scrollbar-thumb {
+            background: #ebeff3; 
+            border-left:10px solid #ebeff3;
+        }
+
+        &:hover{
+            &::-webkit-scrollbar-thumb {
+                background: rgb(139, 139, 139); 
+                border-left:10px solid #ebeff3;
+            }
+        }
         .table-striped{
             margin-top:0px;
-            
             tr{
                     border-bottom:1px solid #f5f7f9;
                     background:#fff;
                     &.fade{
                         opacity: 0.2;
+                    }
+                    mat-checkbox{
+                        margin-right:30px;
                     }
                     
                 
@@ -18,7 +39,9 @@
                     display:none;
                     padding-left:20px;
                     border-bottom:none !important;
-                   
+                    position: sticky; 
+                    top: 0;
+                    z-index:1;
                 }
                 td{
                     color:#4F4E4E;
@@ -72,8 +95,8 @@
         background:#f5f7f9;
         position: sticky;
         bottom: 0;
-        padding-top:20px;
-        padding-bottom:20px;
+        width:100%;
+        height:70px;
         border-top:1px solid #a1a1a1;
         pagination-controls{
            padding:0 !important;

@@ -1,6 +1,8 @@
-<div class="subHeader col-12 pl-4">
+<div class="subHeader col-12 pl-4" [class.expandsidenav]="issideOpen">
     <div class="row  d-flex ml-0 mr-0 align-items-center">
-        <div class="col-lg-2 col-md-2 col-12 pl-0">
+        <div class="col-lg-2 col-md-2 col-12 pl-0 d-flex">
+            <div class="click-arrow hide-on-mobile d-flex align-items-center justify-content-center" matTooltip="{{msg}} Filters"
+            (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
             <h1>Equipments</h1>
         </div>
         <div class="col-lg-10 col-md-10 col-12 d-md-flex d-sm-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
@@ -14,6 +16,7 @@
                 </ng-select>
 
             </div>
+            
             <div class="dropdown">
                 <button data-toggle="dropdown" class="main-btns tick eq" matTooltip="Equipment Menu"><i class="material-icons-outlined flt-left" aria-label="">playlist_add</i></button>
                 <div class="dropdown-menu fixed-height">
@@ -91,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <button class="main-btns tick eq" (click)="redirect();">Add New <i class="fa fa-plus" aria-hidden="true"></i>
+            <button class="main-btns tick eq" (click)="redirect();">New Device <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
             <button class="main-btns tick eq" matTooltip="Download Agent">Agent <i class="fa fa-download" aria-hidden="true"></i>
             </button>
@@ -120,11 +123,6 @@
             </div>
 
             <div class="col-lg-12 col-12 pt-0 pb-0 pl-0 pr-0 wrap">
-                <div class="wrapping">
-                    <div class="click-arrow hide-on-mobile" matTooltip="{{msg}} Filters"
-                        (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
-
-                </div>
                 <router-outlet></router-outlet>
             </div>
         </div>

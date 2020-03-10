@@ -4,6 +4,7 @@ import { Router} from '@angular/router';
 import { filter} from 'rxjs/operators';
 import { NavigationEnd } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { ColsetService } from './colset.service';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,19 @@ export class AppComponent {
   navExpand = false;
   newPages = false;
   showSidenavAll = true;
+  isMenuOpen:any;
+  ifOpen:boolean;
+
 
   
   @ViewChild('sidenav') sidenav: any;
     // Tracking device width to assign media query
     screenWidth: number;
-    constructor(private router:Router, private cookieService:CookieService) {
+    constructor(
+      private router:Router, 
+      private cookieService:CookieService,
+      private __selectvalue :ColsetService
+      ) {
 
       //hide sidenav and toolbar based on the routes
       this.router.events.pipe(
@@ -61,32 +69,38 @@ export class AppComponent {
       };
     }
 
-    //isMenuOpen :boolean;
-    ifOpen  = false;
-
-    //localStorage['op'] = JSON.stringify(test);
-   isMenuOpen:boolean = false;
-    
     public onCloseHalf(){
       this.isMenuOpen = !this.isMenuOpen;
-      if(this.isMenuOpen){
-        this.ifOpen = true;
-        localStorage.setItem("op", new Boolean(this.ifOpen=true).toString());
-        //localStorage.getItem ('op');
-      }else{
-        this.ifOpen = false;
-        localStorage.removeItem("op");
-        //localStorage.getItem ('op');
-      }
-    }
+      this.ifOpen = !this.ifOpen;
+      localStorage.setItem("mainsidenavState", new Boolean(this.isMenuOpen).toString());
 
+      //to get second toolbar width
+      if(localStorage.getItem('mainsidenavState') === 'false' || localStorage.getItem('mainsidenavState') == null ){
+        this.__selectvalue.sendState('closed');
+      }else{
+        this.__selectvalue.sendState('open');
+      }
+      
+    }
+  
     onCloseItem(){
       if (this.sidenav._mode=='over') {
         this.sidenav.close();
       }
     }
-
+  
     ngOnInit() {
-
-  }
+     this.getnavState();
+     if(localStorage.getItem('mainsidenavState') === 'false' || localStorage.getItem('mainsidenavState') == null ){
+        this.isMenuOpen = false;
+        this.ifOpen= false;
+     }else{
+        this.isMenuOpen = true;
+        this.ifOpen = true;
+     }
+    }
+  
+    getnavState(){
+      return localStorage.getItem('mainsidenavState')
+    }
 }

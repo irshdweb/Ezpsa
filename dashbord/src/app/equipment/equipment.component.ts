@@ -15,15 +15,20 @@ export class EquipmentComponent implements OnInit {
   myControl = new FormControl();
   options: string[] = ['Jhon Doe', 'Kennedy', 'Ann'];
   filteredOptions: Observable<string[]>;
- 
   equipmentContacts : any;
   selectedClient : any;
+  issideOpen :any;
+
+  arrClick: any = false;
+  arrow :any;
+  msg : any;
 
 
   constructor(private router: Router, 
     private fb: FormBuilder, 
     private service:AuthService,
-    private __selectvalue: ColsetService
+    private __selectvalue: ColsetService,
+    private __selectvalue3: ColsetService
     ) { 
 
   }
@@ -47,6 +52,39 @@ ngOnInit() {
           console.log(err);
         }
       )
+
+    //Get Initial state for sidefilters open/close
+    if(localStorage.getItem('subsidefilters') === 'false' || localStorage.getItem('subsidefilters') == null ){
+      this.arrClick = false;
+      this.arrow='fa-chevron-left';
+      this.msg='Close';
+    }else{
+      this.arrClick = true;
+      this.arrow='fa-chevron-right';
+      this.msg='Open';
+    }
+
+
+    this.__selectvalue3.showvale3$.subscribe(
+      message =>{
+        console.log(message)
+        if(message  ==='open'){
+          this.issideOpen = true;
+        }
+
+        else{
+          this.issideOpen = false;
+        }
+        
+      }
+   );
+
+  //Get Initial state for toolbarwidth
+  if(localStorage.getItem('mainsidenavState') === 'false' || localStorage.getItem('mainsidenavState') == null ){
+    this.issideOpen = false;
+    }else{
+      this.issideOpen = true;
+    }
 }
 
   private _filter(value: string): string[] {
@@ -55,14 +93,11 @@ ngOnInit() {
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  arrClick = false;
-  hasLock = true;
-  public arrow = "fa-chevron-left";
-  public msg = "Close"
 
   aarHide(newIcon: string, newMsg: string){
     this.arrClick = !this.arrClick;
-    this.hasLock = !this.hasLock;
+    localStorage.setItem("subsidefilters", new Boolean(this.arrClick).toString());
+
     if(this.arrow == 'fa-chevron-right'){
       this.arrow='fa-chevron-left';
     }
@@ -76,6 +111,7 @@ ngOnInit() {
     else{
       this.msg = newMsg;
     }
+
   }
   redirect() {
     this.router.navigate(['./equipment/new-equipments']);

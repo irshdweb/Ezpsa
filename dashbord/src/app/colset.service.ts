@@ -10,10 +10,12 @@ export class ColsetService {
     private _selectvalue =  new Subject<string>();
     private _selectvalue1 =  new Subject<string>();
     private _selectvalue2 = new Subject<string>();
+    private _selectvalue3 = new Subject<string>();
 
     showvale$ = this._selectvalue.asObservable();
     showvale1$ = this._selectvalue1.asObservable();
     showvale2$ = this._selectvalue2.asObservable();
+    showvale3$ = this._selectvalue3.asObservable();
 
   constructor(private service:AuthService) { }
 
@@ -27,6 +29,10 @@ export class ColsetService {
   
   sendLeftValue(val : any){
     this._selectvalue2.next(val)
+  }
+
+  sendState(messages : string){
+    this._selectvalue3.next(messages);
   }
 
 }

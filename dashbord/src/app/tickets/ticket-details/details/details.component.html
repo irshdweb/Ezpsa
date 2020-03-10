@@ -94,11 +94,7 @@
             <input type="text"  [(ngModel)]="timeCal"> <input type="text" readonly class="displayTime" value="{{ timeCal * 15 | hour }}"> 
         </div>
         <div class="col-12 d-flex flex-row-reverse mt-4 chkWrap">
-            <input [owlDateTimeTrigger]="dt4" [owlDateTime]="dt4" placeholder="Time">
-            <owl-date-time [pickerType]="'timer'" #dt4></owl-date-time>
-
-            <input [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" placeholder="Date">
-            <owl-date-time [pickerType]="'calendar'" #dt3></owl-date-time>
+            
         </div>
         <div class="col-12 d-flex flex-row-reverse mt-4 chkWrap">
             <button mat-raised-button color="primary" type="submit" tabindex="15">Take</button>
