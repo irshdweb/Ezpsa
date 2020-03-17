@@ -1,10 +1,13 @@
 <div class="subHeader col-12 pl-4">
     <div class="row  d-flex ml-0 mr-0 align-items-center">
-        <div class="col-lg-2 col-md-2 col-12 pl-0">
+        <div class="col-lg-3 col-md-3 col-12 pl-0 d-flex">
+            <div class="click-arrow hide-on-mobile d-flex align-items-center justify-content-center"
+            matTooltip="{{msg}} Filters" (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i>
+        </div>
             <h1>Ticket {{ticketId}}</h1>
         </div>
         <div
-            class="col-lg-10 col-md-10 col-12 d-md-flex d-sm-flex justify-content-center justify-content-sm-end justify-content-md-end pr-2 pl-2 textWrap">
+            class="col-lg-9 col-md-9 col-12 d-md-flex d-sm-flex justify-content-center justify-content-sm-end justify-content-md-end pr-2 pl-2 textWrap">
             <button class="main-btns tick eq" [class.activeBtn]="clickFollow"
                 (click)="follow('fa-minus-square','Unfollow Ticket');">{{followMsg}} <i
                     class="fa {{followIcon}}"></i></button>
@@ -33,12 +36,12 @@
                 <app-detail-side-bar></app-detail-side-bar>
             </div>
 
-            <div class="col-lg-12 col-12 pt-0 pb-0 pl-0 pr-0 wrap">
+            <!--<div class="col-lg-12 col-12 pt-0 pb-0 pl-0 pr-0 wrap">
                 <div class="wrapping">
                     <div class="click-arrow detailspage hide-on-mobile" matTooltip="{{msg}} Filters"
                     (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
                 </div>
-            </div>
+            </div>-->
 
 
             <div class="row mr-0 ml-0  firstRow">
@@ -49,13 +52,16 @@
                 </div>
             </div>
             <div class="mr-0 ml-0 pt-3 pb-3 hide-on-desktop mb-3">
-                <div class="col-12"><i class="material-icons loalmenu" (click)="openLocalMenu();">more_vert</i></div>
+                <div class="col-12"><i class="material-icons loalmenu" (click)="openLocalMenu();">view_headline</i></div>
             </div>
             <div class="row pl-4 pr-4 mr-0 ml-0 submenu-wrap" [class.showmenu]="localmenuShow">
                 <ul class="d-flex justify-content-between">
                     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="flex-fill"><a
                             [routerLink]="['./details']" class="d-flex align-items-center justify-content-center"><i
                                 class="material-icons-outlined">view_list</i> Details</a></li>
+                                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="flex-fill"><a
+                                    class="d-flex align-items-center justify-content-center" [routerLink]="['./checklist']"><i
+                                        class="material-icons-outlined">done</i> Checklist</a></li>
                     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="flex-fill"><a
                             class="d-flex align-items-center justify-content-center" [routerLink]="['./devices']"><i
                                 class="material-icons-outlined">device_hub</i> Devices</a></li>
@@ -75,9 +81,7 @@
                     <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="flex-fill"><a
                             class="d-flex align-items-center justify-content-center" [routerLink]="['./settings']"><i
                                 class="material-icons-outlined">settings_applications</i> Settings</a></li>
-                    <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="flex-fill"><a
-                            class="d-flex align-items-center justify-content-center" [routerLink]="['./checklist']"><i
-                                class="material-icons-outlined">done</i> Checklist</a></li>
+
                 </ul>
 
             </div>

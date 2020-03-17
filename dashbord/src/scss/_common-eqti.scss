@@ -29,6 +29,9 @@
         }
         .fa{
             margin-left:5px;
+            @media screen and (max-width: 840px) {
+                margin-left:0;
+            }
         }
         .material-icons-outlined{
             float:right;
@@ -225,6 +228,7 @@
         position:relative;
         height:auto;
         background:none;
+        margin-bottom:10px;
     }
 
     .main-btns{
@@ -278,8 +282,37 @@
             .fa{
                 font-size: 17px;
             }
+            
         }
 
+    }
+    form{
+        width:18%;
+        margin-left:10px;
+        @media screen and (max-width: 840px) {
+            width:80%;
+        }
+        
+        .search-text{
+            width:100%;
+            padding-left:10px;
+            
+            height:33px;
+            border-radius:3px;
+            border: 1px solid #acacac;
+            background:none;
+            font-size:13px;
+            @media screen and (max-width: 840px) {
+                padding-left:5px;
+                font-size:12px;
+            }
+        }
+
+    }
+    
+    .filterico{
+        color:#000;
+        margin-left:25px;
     }
 }
 

@@ -16,6 +16,7 @@ export class AllEquipmentComponent implements OnInit {
   p: number;
   itemPerPage: number = 10;
   myModel = false;
+  myModels = false;
   isChecked = false;
   deslectcheck = false;
   tableLoader:boolean = false;
@@ -23,6 +24,8 @@ export class AllEquipmentComponent implements OnInit {
   leftparam : any;
   notFoundWarn : boolean = false;
   agentStatusUpdate : string;
+  notFoundWarnActive : boolean = true;
+  ifChecked = false;
 
   d_name = true;
   a_status = true;
@@ -56,9 +59,9 @@ export class AllEquipmentComponent implements OnInit {
     ) 
   {}
 
-  //checkValue(){
-    //this.deslectcheck = !this.deslectcheck
-  //}
+  selcheckValue(event: any){
+    this.__selectvalue.sendValue(event);
+  }
 
 ngOnInit() {
   
@@ -343,8 +346,10 @@ loadequipments(){
 
       if(this.totalCount === 0){
         this.notFoundWarn = true;
+        this.notFoundWarnActive = false;
       }else{
         this.notFoundWarn = false;
+        this.notFoundWarnActive = true;
       }
     },
     err=>{

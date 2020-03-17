@@ -16,7 +16,7 @@
                 </ng-select>
 
             </div>
-            <button class="main-btns tick eq" (click)="redirect();">New Device <i class="fa fa-plus" aria-hidden="true"></i>
+            <button class="main-btns tick eq" (click)="redirect();" matTooltip="New Device"><span class="hide-on-desktop-tab">New Device</span> <span class="hide-on-mobile">New Device</span> <i class="fa fa-plus" aria-hidden="true"></i>
             </button>
             
             <div class="dropdown">
@@ -67,12 +67,12 @@
                         <li class="divider">
                             <mat-divider></mat-divider>
                         </li>
-                        <li>
+                        <!--<li>
                             <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
                                 disabled="disabled">
                                 Run Script
                             </button>
-                        </li>
+                        </li>-->
                         <li>
                             <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal"
                                 disabled="disabled">
@@ -97,7 +97,7 @@
                 </div>
             </div>
            
-            <button class="main-btns tick eq" matTooltip="Download Agent">Agent <i class="fa fa-download" aria-hidden="true"></i>
+            <button class="main-btns tick eq" matTooltip="Download Agent"> <span class="hide-on-desktop-tab">Download<br/>Agent</span> <span class="hide-on-mobile">Agent</span> <i class="fa fa-download" aria-hidden="true"></i>
             </button>
             <form class="srchForm">
                 <input type="text" placeholder="Search Equipment" class="search-text"/>
@@ -124,7 +124,7 @@
                 <app-equipmentsidebar></app-equipmentsidebar>
             </div>
             <div class="fixed-row-last d-flex align-items-center justify-content-lg-end justify-content-md-center pl-4 pr-4">
-                <button class="main-btns" matTooltip="Run Script"><span class="hide-below-tab">Run Script</span> <i class="fa fa-code" aria-hidden="true"></i></button>
+                <button *ngIf="runscript" class="main-btns" matTooltip="Run Script"><span class="hide-below-tab">Run Script</span> <i class="fa fa-code" aria-hidden="true"></i></button>
                 <button class="main-btns" matTooltip="Configuration Global Settings"><span class="hide-below-tab">Configuration Global Settings</span> <i class="fa fa-cog" aria-hidden="true"></i></button>
                 <button class="main-btns" matTooltip="Import"><span class="hide-below-tab">Import</span><i class="material-icons-outlined">save_alt</i></button>
                 <button class="main-btns" matTooltip="Print"><span class="hide-below-tab">Print</span><i class="material-icons-outlined">local_printshop</i></button>

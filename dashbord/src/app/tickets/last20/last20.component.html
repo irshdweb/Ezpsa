@@ -1,13 +1,14 @@
 <div class="col-12 equipments pl-0 pr-0">
-    <div class="col-12 pl-4 pr-4">
+    <div class="col-12 pl-3 pr-0">
         <div class="table-responsive text-nowrap">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="displayAll">
-                            <mat-checkbox [(ngModel)]="myModel"></mat-checkbox>
+                        <th class="displayAll" style="left:0;position:sticky;z-index:1;">
+                            <mat-checkbox [(ngModel)]="myModel" (change)="selcheckValue (myModel?'yeschecked':'notChecked')"></mat-checkbox>
+                            Ticket No
                         </th>
-                        <th [class.hideCol]="devi_na">Ticket No</th>
+                        <!--<th [class.hideCol]="devi_na">Ticket No</th>-->
                         <th [class.hideCol]="a_status">Title</th>
                         <th [class.hideCol]="dec">Contact</th>
                         <th [class.hideCol]="an">Assigned</th>
@@ -23,13 +24,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let item of collection | paginate:  config" (click)="Onclick(item)">
+                    <tr *ngFor="let item of collection | paginate:  config">
                         <!--<tr *ngFor="let item of collection | paginate: config">-->
-                        <td class="displayAll">
+                        <td class="displayAll displayData" style="left:0;position:sticky;">
                             <mat-checkbox [checked]="myModel"></mat-checkbox>
+<span (click)="Onclick(item)">{{ item.ticket_id }}</span>
+                            
+                            <div class="popover-details">
+                                <span class="tickId">{{ item.ticket_num }} {{ item.title }} </span> <strong>
+                                    ({{ item.priority }})</strong><br /> <span
+                                    class="statusicon">{{ item.status }}</span>
+                                <mat-divider></mat-divider>
+                                <p> {{ item.dec | ellipsis: 200}}</p>
+                            </div>
                         </td>
-                        <td [class.hideCol]="devi_na" class="bold popDetails">{{ item.ticket_id }}</td>
-                        <td [class.hideCol]="a_status" class="popDetails">
+                        <!--<td [class.hideCol]="devi_na" class="bold popDetails" (click)="Onclick(item)">
+                           
+
+                        </td>-->
+                        <td [class.hideCol]="a_status" class="popDetails" (click)="Onclick(item)">
                             <div class="{{ item.priority }} prio-box"><span matTooltip="{{ item.priority }}">!</span>
                             </div> {{ item.title }}
                             <div class="popover-details">
@@ -40,23 +53,23 @@
                                 <p> {{ item.dec | ellipsis: 200}}</p>
                             </div>
                         </td>
-                        <td [class.hideCol]="dec">{{ item.contact }}</td>
-                        <td [class.hideCol]="dec">{{ item.assigned }}</td>
-                        <td [class.hideCol]="an">{{ item.totalTime }}</td>
-                        <td [class.hideCol]="sn">{{ item.estTime }}</td>
-                        <td [class.hideCol]="la_update">{{ item.created }}</td>
-                        <td [class.hideCol]="la_user">{{ item.due }}</td>
-                        <td [class.hideCol]="st"><span class="{{ item.type }} typeBox">{{ item.type }}</span></td>
-                        <td [class.hideCol]="ip"><span class="statusicon">{{ item.status }}</span></td>
-                        <td [class.hideCol]="gw">{{ item.startDate }}</td>
-                        <td [class.hideCol]="mc">{{ item.last }}</td>
+                        <td [class.hideCol]="dec" (click)="Onclick(item)">{{ item.contact }}</td>
+                        <td [class.hideCol]="dec" (click)="Onclick(item)">{{ item.assigned }}</td>
+                        <td [class.hideCol]="an" (click)="Onclick(item)">{{ item.totalTime }}</td>
+                        <td [class.hideCol]="sn" (click)="Onclick(item)">{{ item.estTime }}</td>
+                        <td [class.hideCol]="la_update" (click)="Onclick(item)">{{ item.created }}</td>
+                        <td [class.hideCol]="la_user" (click)="Onclick(item)">{{ item.due }}</td>
+                        <td [class.hideCol]="st" (click)="Onclick(item)"><span class="{{ item.type }} typeBox">{{ item.type }}</span></td>
+                        <td [class.hideCol]="ip" (click)="Onclick(item)"><span class="statusicon">{{ item.status }}</span></td>
+                        <td [class.hideCol]="gw" (click)="Onclick(item)">{{ item.startDate }}</td>
+                        <td [class.hideCol]="mc" (click)="Onclick(item)">{{ item.last }}</td>
                     </tr>
 
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="row pagin-wrap mr-0 ml-0">
+    <div class="row pagin-wrap mr-0 ml-0 d-flex align-items-center">
         <div class="col-6">
             <!--[(ngModel)] = 'itemsCount'-->
             <!--<select (change)="onChangeEvent($event)">-->

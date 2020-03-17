@@ -52,6 +52,10 @@ h3{
     display:none;
 }
 
+.hide-on-desktop-tab{
+    display:none;
+}
+
 body{
     background-color:$bg_color;
     font-family:$font_family;
@@ -297,5 +301,8 @@ quill-editor{
 @media screen and (max-width: 740px) {
     .hide-below-tab{
         display:none;
+    }
+    .hide-on-desktop-tab{
+        display:block;
     }
 }

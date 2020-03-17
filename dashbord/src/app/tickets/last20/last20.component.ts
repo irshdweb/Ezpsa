@@ -14,6 +14,7 @@ export class Last20Component implements OnInit {
   config: any;
   collection = [];
   myModel = false;
+  myModels = false;
 
   d_name = true;
   a_status = true;
@@ -40,7 +41,7 @@ export class Last20Component implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private __selectvalue: ColsetService) { 
     this.config = {
       currentPage: 1,
-      itemsPerPage: 12,
+      itemsPerPage: 32,
       totalItems: 0
     };
     route.queryParams.subscribe(
@@ -68,6 +69,11 @@ export class Last20Component implements OnInit {
        this.collection.push(Obj);
     }
   }
+
+  selcheckValue(event: any){
+    this.__selectvalue.sendValue(event);
+  }
+
   pageChange(newPage: number) {
     this.router.navigate(['tickets'], { queryParams: { page: newPage } });
     console.log(newPage);

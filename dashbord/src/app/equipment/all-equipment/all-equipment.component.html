@@ -1,19 +1,27 @@
-
 <div class="col-12 equipments pl-0 pr-0">
     <div class="col-12 pl-3 pr-0">
         <!--<mat-progress-bar mode="indeterminate" *ngIf="tableLoader"></mat-progress-bar>-->
         <div *ngIf="notFoundWarn" class="alert alert-danger mt-3 mx-auto text-center" role="alert">
             No Any Data Found
-          </div>
-        <div class="table-responsive text-nowrap">
+        </div>
+        <div *ngIf="tableLoader" class="right-loader">
+            <div class="lds-ellipsis">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="table-responsive text-nowrap" *ngIf="notFoundWarnActive">
 
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th class="displayAll" style="left:0;position:sticky;z-index:1;">
-                            <mat-checkbox [(ngModel)]="myModel" [checked]="deslectcheck"></mat-checkbox>
+                            <mat-checkbox [(ngModel)]="myModel" [checked]="deslectcheck"  (change)="selcheckValue (myModel?'yeschecked':'notChecked')"></mat-checkbox>
                             Device Name
                         </th>
+                        <th [class.hideCol]="dec">Type</th>
                         <!--<th [class.hideCol]="devi_na">Device Name</th>-->
                         <th [class.hideCol]="a_status">Agent Status</th>
                         <th [class.hideCol]="la_update">Last Connected</th>
@@ -33,40 +41,41 @@
                         <th [class.hideCol]="an">Asset No.</th>
 
                         <th [class.hideCol]="ct">Contact</th>
-                        
-                        
-                        
+                        <th [class.hideCol]="devi_na">Operating System</th>
 
-                        <th [class.hideCol]="dec">Type</th>
 
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
                        
-                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </tr>
                 </thead>
-
+              
                 <tbody>
-                    <div *ngIf="tableLoader" class="right-loader">
-                        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-                    </div>    
-                    <tr  [class.fade]="tableLoader" *ngFor="let item of equipments?.List | paginate: { itemsPerPage: itemPerPage, currentPage: p, totalItems: totalCount}">
-                        
+                   
+                    <tr [class.fade]="tableLoader"
+                        *ngFor="let item of equipments?.List | paginate: { itemsPerPage: itemPerPage, currentPage: p, totalItems: totalCount}">
+
                         <td class="displayAll displayData" style="left:0;position:sticky;">
-                            <mat-checkbox [checked]="myModel"></mat-checkbox>
+                            <mat-checkbox [checked]="myModel" [(ngModel)]="myModels" (change)="selcheckValue (myModels?'yeschecked':'notChecked')"></mat-checkbox>
+                            
                             {{ item.DeviceName }}
                         </td>
                         <!--<td [class.hideCol]="devi_na" style="position:sticky !important;">{{ item.DeviceName }}</td>-->
+                        <td [class.hideCol]="dec"><i class="material-icons">desktop_mac</i> {{ item.PCType}}</td>
                         <td [class.hideCol]="a_status"><span class="status-pan online{{ item.AgentStatus }}"></span>
                         </td>
                         <td [class.hideCol]="la_update">{{ item.AgentLastUpdate | date: 'dd/MM/yyyy' }}</td>
@@ -86,37 +95,38 @@
                         <td [class.hideCol]="an">{{ item.AssetNumber }}</td>
 
                         <td [class.hideCol]="ct">{{ item.Name }}</td>
-                        
-                        
-                        
+                        <td [class.hideCol]="devi_na">{{ item.OS}}</td>
 
-                        <td [class.hideCol]="dec">{{ item.PCType}}</td>
 
-                        
-                        
-                        
-                        
-                        
-                        
+
+
                        
-                       
-                        
-                        
-                        
-                        
-                       
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </tr>
 
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="row pagin-wrap mr-0 ml-0 d-flex align-items-center">
+    <div class="row pagin-wrap mr-0 ml-0 d-flex align-items-center" *ngIf="notFoundWarnActive">
         <div class="col-6">
             <!--[(ngModel)] = 'itemsCount'-->
             <!--<select (change)="onChangeEvent($event)">-->

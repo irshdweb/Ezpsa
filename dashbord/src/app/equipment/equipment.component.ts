@@ -18,6 +18,7 @@ export class EquipmentComponent implements OnInit {
   equipmentContacts : any;
   selectedClient : any;
   issideOpen :any;
+  runscript: boolean = false;
 
   arrClick: any = false;
   arrow :any;
@@ -38,6 +39,21 @@ export class EquipmentComponent implements OnInit {
   }
 
 ngOnInit() {
+
+  this.__selectvalue.showvale$.subscribe(
+    message =>{
+      if (message === "yeschecked"){
+        this.runscript = true;
+        console.log(message);
+      }else if (message === "notChecked"){
+        this.runscript= false;
+        console.log(message);
+      }
+    }
+ );
+
+
+
     this.filteredOptions = this.myControl.valueChanges
       .pipe(
         startWith(''),

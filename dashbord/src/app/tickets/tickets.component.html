@@ -1,32 +1,16 @@
-<div class="subHeader col-12 pl-4">
+<div class="subHeader col-12 pl-4" [class.expandsidenav]="issideOpen">
     <div class="row  d-flex ml-0 mr-0 align-items-center">
-        <div class="col-lg-3 col-md-3 col-12 pl-0">
+        <div class="col-lg-2 col-md-2 col-12 pl-0 d-flex">
+            <div class="click-arrow hide-on-mobile d-flex align-items-center justify-content-center"
+                matTooltip="{{msg}} Filters" (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i>
+            </div>
             <h1>Tickets</h1>
         </div>
         <div
-            class="col-lg-9 col-md-9 col-12 d-md-flex d-sm-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
-            <button class="main-btns tick eq" (click)="redirect();">Add New <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
-            <div class="dropdown">
-                <button data-toggle="dropdown" class="main-btns tick" matTooltip="Ticket Menu"><i class="material-icons-outlined flt-left" aria-label="">playlist_add</i></button>
-                <div class="dropdown-menu fixed-height">
-                    <div>
-                        <li class="text-left">
-                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal">
-                                Add Group
-                            </button>
-                        </li>
-                        <li class="text-left">
-                            <button type="button" data-toggle="modal" data-target="#myModalSearch" class="btn btn-flat bg-white btn-block text-left text-normal">
-                                Add Saved Search
-                            </button>
-                        </li>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="dropdown">
-                <button data-toggle="dropdown" class="main-btns tick"><span>Action </span><i
+            class="col-lg-10 col-md-10 col-12 d-md-flex d-sm-flex justify-content-center justify-content-sm-end justify-content-md-end pr-4 textWrap">
+          
+            <div class="dropdown" *ngIf="setStatus">
+                <button data-toggle="dropdown" class="main-btns tick"><span>Set Status </span><i
                         class="material-icons-outlined" aria-label="">expand_more</i></button>
                 <div class="dropdown-menu fixed-height">
                     <div (click)="$event.stopPropagation()">
@@ -125,24 +109,43 @@
                     </div>
                 </div>
             </div>
+            <button class="main-btns tick eq" (click)="redirect();">Add New <i class="fa fa-plus"
+                aria-hidden="true"></i>
+        </button>
+            <button class="main-btns tick eq">Alert <i class="material-icons-outlined" aria-label="">notifications</i>
+            </button>
             <div class="dropdown">
-                <button data-toggle="dropdown" class="main-btns tick"><span>All Status </span><i
+                <button data-toggle="dropdown" class="main-btns tick" matTooltip="Ticket Menu"><i
+                        class="material-icons-outlined flt-left" aria-label="">playlist_add</i></button>
+                <div class="dropdown-menu fixed-height">
+                    <div>
+                        <li class="text-left">
+                            <button type="button" class="btn btn-flat bg-white btn-block text-left text-normal">
+                                Add Group
+                            </button>
+                        </li>
+                        <li class="text-left">
+                            <button type="button" data-toggle="modal" data-target="#myModalSearch"
+                                class="btn btn-flat bg-white btn-block text-left text-normal">
+                                Add Saved Search
+                            </button>
+                        </li>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button data-toggle="dropdown" class="main-btns tick"><span>More </span><i
                         class="material-icons-outlined" aria-label="">expand_more</i></button>
                 <ul class="dropdown-menu">
-                    <li><a routerLink='/tickets/newtickets'><i class="material-icons-outlined" aria-label="">add</i>
-                            New Ticket </a></li>
-                    <li><a><i class="material-icons-outlined" aria-label="">schedule</i> Schedule </a></li>
-                    <li><a><i class="material-icons-outlined" aria-label="">notifications</i> Alerts </a></li>
-                    <li><a><i class="material-icons-outlined" aria-label="">local_offer</i> Tags </a></li>
                     <li><a><i class="material-icons-outlined" aria-label="">speed</i> Dashbord </a></li>
+                    <li><a><i class="material-icons-outlined" aria-label="">schedule</i> Schedule </a></li>
+                    <li><a><i class="material-icons-outlined" aria-label="">local_offer</i> Tags </a></li>
+                   
                 </ul>
             </div>
-            <form class="srchForm">
-                <input type="text" placeholder="Search By Number" class="search-text" />
 
-            </form>
-            <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalSearchTicket">
-                <i class="material-icons-outlined filterico">filter_list</i></a>
         </div>
     </div>
 </div>
@@ -159,15 +162,16 @@
             <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-desktop">
                 <app-ticketsidebar></app-ticketsidebar>
             </div>
+            <div class="fixed-row-last d-flex align-items-center justify-content-lg-end justify-content-md-center pl-4 pr-4">
+                <form class="srchForm">
+                    <input type="text" placeholder="Search By Number" class="search-text" />
+    
+                </form>
+                <a href="javascript:void(0);" data-toggle="modal" data-target="#myModalSearchTicket">
+                    <i class="material-icons-outlined filterico">filter_list</i></a>
+            </div>
 
             <div class="col-lg-12 col-12 pt-0 pb-0 pl-0 pr-0 wrap">
-
-
-                <div class="wrapping">
-                    <div class="click-arrow hide-on-mobile" matTooltip="{{msg}} Filters"
-                        (click)="aarHide('fa-chevron-right','Open');"><i class="fa {{arrow}}"></i></div>
-
-                </div>
 
 
 

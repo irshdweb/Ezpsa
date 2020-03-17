@@ -5,42 +5,57 @@
     <div class="clearfix"></div>
 <div class="row mr-0 ml-0 main-nav-side" [ngClass]="eqMenuTrigger ? 'showMenu' : 'hideMenu'">
     <ul>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a
-                [routerLink]=''><i class="material-icons">personal_video</i> Last 20 Tickets </a></li>
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">check_box_outline_blank</i> All Open Tickets <span>(3)</span></a></li>
+            class="material-icons">perm_identity</i> My Tickets <span>(6)</span></a></li>
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">present_to_all</i> My Current Tickets <span>(2)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">notes</i> My Tasks <span>(0)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">perm_identity</i> My Tickets <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                class="material-icons">autorenew</i> Reccuring Tickets <span>(6)</span></a></li>
+                <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
                     class="material-icons">error</i> My Hold/Awaiting on<br/> Client Tickets <span>(6)</span></a></li>
+                    <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                        class="material-icons">present_to_all</i> My Todays Tickets <span>(2)</span></a></li>
+
+<li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+            <a (click)="showGroup(); changeIcons('keyboard_arrow_down')"><i class="material-icons">more_vert</i> More
+                <span><i class="material-icons arrow">{{icons}}</i></span></a>
+        </li>
+        
+        <div class="clearfix sub_menu hide-menu" [class.show-menu]="drop">
+            <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a
+                [routerLink]=''><i class="material-icons">colorize</i> Last 20 Tickets </a></li>
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons-outlined">queue</i> New Tickets <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">chrome_reader_mode</i> Open/Reopen Tickets <span>(6)</span></a></li>
+                    class="material-icons">colorize</i> All Open Tickets <span>(3)</span></a></li>
 
         <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">autorenew</i> Reoccuring Tickets <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">delete_outline</i> Deleted Tickets <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">event_note</i> Templates Tickets <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">launch</i> Recent Activity <span>(6)</span></a></li>
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
-                    class="material-icons">arrow_right_alt</i> Stagnating <span>(6)</span></a></li>
+                    class="material-icons">colorize</i> My Tasks <span>(0)</span></a></li>
 
 
-        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                    class="material-icons">colorize</i> New Tickets <span>(6)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                    class="material-icons">colorize</i> Open/Reopen Tickets <span>(6)</span></a></li>
+
+
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                    class="material-icons">colorize</i> Deleted Tickets <span>(6)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                    class="material-icons">colorize</i> Templates Tickets <span>(6)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                    class="material-icons">colorize</i> Recent Activity <span>(6)</span></a></li>
+        <li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a><i
+                    class="material-icons">colorize</i> Stagnating <span>(6)</span></a></li>
+        </div>
+
+
+
+
+
+       <!--<li class="d-flex align-items-center" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
             <a (click)="showGroup(); changeIcons('keyboard_arrow_down')"><i class="material-icons">group</i> Groups
                 <span><i class="material-icons arrow">{{icons}}</i></span></a>
         </li>
         <div class="clearfix sub_menu hide-menu" [class.show-menu]="drop">
             <li class="d-flex align-items-center"><a><i class="material-icons">add</i> Add Group</a></li>
-        </div>
+        </div>-->
 
         <li class="d-flex align-items-center">
             <a (click)="showGroup1(); changeIcons1('keyboard_arrow_down')"><i class="material-icons">filter_list</i>
