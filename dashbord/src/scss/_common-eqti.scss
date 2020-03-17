@@ -4,9 +4,7 @@
     position:fixed;
     margin-top:63px;
     background:#f5f7f9;
-    -webkit-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
-    -moz-box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
-    box-shadow: -4px 11px 18px -17px rgba(0,0,0,0.75);
+    border-bottom: 1px solid #ececec;
     z-index:2;
     border-top: 1px #ebeff3 solid;
     &.expandsidenav{
@@ -216,7 +214,74 @@
     } 
 }
 
+.fixed-row-last{
+    width:100%;
+    height:45px;
+    background:#f8f8f8;
+    position:sticky;
+    top:0;
+    border-bottom: 1px solid #ececec;
+    @media screen and (max-width: 840px) {
+        position:relative;
+        height:auto;
+        background:none;
+    }
 
+    .main-btns{
+        border-radius:3px;
+        padding:5px;
+        padding-left:10px;
+        padding-right:10px;
+        font-size:13px;
+        border: 1px solid #acacac;
+        transition: all 0.5s;
+        background-image: linear-gradient(to bottom,#fff,#f3f5f7);
+        margin-right:10px;
+        &:hover{
+            -webkit-box-shadow: inset -1px 2px 20px -10px rgba(0,0,0,0.67);
+            -moz-box-shadow: inset -1px 2px 20px -10px rgba(0,0,0,0.67);
+            box-shadow: inset -1px 2px 20px -10px rgba(0,0,0,0.67);
+        }
+        .fa{
+            margin-left:5px;
+        }
+        .material-icons-outlined{
+            float:right;
+            font-size:17px;
+            margin-left:7px;
+            position:relative;
+            margin-top:2px;
+            &.flt-left{
+                float:left;
+                margin-left:0;
+                margin-bottom:2px;
+            }
+        }
+        .updown{
+           font-size:13px;
+           margin-left:0; 
+           float:none;
+        }
+        @media screen and (max-width: 740px) {
+            width:25%;
+            height:40px;
+            margin-left:0;
+            margin-right:0;
+            display:block;
+            float:left;
+
+            .material-icons-outlined{
+                float:none;
+                margin-left:0;
+            }
+
+            .fa{
+                font-size: 17px;
+            }
+        }
+
+    }
+}
 
 .mainContainer{
     margin-top:123px;
@@ -242,7 +307,7 @@
     background-color:$bg_color;
     //padding-bottom:30px;
     .wrap{
-        margin-top:15px;
+        margin-top:0px;
          .top-filters{
 
             .task-drp{

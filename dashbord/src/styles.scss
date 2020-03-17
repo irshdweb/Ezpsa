@@ -294,3 +294,8 @@ quill-editor{
     }
 }
 
+@media screen and (max-width: 740px) {
+    .hide-below-tab{
+        display:none;
+    }
+}

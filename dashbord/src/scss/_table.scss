@@ -1,26 +1,14 @@
 
     .table-responsive{
-        height:calc(100vh - 210px);
+        height:calc(100vh - 240px);
         overflow:auto;
+        margin-top:0px;
+        position:relative;
         @media screen and (max-width: 840px) {
             height:auto;
             margin-bottom:100px;
         }
-        &::-webkit-scrollbar {
-            width: 25px;
-        }
-          
-        &::-webkit-scrollbar-thumb {
-            background: #ebeff3; 
-            border-left:10px solid #ebeff3;
-        }
 
-        &:hover{
-            &::-webkit-scrollbar-thumb {
-                background: rgb(139, 139, 139); 
-                border-left:10px solid #ebeff3;
-            }
-        }
         .table-striped{
             margin-top:0px;
             tr{
@@ -32,16 +20,19 @@
                     mat-checkbox{
                         margin-right:30px;
                     }
+                    &:hover{
+                        background:rgb(224, 224, 224);
+                    }
                     
                 
                 th{
                     background:#f5f7f9;
                     display:none;
                     padding-left:20px;
-                    border-bottom:none !important;
+                    border:none !important;
                     position: sticky; 
                     top: 0;
-                    z-index:1;
+                    z-index:0;
                 }
                 td{
                     color:#4F4E4E;
@@ -50,8 +41,8 @@
                     font-weight:600;
                     padding-left:20px;
                     padding-right:20px;
-                    padding-top:20px;
-                    padding-bottom:20px;
+                    padding-top:10px;
+                    padding-bottom:10px;
                     .status-pan{
                         border-radius:2px;
                         padding-left:20px;
@@ -86,6 +77,13 @@
                 }
                 .displayAll{
                     display: table-cell;
+
+                }
+                .displayData{
+                    background:#fff;
+                    &.hover{
+                        background:rgb(224, 224, 224);
+                    }
                 }
             }
         }
@@ -96,7 +94,7 @@
         position: sticky;
         bottom: 0;
         width:100%;
-        height:70px;
+        height:50px;
         border-top:1px solid #a1a1a1;
         pagination-controls{
            padding:0 !important;
@@ -123,6 +121,11 @@
             //display:inline-block;
             position:relative;
             float:left;
+        }
+        @media screen and (max-width: 840px) {
+            position:fixed;
+            bottom:0;
+            height:70px;
         }
     }
 

@@ -16,6 +16,8 @@
                 </ng-select>
 
             </div>
+            <button class="main-btns tick eq" (click)="redirect();">New Device <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
             
             <div class="dropdown">
                 <button data-toggle="dropdown" class="main-btns tick eq" matTooltip="Equipment Menu"><i class="material-icons-outlined flt-left" aria-label="">playlist_add</i></button>
@@ -94,8 +96,7 @@
                     </div>
                 </div>
             </div>
-            <button class="main-btns tick eq" (click)="redirect();">New Device <i class="fa fa-plus" aria-hidden="true"></i>
-            </button>
+           
             <button class="main-btns tick eq" matTooltip="Download Agent">Agent <i class="fa fa-download" aria-hidden="true"></i>
             </button>
             <form class="srchForm">
@@ -108,6 +109,7 @@
         </div>
     </div>
 </div>
+
 <div class="col-12 mainContainer pl-0 pr-0">
 
     <div class="w-100 ml-0 mr-0">
@@ -121,7 +123,12 @@
             <div class="col-lg-3 col-12 inner-side-pannel pl-lg-0 pr-lg-0 hide-on-desktop">
                 <app-equipmentsidebar></app-equipmentsidebar>
             </div>
-
+            <div class="fixed-row-last d-flex align-items-center justify-content-lg-end justify-content-md-center pl-4 pr-4">
+                <button class="main-btns" matTooltip="Run Script"><span class="hide-below-tab">Run Script</span> <i class="fa fa-code" aria-hidden="true"></i></button>
+                <button class="main-btns" matTooltip="Configuration Global Settings"><span class="hide-below-tab">Configuration Global Settings</span> <i class="fa fa-cog" aria-hidden="true"></i></button>
+                <button class="main-btns" matTooltip="Import"><span class="hide-below-tab">Import</span><i class="material-icons-outlined">save_alt</i></button>
+                <button class="main-btns" matTooltip="Print"><span class="hide-below-tab">Print</span><i class="material-icons-outlined">local_printshop</i></button>
+            </div>
             <div class="col-lg-12 col-12 pt-0 pb-0 pl-0 pr-0 wrap">
                 <router-outlet></router-outlet>
             </div>

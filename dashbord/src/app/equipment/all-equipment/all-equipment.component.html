@@ -1,17 +1,16 @@
+
 <div class="col-12 equipments pl-0 pr-0">
-  
-    <div class="col-12 pl-3 pr-3">
+    <div class="col-12 pl-3 pr-0">
         <!--<mat-progress-bar mode="indeterminate" *ngIf="tableLoader"></mat-progress-bar>-->
         <div *ngIf="notFoundWarn" class="alert alert-danger mt-3 mx-auto text-center" role="alert">
             No Any Data Found
           </div>
         <div class="table-responsive text-nowrap">
-            <button class="main-btns tick eq">Run Script <i class="fa fa-code" aria-hidden="true"></i>
-            </button>
+
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th class="displayAll" style="left:0;position:sticky;z-index:4;">
+                        <th class="displayAll" style="left:0;position:sticky;z-index:1;">
                             <mat-checkbox [(ngModel)]="myModel" [checked]="deslectcheck"></mat-checkbox>
                             Device Name
                         </th>
@@ -63,7 +62,7 @@
                     </div>    
                     <tr  [class.fade]="tableLoader" *ngFor="let item of equipments?.List | paginate: { itemsPerPage: itemPerPage, currentPage: p, totalItems: totalCount}">
                         
-                        <td class="displayAll" style="left:0;position:sticky;background:#fff;">
+                        <td class="displayAll displayData" style="left:0;position:sticky;">
                             <mat-checkbox [checked]="myModel"></mat-checkbox>
                             {{ item.DeviceName }}
                         </td>
